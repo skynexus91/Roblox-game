@@ -1,0 +1,5 @@
+Verificari executate: 29 octombrie 2026
+PASS: sintaxa ambelor scripturi prin luaparser
+PASS: XML valid, referinte unice, 8 puncte de start, obiecte esentiale prezente
+PASS: geometrie ancorata cu dimensiuni pozitive, scripturi incorporate identice surselor
+NEEXECUTAT: import si rulare in Roblox Studio, multiplayer, dispozitive reale
