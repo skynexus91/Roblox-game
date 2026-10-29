@@ -20,25 +20,30 @@ local header=label('Phase',UDim2.fromScale(.2,.015),UDim2.fromScale(.6,.085),18)
 local detail=label('Notice',UDim2.fromScale(.15,.105),UDim2.fromScale(.7,.11),15)
 local targetLabel=label('Target',UDim2.fromScale(.25,.76),UDim2.fromScale(.5,.055),16)
 local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07),13)
-local statsLabel=label('RPGStats',UDim2.fromScale(.15,.23),UDim2.fromScale(.7,.08),15)
-local questLabel=label('Quest',UDim2.fromScale(.15,.315),UDim2.fromScale(.7,.12),14)
+local statsLabel=label('RPGStats',UDim2.fromScale(.02,.23),UDim2.fromScale(.38,.07),15)
+local questLabel=label('Quest',UDim2.fromScale(.02,.305),UDim2.fromScale(.38,.13),14)
 local data=nil
 local selected=nil
 local function nearest()
  local char=player.Character; local r=char and char:FindFirstChild('HumanoidRootPart')
  if not r then return nil end
- local best=nil; local distance=10
- for _,p in ipairs(Players:GetPlayers()) do if p~=player and p.Character and p:GetAttribute('RoundActive') and not p:GetAttribute('Captured') then
-  local pr=p.Character:FindFirstChild('HumanoidRootPart'); local h=p.Character:FindFirstChildOfClass('Humanoid')
-  if pr and h and h.Health>0 then
-   local d=(r.Position-pr.Position).Magnitude
-   if d<distance then
-    local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude; ray.FilterDescendantsInstances={char,p.Character}
-    if not workspace:Raycast(r.Position,pr.Position-r.Position,ray) then best=p; distance=d end
+ local candidates={}
+ for _,p in ipairs(Players:GetPlayers()) do
+  if p~=player and p.Character and p:GetAttribute('RoundActive') and not p:GetAttribute('Captured') then
+   local pr=p.Character:FindFirstChild('HumanoidRootPart'); local h=p.Character:FindFirstChildOfClass('Humanoid')
+   if pr and h and h.Health>0 then
+    local distance=(r.Position-pr.Position).Magnitude
+    if distance<=10 then table.insert(candidates,{p=p,root=pr,d=distance}) end
    end
   end
- end end
- return best
+ end
+ table.sort(candidates,function(a,b) return a.d<b.d end)
+ local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude
+ for i=1,math.min(#candidates,8) do
+  local c=candidates[i]; ray.FilterDescendantsInstances={char,c.p.Character}
+  if not workspace:Raycast(r.Position,c.root.Position-r.Position,ray) then return c.p end
+ end
+ return nil
 end
 local function use(which)
  if not data or not data.active or data.captured or not selected then return end
@@ -76,19 +81,20 @@ status.OnClientEvent:Connect(function(s)
  header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',s.phase,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
  detail.Text=(s.captured and 'Capturat: asteapta urmatoarea runda. ') or (s.pending and 'INFECTAT: transformare la urmatorul apus. ') or ''
  detail.Text=detail.Text..(s.notice or '')
- local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or (s.role~='Vampir' and s.phase=='Zi'))
+ local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then
   local a=s.role=='Vampir' and 'Hranire' or 'Investigare'
   local b=s.role=='Vampir' and 'Infectare' or 'Capturare'
+  if s.role~='Vampir' and s.phase=='Noapte' then a='Investigare (ziua)'; b='Captureaza slabit' end
   CAS:SetTitle('ApusPrimary',a); CAS:SetTitle('ApusSecondary',b)
   controls.Text='PC: E '..a..' / Q '..b..' | Controller: X / Y | Mobil: butoanele de actiune'
  else controls.Text='Misca-te cu comenzile Roblox. Actiunile se activeaza in faza potrivita.' end
 end)
 local elapsed=0
 RunService.Heartbeat:Connect(function(dt)
- elapsed=elapsed+dt; if elapsed<.15 then return end; elapsed=0
- selected=nearest()
+ elapsed=elapsed+dt; if elapsed<.2 then return end; elapsed=0
+ selected=(data and data.active and not data.captured) and nearest() or nil
  targetLabel.Text=selected and ('Tinta apropiata: '..selected.DisplayName) or 'Apropie-te de un jucator pentru actiune'
 end)
 

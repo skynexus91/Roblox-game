@@ -2,9 +2,13 @@
 local Players = game:GetService('Players')
 local RS = game:GetService('ReplicatedStorage')
 local Lighting = game:GetService('Lighting')
+local TweenService=game:GetService('TweenService')
+local Combat=require(RS:WaitForChild('CombatRules'))
+local Weapons=require(script.Parent.Weapons)
 local net = Instance.new('Folder'); net.Name = 'ApusNet'; net.Parent = RS
 local action = Instance.new('RemoteEvent'); action.Name = 'Action'; action.Parent = net
 local status = Instance.new('RemoteEvent'); status.Name = 'Status'; status.Parent = net
+local feedback=Instance.new('RemoteEvent'); feedback.Name='Feedback'; feedback.Parent=net
 local C=require(script.Parent.Config)
 local Rules=require(script.Parent.Rules)
 local RPG=require(script.Parent.Progression)
@@ -43,7 +47,7 @@ local function paint(p)
  local pr=root(p); if pr then pr.Anchored=s.captured end
  local hum=humanoid(p)
  if hum then
-  hum.WalkSpeed=(s.captured and 0) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
+  hum.WalkSpeed=(s.captured and 0) or ((s.weakened or 0)>os.clock() and 10) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
   hum.JumpPower=s.captured and 0 or 50; hum.JumpHeight=s.captured and 0 or 7.2
  end
 end
@@ -60,12 +64,12 @@ local function winner()
  if h==0 then return 'Vampirii au castigat: satul a fost cucerit.' end
  return nil
 end
-local function validTarget(p, id)
- if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 then return nil end
+local function validTarget(p, id, range)
+ if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 or math.abs(id)>9007199254740991 then return nil end
  local target=Players:GetPlayerByUserId(id)
  if not target or target==p or not alive(p) or not alive(target) then return nil end
  local a,b=root(p),root(target)
- if (a.Position-b.Position).Magnitude>C.Range then return nil end
+ if (a.Position-b.Position).Magnitude>(range or C.Range) then return nil end
  local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude
  ray.FilterDescendantsInstances={p.Character,target.Character}
  if workspace:Raycast(a.Position,b.Position-a.Position,ray) then return nil end
@@ -120,7 +124,7 @@ RPG.Init(function(p)
  local s=states[p]
  return s and not s.captured and phase~='Rezultat'
 end)
-local allowed={Inspect=true,Capture=true,Feed=true,Infect=true}
+local allowed={Inspect=true,Capture=true,Feed=true,Infect=true,Weapon=true}
 action.OnServerEvent:Connect(function(p, kind, id)
  local s=states[p]
  if not s or type(kind)~='string' or not allowed[kind] then return end
@@ -128,18 +132,36 @@ action.OnServerEvent:Connect(function(p, kind, id)
  if now<(s.nextRequest or 0) then return end
  s.nextRequest=now+0.25
  if not running then return end
- local target=validTarget(p,id); if not target then tell(p,'Apropie-te de o tinta vizibila, la maximum 10 studs.'); return end
+ local tool=p.Character and p.Character:FindFirstChildOfClass('Tool')
+ local weapon=tool and Combat.Weapons[tool:GetAttribute('ApusWeapon')]
+ if kind=='Weapon' and not weapon then return end
+ local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Apropie-te de o tinta vizibila, la maximum 10 studs.'); return end
  local t=states[target]
- local cd=C[kind..'Cooldown']
+ local cd=kind=='Weapon' and weapon.cooldown or C[kind..'Cooldown']
  if now<(s.cooldowns[kind] or 0) then tell(p,'Abilitatea se reincarca.'); return end
- if kind=='Inspect' then
+ if kind=='Weapon' then
+  local a,b=root(p),root(target); local delta=b.Position-a.Position
+  if delta.Magnitude<.01 then return end
+  local key=tool:GetAttribute('ApusWeapon')
+  if not Combat.CanHit(key,s.vampire,t.vampire,phase,delta.Magnitude,a.CFrame.LookVector:Dot(delta.Unit)) then return end
+  s.cooldowns[kind]=now+cd
+  local th=humanoid(target); local health=Combat.HealthAfter(th.Health,weapon.damage)
+  th.Health=health
+  feedback:FireClient(p,{kind='Hit',weapon=key,target=target.UserId})
+  feedback:FireClient(target,{kind='Hurt'})
+  if health<=1 then
+   -- A defeat opens a brief capture window, without death/respawn exploits.
+   t.weakened=now+8; t.reveal=now+8; paint(target)
+   tell(target,'Slabit timp de 8 secunde. Fugi sau cere ajutor!')
+  end
+ elseif kind=='Inspect' then
   if s.vampire or phase~='Zi' then return end
   s.cooldowns[kind]=now+cd
   if t.vampire then t.reveal=now+15; paint(target); tell(p,'Vampir descoperit! Captureaza-l in 15 secunde.')
   elseif t.pending then tell(p,'Tinta este infectata. Se transforma la urmatorul apus.')
   else tell(p,'Tinta este om.') end
  elseif kind=='Capture' then
-  if s.vampire or phase~='Zi' then return end
+  if s.vampire or (phase~='Zi' and not ((t.weakened or 0)>now)) then return end
   s.cooldowns[kind]=now+cd
   if t.vampire and (t.reveal or 0)>now then capture(target); tell(p,'Vampir capturat in cripta.')
   else tell(p,'Capturezi doar vampiri descoperiti prin investigare.') end
@@ -165,6 +187,7 @@ local function attach(p,char)
   else move(p,spawns[math.random(#spawns)].Position+Vector3.new(0,3,0)) end
  else move(p,lobby.Position+Vector3.new(0,3,0)) end
  paint(p)
+ Weapons.Give(p)
  h.Died:Connect(function()
   if states[p] and running and states[p].active then
    -- Reset/death cannot erase infection or escape capture.
@@ -194,9 +217,13 @@ local function readyRoster()
 end
 local function setPhase(name,seconds)
  phase=name; remaining=seconds
- Lighting.ClockTime=(name=='Noapte' and 0) or 14
- Lighting.Brightness=(name=='Noapte' and 1) or 2
- Lighting.Ambient=(name=='Noapte' and Color3.fromRGB(65,65,95)) or Color3.fromRGB(130,125,115)
+ local night=name=='Noapte'
+ workspace:SetAttribute('ApusNight',night)
+ TweenService:Create(Lighting,TweenInfo.new(4,Enum.EasingStyle.Sine),{
+  ClockTime=night and 0 or 14.5,Brightness=night and 1.3 or 2.2,
+  Ambient=night and Color3.fromRGB(76,83,116) or Color3.fromRGB(133,126,112),
+  OutdoorAmbient=night and Color3.fromRGB(85,96,126) or Color3.fromRGB(145,151,163)
+ }):Play()
  for p in pairs(states) do paint(p) end
 end
 local function waitPhase(seconds,check)
@@ -215,11 +242,13 @@ task.spawn(function()
    local note=(s.noticeUntil or 0)>os.clock() and s.notice or message
    status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
     captured=s.captured,pending=s.pending,active=s.active,notice=note,
-    infections=s.infections,crypts=activeCrypts,rpg=RPG.Snapshot(p), cooldowns={Inspect=math.max(0,(s.cooldowns.Inspect or 0)-os.clock()),
-    Feed=math.max(0,(s.cooldowns.Feed or 0)-os.clock()),Infect=math.max(0,(s.cooldowns.Infect or 0)-os.clock())}})
+    infections=s.infections,crypts=activeCrypts,rpg=RPG.Snapshot(p)})
    if phase=='Zi' and (s.reveal or 0)>0 and s.reveal<=os.clock() then s.reveal=0; paint(p) end
+   if (s.weakened or 0)>0 and s.weakened<=os.clock() then
+    s.weakened=0; local h=humanoid(p); if h and h.Health<=1 then h.Health=35 end; paint(p)
+   end
   end
-  task.wait(0.5)
+  task.wait(1)
  end
 end)
 while true do
@@ -236,7 +265,7 @@ while true do
   local initialVampires=Rules.InitialVampires(#roster)
   for index,p in ipairs(roster) do
    local s=states[p]; s.active=true; s.vampire=(index<=initialVampires); s.captured=false; s.pending=false
-   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil
+   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0
    local h=humanoid(p)
    if not h or h.Health<=0 then p:LoadCharacterAsync() else
     h.Health=h.MaxHealth; move(p,spawns[index].Position+Vector3.new(0,3,0))
@@ -263,7 +292,7 @@ while true do
   message=result or 'Satenii au castigat: au supravietuit celor trei nopti.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
-   s.active=false; s.captured=false; s.pending=false; s.vampire=false
+   s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0
    paint(p); move(p,lobby.Position+Vector3.new(0,3,0))
   end
   updateCrypts()

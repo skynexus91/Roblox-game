@@ -47,3 +47,9 @@ for part in items:
   assert all(0<=float(v.text)<=1 for v in c), 'color outside normalized range'
 print('PASS XML: 960x960 map, 50 unique spawns, 5 crypts, RPG nodes, streaming, embedded sources')
 print('NOT RUN: Roblox import, runtime, real DataStores, purchases, multiplayer, device/load tests')
+
+lighting=next(n for n in items if n.attrib['class']=='Lighting')
+assert lighting.findtext("Properties/token[@name='LightingStyle']")=='0'
+assert any(n.attrib['class']=='Atmosphere' for n in lighting.findall('Item'))
+assert not any(n.attrib['class']=='ParticleEmitter' for n in items)
+print('PASS presentation: Realistic lighting, atmosphere, no continuous particle emitters')

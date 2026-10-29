@@ -2,11 +2,13 @@
 from pathlib import Path
 import xml.etree.ElementTree as E
 import math
+import json
 ROOT=Path(__file__).resolve().parent
 xml=E.Element('roblox',{'version':'4'})
 E.SubElement(xml,'External').text='null'
 E.SubElement(xml,'External').text='nil'
 uid=0
+texture_ids=json.loads((ROOT/'assets/textures/roblox_ids.json').read_text())
 
 def item(parent,cls,name):
  global uid
@@ -33,6 +35,22 @@ def block(parent,name,pos,size,c=(110,110,110),material=256,roll=0,transparent=0
  prop(p,'Color3uint8','Color3uint8',(c[0]<<16)+(c[1]<<8)+c[2]); prop(p,'bool','Anchored','true'); prop(p,'bool','CanCollide',str(collision).lower())
  prop(p,'float','Transparency',transparent); prop(p,'token','Material',material)
  prop(p,'token','TopSurface',0); prop(p,'token','BottomSurface',0)
+ prop(p,'bool','CanTouch','false')
+ if not collision: prop(p,'bool','CanQuery','false')
+ if name in ('Canopy','ForestCanopy'): prop(p,'token','shape',0)
+ decorative=name in ('Window','Timber','Chimney','Clock','ClockHand','Sign','Gravestone','Canopy','ForestCanopy','Lantern','RoadLantern','FountainCrown')
+ prop(p,'bool','CastShadow','false' if decorative else 'true')
+ # Shared MaterialVariants reuse three color maps instead of adding per-face decals.
+ family=None
+ if name in ('Roof',): family='terracotta'
+ elif material==512: family='walnut'
+ elif name in ('Wall','Front','Back','Side','RuinedPillar','Tower','FountainRim'): family='limestone'
+ if family and texture_ids[family]['color']>0:
+  prop(p,'string','MaterialVariant','Apus_'+family)
+  # MaterialVariant base must match the part's material.
+  material_prop=p.find("token[@name='Material']")
+  material_prop.text=str({'limestone':880,'walnut':512,'terracotta':816}[family])
+  p.find("Color3uint8[@name='Color3uint8']").text=str(0xFFFFFF)
  return obj
 workspace,wp=item(xml,'Workspace','Workspace')
 prop(wp,'bool','StreamingEnabled','true')
@@ -69,6 +87,10 @@ def house(name,x,z,w=24,d=22,h=15,c=(183,166,139)):
  # South-facing doorway; front is split, not a solid box.
  for dx in [-1,1]: block(m,'Front',(x+dx*(w/4+2),h/2,z-d/2),(w/2-4,h,1),c,816)
  block(m,'DoorLintel',(x,12,z-d/2),(8,6,1),c,816)
+ for side in [-1,1]:
+  block(m,'DoorFrame',(x+side*4.2,4.5,z-d/2-.1),(.5,9,.7),(65,49,35),512)
+  block(m,'WindowSill',(x+side*w/4,6.7,z-d/2-.7),(5,.45,1.2),(82,67,49),512)
+ block(m,'DoorArch',(x,9,z-d/2-.2),(9,.7,1),(65,49,35),512)
  for dx in [-w/2,w/2]:
   for dz in [-d/2,d/2]: block(m,'Timber',(x+dx,h/2,z+dz),(1.2,h+1,1.2),(50,34,28),512)
  for dx in [-w/4,w/4]:
@@ -130,7 +152,7 @@ for row in range(3):
 for i in range(96):
  a=i*math.tau/96; x,z=455*math.cos(a),455*math.sin(a)
  block(village,'Trunk',(x,5,z),(2,10,2),(64,46,35),512)
- block(village,'Canopy',(x,13,z),(9,13,9),(32,58,43),1280)
+ block(village,'Canopy',(x,13,z),(9,13,9),(32,58,43),1280,collision=False)
 for x,z in [(-23,-23),(23,-23),(-23,23),(23,23),(-65,0),(65,0),(0,-60),(0,57)]:
  block(village,'LampPost',(x,5,z),(.7,10,.7),(43,40,36),1088)
  lamp=block(village,'Lantern',(x,10,z),(2.2,2.5,2.2),(249,181,86),288,collision=False)
@@ -158,7 +180,7 @@ for name,pos in [('QuestBoard',(-23,3,-15)),('Merchant',(23,3,-15)),
 for i in range(45):
  x=-410+(i%9)*22; z=150+(i//9)*24
  block(village,'ForestTrunk',(x,5,z),(2,10,2),(64,46,35),512)
- block(village,'ForestCanopy',(x,15,z),(12,16,12),(32,58,43),1280)
+ block(village,'ForestCanopy',(x,15,z),(12,16,12),(32,58,43),1280,collision=False)
 for i in range(18): node(f'Herb_{i}',(-400+(i%6)*32,1,135+(i//6)*45),(94,176,108),(3,2,3))
 # Mine yard: open tunnel gate, ore outcrops and an expedition obelisk.
 for x,z in [(270,-30),(330,-30),(270,30),(330,30)]:
@@ -183,18 +205,41 @@ for x,z in [(-350,0),(-200,0),(200,0),(350,0),(0,-200),(0,-350),(0,180),(0,380)]
  light,lp=item(lamp,'PointLight','Light'); prop(lp,'float','Range',30); prop(lp,'float','Brightness',1.2)
 
 server,_=item(xml,'ServerScriptService','ServerScriptService')
-for module in ['Config','Progression','Monetization','Rules']:
+for module in ['Config','Progression','Monetization','Rules','Weapons']:
  s,p=item(server,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 s,p=item(server,'Script','Game'); prop(p,'ProtectedString','Source',(ROOT/'src/Game.server.lua').read_text())
 rs,_=item(xml,'ReplicatedStorage','ReplicatedStorage')
-s,p=item(rs,'ModuleScript','MonetizationConfig'); prop(p,'ProtectedString','Source',(ROOT/'src/MonetizationConfig.lua').read_text())
+for module in ['MonetizationConfig','CombatRules']:
+ s,p=item(rs,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 starter,_=item(xml,'StarterPlayer','StarterPlayer')
 local,_=item(starter,'StarterPlayerScripts','StarterPlayerScripts')
-for filename in ['Controls.client.lua','Shop.client.lua']:
+for filename in ['Controls.client.lua','Shop.client.lua','Combat.client.lua','Presentation.client.lua']:
  s,p=item(local,'LocalScript',filename.split('.')[0]); prop(p,'ProtectedString','Source',(ROOT/'src'/filename).read_text())
 light,p=item(xml,'Lighting','Lighting'); prop(p,'float','ClockTime',14); prop(p,'float','Brightness',2)
 color(p,'Ambient',(130,125,115)); prop(p,'float','FogEnd',500); prop(p,'float','FogStart',70)
 color(p,'FogColor',(96,107,123))
+prop(p,'token','LightingStyle',0)
+prop(p,'bool','PrioritizeLightingQuality','false')
+prop(p,'float','ShadowSoftness',.35)
+color(p,'OutdoorAmbient',(145,151,163))
+prop(p,'float','EnvironmentDiffuseScale',.65); prop(p,'float','EnvironmentSpecularScale',.45)
+atmosphere,ap=item(light,'Atmosphere','ApusAtmosphere')
+prop(ap,'float','Density',.22); prop(ap,'float','Offset',.1); prop(ap,'float','Haze',1.2)
+color(ap,'Color',(193,204,218)); color(ap,'Decay',(112,119,143))
+bloom,bp=item(light,'BloomEffect','ApusBloom')
+prop(bp,'float','Intensity',.12); prop(bp,'float','Size',18); prop(bp,'float','Threshold',1.4)
+cc,cp=item(light,'ColorCorrectionEffect','ApusGrade')
+prop(cp,'float','Contrast',.08); prop(cp,'float','Saturation',-.08); color(cp,'TintColor',(255,245,231))
+sun,sp=item(light,'SunRaysEffect','ApusSunRays'); prop(sp,'float','Intensity',.025); prop(sp,'float','Spread',.75)
+prop(sp,'bool','Enabled','false')
+materials,mp=item(xml,'MaterialService','MaterialService'); prop(mp,'bool','Use2022Materials','true')
+for family,base in [('limestone',880),('walnut',512),('terracotta',816)]:
+ data=texture_ids[family]
+ if data['color']>0:
+  v,vp=item(materials,'MaterialVariant','Apus_'+family)
+  prop(vp,'token','BaseMaterial',base); prop(vp,'float','StudsPerTile',data['studsPerTile'])
+  content=E.SubElement(vp,'Content',{'name':'ColorMap'})
+  E.SubElement(content,'url').text='rbxassetid://'+str(data['color'])
 E.indent(xml)
 E.ElementTree(xml).write(ROOT/'Satul_dupa_Apus.rbxlx',encoding='utf-8',xml_declaration=True)
 print(f'Generated {uid} instances; editable .rbxlx place.')

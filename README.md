@@ -4,6 +4,18 @@ Un orășel transilvănean de **960 × 960 studs**, cu explorare, misiuni și pr
 
 **Stare: prototip de mini MMORPG, nu lansare finală.** Codul și fișierul sunt verificate local; importul, multiplayer-ul, salvările și achizițiile reale nu au fost executate în motorul Roblox. Nu este încă un MMORPG complet cu lumi persistente, raiduri și economie între jucători.
 
+## Arme, prezentare și performanță — actualizare
+
+**Versiune pre-release îmbunătățită; FPS și lansarea rămân de validat în Roblox.** Vezi [criteriile de performanță](docs/PERFORMANTA.md).
+
+- Sabie de argint și arbaletă pentru săteni; gheare pentru vampiri. Toate cele trei unelte sunt gratuite și identice în inventarul tuturor, pentru a nu dezvălui rolul secret ziua. Serverul permite folosirea numai pentru tabăra și faza corecte.
+- Atacă noaptea cu click stânga, R2 sau butonul tactil Atacă, după echiparea uneltei prin inventarul Roblox. Fără friendly fire. Raze: sabie 8, arbaletă 45, gheare 7 studs; cooldown 1 / 2,6 / 1,2s. Loviturile necesită orientare și linie de vedere.
+- Sănătatea nu scade sub 1. La înfrângere devii slăbit 8s, apoi revii la 35 HP dacă ai rămas la 1 HP. Un vampir slăbit poate fi capturat cu Q inclusiv noaptea. Rămân valabile capturarea de zi și infectarea întârziată.
+- LightingStyle Realistic, atmosferă, paletă caldă/rece, tranziții zi/noapte de 4s, bloom discret și grafică Auto/Redusă/Echilibrată/Ridicată. Setări separate pentru efecte reduse și luminozitate; fără camera shake sau ecran care clipește.
+- Camera de spectator: G, D-pad dreapta sau buton Urmărește când ești captiv. Are nevoie de ținte încărcate prin streaming.
+- Cele trei [texturi originale Higgsfield](assets/textures/README.md) sunt incluse în repository, cu configurarea MaterialVariant pregătită. **Încărcarea în Roblox și completarea ID-urilor rămân necesare**; în lipsa lor se folosesc materialele Roblox.
+- Actualizări de stare la 1 Hz, raycast-uri limitate, lumini locale după distanță, umbre reduse și măsurare FPS/p95 pe client. Aceste schimbări nu reprezintă un benchmark de 60 FPS.
+
 ## Joacă și explorare
 
 1. Deschide `Satul_dupa_Apus.rbxlx` în Roblox Studio pe Windows/Mac.
@@ -77,7 +89,7 @@ python3 validate.py
 python3 -m unittest discover -s tests -v
 ```
 
-Generatorul include cele 8 scripturi/module și harta, fără modele sau pluginuri externe. Regenerarea suprascrie orice modificare făcută numai în `.rbxlx`. Fișierul generat conține aproximativ 1.100 de instanțe; streamingul este activ, iar resursele sunt gestionate prin prompturi, fără bucle per NPC.
+Generatorul include cele 12 scripturi/module și harta, fără modele sau pluginuri externe obligatorii. Regenerarea suprascrie orice modificare făcută numai în `.rbxlx`. Fișierul generat conține aproximativ 1.200 de instanțe; streamingul este activ, iar resursele sunt gestionate prin prompturi, fără bucle per NPC.
 
 - `src/Game.server.lua`: runde, roluri, capturare, cripte și validări PvP.
 - `src/Rules.lua`: reguli pure pentru capacitate și repartizare.

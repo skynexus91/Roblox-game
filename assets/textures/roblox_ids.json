@@ -1,0 +1,5 @@
+{
+  "limestone": {"color": 0, "studsPerTile": 12},
+  "walnut": {"color": 0, "studsPerTile": 8},
+  "terracotta": {"color": 0, "studsPerTile": 10}
+}

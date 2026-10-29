@@ -46,3 +46,13 @@ Scenariile Roblox de mai jos sunt **de executat**, nu sunt bifate automat de tes
 - Măsoară FPS, memorie, rețea și timpi de server cu 10/25/50 jucători și pe un telefon modest. Nu declara suportul pentru 50 sau pentru console validat numai pentru că există inputuri/configurare.
 
 Completează chestionarul de conținut conform jocului real și activează numai dispozitivele testate înainte de publicare.
+
+
+## Arme și prezentare (revizia nouă)
+
+- Echipează fiecare unealtă pe telefon/PC/controller. Atac noaptea, țintă din tabăra opusă, orientare corectă, distanțe-limită, cooldown și pereți. Respingere ziua și pentru armele taberei nepotrivite.
+- Confirmă că toate uneltele sunt gratuite și nu dezvăluie rolul prin inventar. Dă jos/echipează unealta, mori/resetează și reconectează-te fără unelte duplicate.
+- Scade sănătatea la 1: slăbire 8s, recuperare 35 HP, capturarea unui vampir slăbit și respingerea după expirare. Respingere atacuri/capturări asupra exploratorilor și captivilor.
+- Camera spectator pe G/D-pad: doar ținte încărcate, revenire corectă la următoarea rundă/respawn; niciun acces la roluri secrete.
+- Grafică Auto și manuală, butoane pe gamepad, efecte reduse, luminozitate și schimbări zi/noapte. Măsoară conform PERFORMANTA.md; nu bifa 60 FPS din testele Lua.
+- După importul texturilor: drepturi asupra imaginilor, moderare, MaterialVariant, tiling/seams și aspect pe grafică joasă. Testează și ID lipsă/invalid.

@@ -130,10 +130,14 @@ function RPG.Snapshot(p)
  local s=profiles[p]
  if not s then return {ready=false} end
  local d=s.data; local q=quests[d.quest]
- return {ready=true,level=RPG.Level(d.xp),xp=d.xp,nextXP=Config.MaxLevel>RPG.Level(d.xp)
+ local signature=table.concat({d.xp,d.gold,d.class,d.lantern,d.quest,d.count,tostring(d.accepted),d.completed,p:GetAttribute('SaveStatus') or '',p:GetAttribute('RPGNotice') or ''},'|')
+ if signature==s.snapshotKey then return s.snapshot end
+ s.snapshotKey=signature
+ s.snapshot={ready=true,level=RPG.Level(d.xp),xp=d.xp,nextXP=Config.MaxLevel>RPG.Level(d.xp)
   and 100*RPG.Level(d.xp)^2 or d.xp,gold=d.gold,class=d.class,lantern=d.lantern,
   quest=d.accepted and (q.text..' ('..d.count..'/'..q.need..')') or 'Vorbeste cu tabla de misiuni din piata',
   completed=d.completed,save=p:GetAttribute('SaveStatus'),notice=p:GetAttribute('RPGNotice')}
+ return s.snapshot
 end
 function RPG.RoundReward(p,won)
  local s=profiles[p]; if not s or s.leaving then return end

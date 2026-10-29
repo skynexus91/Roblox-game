@@ -1,0 +1,31 @@
+{
+  "provider": "Higgsfield",
+  "model": "flux_2",
+  "variant": "pro",
+  "generated_on": "2026-10-29",
+  "original_resolution": 1024,
+  "distributed_resolution": 512,
+  "images": [
+    {
+      "name": "limestone",
+      "job_id": "f5b53fd3-3eb9-4ddf-9d8d-3400d6a9ebe6",
+      "prompt": "Original seamless tileable albedo texture for a polished stylized gothic Transylvanian village in a family-friendly Roblox adventure. Orthographic straight-on flat material scan fills entire square, physically plausible hand-painted detail, elegant restrained fantasy art direction, diffuse neutral illumination, no baked shadows, no perspective, no objects, no text, no borders, seamless edges. Material: weathered limestone masonry, irregular medium ash-grey blocks, warm ivory mortar, tiny patches of subdued sage lichen, readable large forms, restrained microdetail",
+      "file": "limestone_color.jpg",
+      "roblox_uploaded": false
+    },
+    {
+      "name": "walnut",
+      "job_id": "20b9dc62-267b-4bb2-9294-adaec58d933e",
+      "prompt": "Original seamless tileable albedo texture for a polished stylized gothic Transylvanian village in a family-friendly Roblox adventure. Orthographic straight-on flat material scan fills entire square, physically plausible hand-painted detail, elegant restrained fantasy art direction, diffuse neutral illumination, no baked shadows, no perspective, no objects, no text, no borders, seamless edges. Material: aged dark walnut timber boards, broad vertical planks, subtle warm grain, hand-hewn edges, aged brown patina, no large cracks or nails",
+      "file": "walnut_color.jpg",
+      "roblox_uploaded": false
+    },
+    {
+      "name": "terracotta",
+      "job_id": "b016a4b3-60ea-4213-a183-9a93634d7075",
+      "prompt": "Original seamless tileable albedo texture for a polished stylized gothic Transylvanian village in a family-friendly Roblox adventure. Orthographic straight-on flat material scan fills entire square, physically plausible hand-painted detail, elegant restrained fantasy art direction, diffuse neutral illumination, no baked shadows, no perspective, no objects, no text, no borders, seamless edges. Material: historic Transylvanian terracotta roofing tiles, orderly overlapping clay shingles, muted burnt sienna and oxblood shades, subtle aged speckling",
+      "file": "terracotta_color.jpg",
+      "roblox_uploaded": false
+    }
+  ]
+}

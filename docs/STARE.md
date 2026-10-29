@@ -1,4 +1,10 @@
-# Starea versiunii mini RPG
+# Starea versiunii mini RPG — îmbunătățiri de gameplay și prezentare
+
+## Adăugat în această revizie
+
+Arme gratuite (sabie, arbaletă, gheare), reguli de lovire pe server, slăbire temporară și capturare nocturnă a vampirilor învinși; feedback de lovitură; cameră spectator; setări de accesibilitate; grafică adaptivă; atmosferă și tranziții; trei texturi proprii generate în Higgsfield, comprimate și pregătite pentru import. Texturile NU sunt încă încărcate în Roblox: ID-urile sunt 0 și materialele incluse rămân fallback.
+
+14 teste locale de logică trec, alături de validarea celor 12 surse Lua și a fișierului XML. Toate măsurătorile de motor/FPS și aprobarea pentru lansare rămân deschise. Vezi PERFORMANTA.md.
 
 ## Implementat în proiect
 
@@ -13,7 +19,7 @@
 
 ## Verificat local
 
-Sintaxa celor 8 fișiere Lua; integritatea XML; 50 spawn-uri unice; 5 cripte; noduri de misiuni; dimensiunea hărții; culori și geometrie; egalitatea scripturilor încorporate cu sursele. Testele de logică execută Lua cu mock-uri: populații 1–50, capacitate/repartizare, relocare, scalare vampiri, niveluri, recompense, cooldown de colectare, încasare unică, blocare de sesiune, salvare/elibereare și refuzul interacțiunilor nepermise.
+Sintaxa celor 12 fișiere Lua; integritatea XML; 50 spawn-uri unice; 5 cripte; noduri de misiuni; dimensiunea hărții; culori și geometrie; egalitatea scripturilor încorporate cu sursele. Testele de logică execută Lua cu mock-uri: populații 1–50, capacitate/repartizare, relocare, scalare vampiri, niveluri, recompense, cooldown de colectare, încasare unică, blocare de sesiune, salvare/elibereare și refuzul interacțiunilor nepermise.
 
 ## De verificat în Roblox
 

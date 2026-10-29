@@ -3,3 +3,5 @@ __pycache__/
 *.rbxlx.lock
 *.rbxl.lock
 .DS_Store
+
+assets/textures/*_source.png

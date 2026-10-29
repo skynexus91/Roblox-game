@@ -1,7 +1,8 @@
 29 octombrie 2026 — versiunea mini RPG
-PASS: sintaxa celor 8 scripturi/module Lua
+PASS: sintaxa celor 12 scripturi/module Lua
 PASS: XML, 960x960, streaming, 50 spawn-uri distincte, 5 cripte, noduri RPG
 PASS: surse incorporate identice cu fisierele sursa, geometrie si culori valide
-PASS: 9 teste de logica Lua cu mock-uri (python -m unittest discover -s tests -v)
+PASS: 14 teste de logica Lua cu mock-uri (python -m unittest discover -s tests -v)
 NEEXECUTAT: Roblox Studio/runtime, DataStore real, achizitii, multiplayer, load 50 si dispozitive reale
 NECONFIGURAT: MaxPlayers al locului publicat; game pass-uri (ID 0)
+NEVERIFICAT: FPS 60, weapon runtime, streaming spectator, texturi in Roblox (ID=0)
