@@ -5,13 +5,21 @@ local Lighting = game:GetService('Lighting')
 local net = Instance.new('Folder'); net.Name = 'ApusNet'; net.Parent = RS
 local action = Instance.new('RemoteEvent'); action.Name = 'Action'; action.Parent = net
 local status = Instance.new('RemoteEvent'); status.Name = 'Status'; status.Parent = net
-local C = {MinPlayers=2, MaxPlayers=8, Day=100, Night=80, Cycles=3, Intermission=15,
- Range=10, InspectCooldown=20, CaptureCooldown=5, FeedCooldown=8, InfectCooldown=25}
+local C=require(script.Parent.Config)
+local Rules=require(script.Parent.Rules)
+local RPG=require(script.Parent.Progression)
+local Monetization=require(script.Parent.Monetization)
+Monetization.Init()
 local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
 local message = 'Sunt necesari minimum doi jucatori.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
-local jail = workspace.Village.JailPoint
+table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))<tonumber(b.Name:match('%d+')) end)
+local cryptFolder=workspace.Village:WaitForChild('Crypts')
+local crypts=cryptFolder:GetChildren()
+table.sort(crypts,function(a,b) return a.Name<b.Name end)
+local activeCrypts=1
+local cryptVisuals={}
 local lobby = workspace.Village.LobbyPoint
 local function root(p) return p.Character and p.Character:FindFirstChild('HumanoidRootPart') end
 local function humanoid(p) return p.Character and p.Character:FindFirstChildOfClass('Humanoid') end
@@ -25,12 +33,14 @@ end
 local function tell(p,t) local s=states[p]; if s then s.notice=t; s.noticeUntil=os.clock()+5 end end
 local function paint(p)
  local s=states[p]; if not s or not p.Character then return end
+ p:SetAttribute('RoundActive',s.active); p:SetAttribute('Captured',s.captured)
  local old=p.Character:FindFirstChild('Revealed'); if old then old:Destroy() end
  if s.active and not s.captured and s.vampire and (phase=='Noapte' or (s.reveal or 0)>os.clock()) then
   local h=Instance.new('Highlight'); h.Name='Revealed'; h.FillColor=Color3.fromRGB(155,20,55)
   h.FillTransparency=0.6; h.OutlineColor=Color3.fromRGB(255,90,95)
   h.DepthMode=Enum.HighlightDepthMode.Occluded; h.Parent=p.Character
  end
+ local pr=root(p); if pr then pr.Anchored=s.captured end
  local hum=humanoid(p)
  if hum then
   hum.WalkSpeed=(s.captured and 0) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
@@ -51,7 +61,7 @@ local function winner()
  return nil
 end
 local function validTarget(p, id)
- if type(id)~='number' then return nil end
+ if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 then return nil end
  local target=Players:GetPlayerByUserId(id)
  if not target or target==p or not alive(p) or not alive(target) then return nil end
  local a,b=root(p),root(target)
@@ -61,11 +71,55 @@ local function validTarget(p, id)
  if workspace:Raycast(a.Position,b.Position-a.Position,ray) then return nil end
  return target
 end
+local function jailPosition(p)
+ local s=states[p]; local index=s and s.jail or 1
+ local point=crypts[math.clamp(index,1,activeCrypts)].JailPoint
+ -- A fixed personal slot prevents up to ten captives occupying the same point.
+ local slot=s and s.jailSlot or 0
+ return point.Position+Vector3.new((slot%4-1.5)*6,3,(math.floor(slot/4)-1)*6)
+end
+local function assignJail(p)
+ local prisoners={}
+ for other,t in pairs(states) do
+  if other~=p and t.active and t.captured then table.insert(prisoners,t) end
+ end
+ local jail,slot=Rules.JailSlot(prisoners,activeCrypts)
+ states[p].jail=jail; states[p].jailSlot=slot
+end
+local function updateCrypts()
+ local count=0
+ for p,s in pairs(states) do if s.active and p.Parent==Players then count=count+1 end end
+ local desired=Rules.CryptCount(count)
+ activeCrypts=desired
+ -- Move prisoners out before closing any occupied crypt.
+ for p,s in pairs(states) do
+  if s.active and s.captured and (not s.jail or s.jail>desired) then
+   assignJail(p); move(p,jailPosition(p))
+  end
+ end
+ for i,crypt in ipairs(crypts) do
+  local enabled=i<=desired
+  crypt:SetAttribute('Active',enabled)
+  for _,obj in ipairs(crypt:GetDescendants()) do
+   if obj:IsA('BasePart') then
+    if not cryptVisuals[obj] then cryptVisuals[obj]={obj.Transparency,obj.CanCollide} end
+    obj.Transparency=enabled and cryptVisuals[obj][1] or 1
+    obj.CanCollide=enabled and cryptVisuals[obj][2] or false
+   elseif obj:IsA('SurfaceGui') then obj.Enabled=enabled end
+  end
+ end
+ workspace.Village:SetAttribute('ActiveCrypts',desired)
+end
 local function capture(target)
  local s=states[target]; s.captured=true; s.pending=false
- move(target,jail.Position+Vector3.new(0,3,0)); paint(target)
- tell(target,'Capturat pana la sfarsitul rundei. Poti urmari actiunea din cripta.')
+ assignJail(target); move(target,jailPosition(target)); paint(target)
+ tell(target,'Capturat in cripta '..s.jail..' pana la sfarsitul rundei.')
 end
+updateCrypts()
+RPG.Init(function(p)
+ local s=states[p]
+ return s and not s.captured and phase~='Rezultat'
+end)
 local allowed={Inspect=true,Capture=true,Feed=true,Infect=true}
 action.OnServerEvent:Connect(function(p, kind, id)
  local s=states[p]
@@ -107,14 +161,14 @@ local function attach(p,char)
  if not h or not r or not states[p] then return end
  local s=states[p]
  if s.active then
-  if s.captured then move(p,jail.Position+Vector3.new(0,3,0))
+  if s.captured then move(p,jailPosition(p))
   else move(p,spawns[math.random(#spawns)].Position+Vector3.new(0,3,0)) end
  else move(p,lobby.Position+Vector3.new(0,3,0)) end
  paint(p)
  h.Died:Connect(function()
   if states[p] and running and states[p].active then
    -- Reset/death cannot erase infection or escape capture.
-   states[p].captured=true; states[p].pending=false
+   capture(p)
   end
  end)
 end
@@ -122,10 +176,22 @@ local function join(p)
  states[p]={active=false,vampire=false,captured=false,pending=false,cooldowns={},infections=0}
  p.CharacterAdded:Connect(function(char) attach(p,char) end)
  if p.Character then task.spawn(attach,p,p.Character) end
+ task.spawn(RPG.Join,p)
+ Monetization.Join(p)
 end
 Players.PlayerAdded:Connect(join)
-Players.PlayerRemoving:Connect(function(p) states[p]=nil end)
+Players.PlayerRemoving:Connect(function(p)
+ states[p]=nil; updateCrypts(); RPG.Remove(p)
+end)
 for _,p in ipairs(Players:GetPlayers()) do join(p) end
+local function readyRoster()
+ local roster={}
+ for _,p in ipairs(Players:GetPlayers()) do
+  local h=humanoid(p)
+  if RPG.Ready(p) and h and h.Health>0 and root(p) then table.insert(roster,p) end
+ end
+ return roster
+end
 local function setPhase(name,seconds)
  phase=name; remaining=seconds
  Lighting.ClockTime=(name=='Noapte' and 0) or 14
@@ -147,11 +213,11 @@ task.spawn(function()
    local role='Spectator'
    if s.active then role=s.vampire and 'Vampir' or 'Satean' end
    local note=(s.noticeUntil or 0)>os.clock() and s.notice or message
-   status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,role=role,
+   status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
     captured=s.captured,pending=s.pending,active=s.active,notice=note,
-    infections=s.infections, cooldowns={Inspect=math.max(0,(s.cooldowns.Inspect or 0)-os.clock()),
+    infections=s.infections,crypts=activeCrypts,rpg=RPG.Snapshot(p), cooldowns={Inspect=math.max(0,(s.cooldowns.Inspect or 0)-os.clock()),
     Feed=math.max(0,(s.cooldowns.Feed or 0)-os.clock()),Infect=math.max(0,(s.cooldowns.Infect or 0)-os.clock())}})
-   if s.active and s.vampire and phase=='Zi' and (s.reveal or 0)<=os.clock() then paint(p) end
+   if phase=='Zi' and (s.reveal or 0)>0 and s.reveal<=os.clock() then s.reveal=0; paint(p) end
   end
   task.wait(0.5)
  end
@@ -159,21 +225,24 @@ end)
 while true do
  running=false; cycle=0; setPhase('Asteptare',0)
  message='Sunt necesari minimum doi jucatori. Cei intrati in timpul rundei asteapta aici.'
- repeat task.wait(1) until #Players:GetPlayers()>=C.MinPlayers
+ repeat task.wait(1) until #readyRoster()>=C.MinPlayers
  message='Runda incepe curand.'; setPhase('Pregatire',C.Intermission); waitPhase(C.Intermission,false)
- if #Players:GetPlayers()>=C.MinPlayers then
+ if #readyRoster()>=C.MinPlayers then
   roundId=roundId+1
-  local roster=Players:GetPlayers()
+  local roster=readyRoster()
   while #roster>C.MaxPlayers do table.remove(roster) end
-  local first=roster[math.random(#roster)]
-  for _,p in ipairs(roster) do
-   local s=states[p]; s.active=true; s.vampire=(p==first); s.captured=false; s.pending=false
-   s.cooldowns={}; s.infections=0; s.reveal=0
+  -- Fisher-Yates shuffle; 1 initial vampire per 10 players, maximum 5.
+  for i=#roster,2,-1 do local j=math.random(i); roster[i],roster[j]=roster[j],roster[i] end
+  local initialVampires=Rules.InitialVampires(#roster)
+  for index,p in ipairs(roster) do
+   local s=states[p]; s.active=true; s.vampire=(index<=initialVampires); s.captured=false; s.pending=false
+   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil
    local h=humanoid(p)
    if not h or h.Health<=0 then p:LoadCharacterAsync() else
-    h.Health=h.MaxHealth; move(p,spawns[math.random(#spawns)].Position+Vector3.new(0,3,0))
+    h.Health=h.MaxHealth; move(p,spawns[index].Position+Vector3.new(0,3,0))
    end
   end
+  updateCrypts()
   running=true
   local result=nil
   for n=1,C.Cycles do
@@ -187,11 +256,16 @@ while true do
    setPhase('Noapte',C.Night); result=waitPhase(C.Night,true); if result then break end
   end
   running=false
+  local vampireVictory=result~=nil and string.find(result,'Vampirii au castigat',1,true)~=nil
+  for p,s in pairs(states) do
+   if s.active then RPG.RoundReward(p,s.vampire==vampireVictory) end
+  end
   message=result or 'Satenii au castigat: au supravietuit celor trei nopti.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
    s.active=false; s.captured=false; s.pending=false; s.vampire=false
    paint(p); move(p,lobby.Position+Vector3.new(0,3,0))
   end
+  updateCrypts()
  end
 end

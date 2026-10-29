@@ -1,22 +1,26 @@
-# Starea livrării
+# Starea versiunii mini RPG
 
-## Creat
+## Implementat în proiect
 
-- Hartă editabilă și generator reproductibil.
-- Scripturi de server/client pentru runde, roluri, zi/noapte, investigație, capturare, hrănire și infectare întârziată.
-- HUD și legături de comenzi pentru tastatură, atingere și gamepad; lanternă locală.
-- Instrucțiuni, scenarii de test și verificări structurale/sintactice.
+- Lume de 960 × 960 studs: centru, cartier de bresle, pădure, mină, ruine, mănăstire; 50 de poziții distincte de start.
+- Runde pentru 2–50 de participanți; 1–5 vampiri inițiali; control zi/noapte și capturare.
+- 1–5 cripte active, câte una la 10 participanți, distribuție echilibrată și relocare la închidere. Captivii au rădăcina ancorată pe server.
+- Niveluri până la 30, XP, aur, 4 misiuni repetabile, expediții, 3 specializări și îmbunătățirea lanternei.
+- Salvare cu UpdateAsync, lease de sesiune, autosave distribuit, salvare la plecare și la închidere. Nu se creează un profil implicit dacă încărcarea live eșuează. Studio folosește implicit progres temporar.
+- Magazin cu 3 pass-uri cosmetice, verificare server și prețuri regionale citite pe client. Implicit ID=0, deci vânzări dezactivate.
+- Explorare în afara rundelor, inclusiv pentru un singur jucător. Rolurile PvP nu sunt persistente; progresul RPG este.
+- Streaming activ; clădirile/criptele sunt modele atomice mici. Inputuri tactil, tastatură și controller.
 
-## Neverificat în motor
+## Verificat local
 
-Importul efectiv în Studio, API-urile la rulare, multiplayer, balansul, interfața pe ecrane reale, comportamentul la conexiune lentă și funcționarea pe console/telefoane. Nu este o versiune completă de producție certificată pe fiecare platformă.
+Sintaxa celor 8 fișiere Lua; integritatea XML; 50 spawn-uri unice; 5 cripte; noduri de misiuni; dimensiunea hărții; culori și geometrie; egalitatea scripturilor încorporate cu sursele. Testele de logică execută Lua cu mock-uri: populații 1–50, capacitate/repartizare, relocare, scalare vampiri, niveluri, recompense, cooldown de colectare, încasare unică, blocare de sesiune, salvare/elibereare și refuzul interacțiunilor nepermise.
 
-## Extensii neimplementate
+## De verificat în Roblox
 
-Sunete și muzică, animații proprii de atac/transformare, cinematici, indicii narative, sistem de construcție/baricade, magazine, monetizare, salvare de progres, matchmaking între servere, selecție manuală a țintei și localizare completă. Harta este o construcție geometrică de prototip, nu un oraș cu artă finală. Hrănirea este neletală și nu include încă o resursă separată de foame.
+Importul și execuția în Studio, streaming și teleportare, multiplayer real, funcționarea DataStore sub throttling/erori/reconectare și shutdown, proprietatea pass-urilor și achizițiile, UI pe dispozitive reale, balansul și încărcarea cu 50 de jucători. Testele cu mock-uri nu dovedesc aceste comportamente. Limita locului publicat trebuie setată separat la 50 în Creator Dashboard.
 
-Securitatea de bază validează acțiunile pe server; nu reprezintă un sistem complet anti-cheat pentru deplasare sau teleportare. Nu există comandă de administrare sau executor extern.
+## Limite de produs
 
-## Următorul prag
+Este o bază de mini MMORPG cu progres și activități RPG în jurul rundelor, nu un MMORPG complet. Nu include adversari PvE cu AI, boss-uri, raiduri, inventar/echipamente, crafting, trading, guild-uri sociale, lumi persistente între servere, sunete originale, artă finală sau localizare completă. Specializările sunt bonusuri mici de economie, nu arbori de abilități. Rezistența la teleport/speed hacks necesită lucru suplimentar; distanța și cooldown-ul server nu sunt un anti-cheat complet.
 
-Deschiderea în Studio și rularea scenariilor din TESTARE.md cu minimum doi clienți; corectarea problemelor observate; testarea dispozitivelor; apoi finisare și publicare.
+Nu există tranzacții Robux active, venit verificat, acces la dashboard sau publicare Roblox din acest mediu. Progresul salvat poate pierde ultima parte de după autosave în caz de crash sau indisponibilitate prelungită a serviciului; erorile sunt semnalate, nu ascunse ca salvări reușite.

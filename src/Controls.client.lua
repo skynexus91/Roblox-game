@@ -11,7 +11,8 @@ local function label(name,pos,size,fontSize)
  local l=Instance.new('TextLabel'); l.Name=name; l.Position=pos; l.Size=size
  l.BackgroundColor3=Color3.fromRGB(18,19,29); l.BackgroundTransparency=0.15
  l.TextColor3=Color3.fromRGB(242,225,183); l.Font=Enum.Font.GothamMedium
- l.TextSize=fontSize; l.TextWrapped=true; l.Parent=gui
+ l.TextSize=fontSize; l.TextScaled=true; l.TextWrapped=true; l.Parent=gui
+ local limit=Instance.new('UITextSizeConstraint'); limit.MinTextSize=10; limit.MaxTextSize=fontSize; limit.Parent=l
  local c=Instance.new('UICorner'); c.CornerRadius=UDim.new(0,9); c.Parent=l
  return l
 end
@@ -19,13 +20,15 @@ local header=label('Phase',UDim2.fromScale(.2,.015),UDim2.fromScale(.6,.085),18)
 local detail=label('Notice',UDim2.fromScale(.15,.105),UDim2.fromScale(.7,.11),15)
 local targetLabel=label('Target',UDim2.fromScale(.25,.76),UDim2.fromScale(.5,.055),16)
 local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07),13)
+local statsLabel=label('RPGStats',UDim2.fromScale(.15,.23),UDim2.fromScale(.7,.08),15)
+local questLabel=label('Quest',UDim2.fromScale(.15,.315),UDim2.fromScale(.7,.12),14)
 local data=nil
 local selected=nil
 local function nearest()
  local char=player.Character; local r=char and char:FindFirstChild('HumanoidRootPart')
  if not r then return nil end
  local best=nil; local distance=10
- for _,p in ipairs(Players:GetPlayers()) do if p~=player and p.Character then
+ for _,p in ipairs(Players:GetPlayers()) do if p~=player and p.Character and p:GetAttribute('RoundActive') and not p:GetAttribute('Captured') then
   local pr=p.Character:FindFirstChild('HumanoidRootPart'); local h=p.Character:FindFirstChildOfClass('Humanoid')
   if pr and h and h.Health>0 then
    local d=(r.Position-pr.Position).Magnitude
@@ -65,7 +68,12 @@ local function bind(enabled)
 end
 status.OnClientEvent:Connect(function(s)
  data=s
- header.Text=string.format('%s  |  %ds  |  Ciclul %d/3  |  %s',s.phase,s.time,s.cycle,s.role)
+ local r=s.rpg
+ if r and r.ready then
+  statsLabel.Text=string.format('Nivel %d | XP %d/%d | Aur %d | %s',r.level,r.xp,r.nextXP,r.gold,r.class)
+  questLabel.Text=r.quest..'\n'..(r.notice or '')..' | '..(r.save or '')
+ else statsLabel.Text='Se incarca profilul...'; questLabel.Text='' end
+ header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',s.phase,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
  detail.Text=(s.captured and 'Capturat: asteapta urmatoarea runda. ') or (s.pending and 'INFECTAT: transformare la urmatorul apus. ') or ''
  detail.Text=detail.Text..(s.notice or '')
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or (s.role~='Vampir' and s.phase=='Zi'))
@@ -90,8 +98,8 @@ local function installLight(char)
  local head=char:WaitForChild('Head',10); if not head then return end
  local old=head:FindFirstChild('PersonalLantern'); if old then old:Destroy() end
  local light=Instance.new('SpotLight'); light.Name='PersonalLantern'
- light.Face=Enum.NormalId.Front; light.Range=38; light.Angle=85
- light.Brightness=3; light.Color=Color3.fromRGB(239,224,188)
+ light.Face=Enum.NormalId.Front; light.Range=38+6*(player:GetAttribute('LanternTier') or 0); light.Angle=85
+ light.Brightness=3; light.Color=player:GetAttribute('OwnsGoldenLantern') and Color3.fromRGB(255,184,64) or Color3.fromRGB(239,224,188)
  light.Shadows=false; light.Enabled=flashlightOn; light.Parent=head
 end
 player.CharacterAdded:Connect(installLight)
@@ -107,3 +115,14 @@ CAS:BindAction('ApusLight',function(_,state)
 end,true,Enum.KeyCode.F,Enum.KeyCode.ButtonB)
 CAS:SetTitle('ApusLight','Lanterna')
 CAS:SetPosition('ApusLight',UDim2.fromScale(.6,.2))
+
+local function refreshLight()
+ local head=player.Character and player.Character:FindFirstChild('Head')
+ local light=head and head:FindFirstChild('PersonalLantern')
+ if light then
+  light.Range=38+6*(player:GetAttribute('LanternTier') or 0)
+  light.Color=player:GetAttribute('OwnsGoldenLantern') and Color3.fromRGB(255,184,64) or Color3.fromRGB(239,224,188)
+ end
+end
+player:GetAttributeChangedSignal('LanternTier'):Connect(refreshLight)
+player:GetAttributeChangedSignal('OwnsGoldenLantern'):Connect(refreshLight)
