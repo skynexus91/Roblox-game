@@ -51,7 +51,8 @@ function store:UpdateAsync(key,fn)
  if result then SAVED[key]=result end
  return result
 end
-local services={Players=Players,DataStoreService={GetDataStore=function() return store end},
+DATASTORE_REQUESTS=0
+local services={Players=Players,DataStoreService={GetDataStore=function() DATASTORE_REQUESTS=DATASTORE_REQUESTS+1; return store end},
  RunService={IsStudio=function() return STUDIO end},HttpService={GenerateGUID=function() return 'test-session' end}}
 game={JobId='job',GetService=function(_,name) return assert(services[name],name) end,BindToClose=function() end}
 local Config={StudioPersistence=false,MaxLevel=30,LockLifetime=300,SaveInterval=90}
@@ -59,12 +60,15 @@ script={Parent={Config=Config}}
 require=function(module) return module end
 task={wait=function(n) advance(n or .1) end,spawn=function() end}
 warn=function() end
-workspace={Village={}}
+workspace={Village={},attributes={}}
+function workspace:GetAttribute(k) return self.attributes[k] end
+function workspace:SetAttribute(k,v) self.attributes[k]=v end
 local world=Instance.new('Folder'); workspace.Village.WorldNodes=world
 function workspace.Village:WaitForChild(name) return self[name] end
 function workspace:Raycast() return nil end
 for _,name in ipairs({'QuestBoard','Merchant','Trainer','Healer','RitualAltar','TravelGate','Expedition_Forest','Expedition_Mine','Expedition_Ruins',
- 'Herb_0','Herb_1','Herb_2','Herb_3','Herb_4','RobuxShop'}) do
+ 'Herb_0','Herb_1','Herb_2','Herb_3','Herb_4','RobuxShop','ContractBoard',
+ 'Supply_Market','Supply_Mill','Supply_Farm','DawnClue','DawnShrine','Campfire'}) do
  local part=Instance.new('Part'); part.Name=name; part.Parent=world
 end
 function newPlayer(id)

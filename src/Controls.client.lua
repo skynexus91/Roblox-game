@@ -3,6 +3,7 @@ local RS=game:GetService('ReplicatedStorage')
 local CAS=game:GetService('ContextActionService')
 local RunService=game:GetService('RunService')
 local player=Players.LocalPlayer
+local Actors=require(RS:WaitForChild('Actors'))
 local net=RS:WaitForChild('ApusNet')
 local action=net:WaitForChild('Action')
 local status=net:WaitForChild('Status')
@@ -28,7 +29,7 @@ local function nearest()
  local char=player.Character; local r=char and char:FindFirstChild('HumanoidRootPart')
  if not r then return nil end
  local candidates={}
- for _,p in ipairs(Players:GetPlayers()) do
+ for _,p in ipairs(Actors.List()) do
   if p~=player and p.Character and p:GetAttribute('RoundActive') and not p:GetAttribute('Captured') then
    local pr=p.Character:FindFirstChild('HumanoidRootPart'); local h=p.Character:FindFirstChildOfClass('Humanoid')
    if pr and h and h.Health>0 then
@@ -76,11 +77,13 @@ status.OnClientEvent:Connect(function(s)
  local r=s.rpg
  if r and r.ready then
   statsLabel.Text=string.format('Nivel %d | XP %d/%d | Aur %d | %s',r.level,r.xp,r.nextXP,r.gold,r.class)
-  questLabel.Text=r.quest..'\n'..(r.notice or '')..' | '..(r.save or '')
+  questLabel.Text=r.quest..'\n'..(r.adventure or '')..'\n'..(r.notice or '')..' | '..(r.save or '')
  else statsLabel.Text='Se incarca profilul...'; questLabel.Text='' end
- header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',s.phase,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
+ local phaseName=s.phase=='Asteptare' and ('Explorare: '..(s.night and 'Noapte' or 'Zi')) or s.phase
+ header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',phaseName,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
  detail.Text=(s.captured and 'Capturat: asteapta urmatoarea runda. ') or (s.pending and 'INFECTAT: transformare la urmatorul apus. ') or ''
  detail.Text=detail.Text..(s.notice or '')
+ if s.practice then detail.Text='PRACTICA / BOTI | '..detail.Text end
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then

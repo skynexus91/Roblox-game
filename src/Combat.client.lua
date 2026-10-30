@@ -5,6 +5,7 @@ local CAS=game:GetService('ContextActionService')
 local TweenService=game:GetService('TweenService')
 local player=Players.LocalPlayer
 local Combat=require(RS:WaitForChild('CombatRules'))
+local Actors=require(RS:WaitForChild('Actors'))
 local action=RS:WaitForChild('ApusNet'):WaitForChild('Action')
 local equipped=nil
 local nextAttack=0
@@ -22,7 +23,7 @@ local function attack()
  end)
  -- Aim assistance for all input types; the server independently validates every hit.
  local candidates={}
- for _,other in ipairs(Players:GetPlayers()) do
+ for _,other in ipairs(Actors.List()) do
   local pr=other.Character and other.Character:FindFirstChild('HumanoidRootPart')
   if other~=player and pr and other:GetAttribute('RoundActive') and not other:GetAttribute('Captured') then
    local delta=pr.Position-root.Position; local d=delta.Magnitude

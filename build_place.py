@@ -3,6 +3,8 @@ from pathlib import Path
 import xml.etree.ElementTree as E
 import math
 import json
+import random
+random_layout=random.Random(301026)
 ROOT=Path(__file__).resolve().parent
 xml=E.Element('roblox',{'version':'4'})
 E.SubElement(xml,'External').text='null'
@@ -58,14 +60,33 @@ prop(wp,'int','StreamingMinRadius',64)
 prop(wp,'int','StreamingTargetRadius',256)
 village,_=item(workspace,'Model','Village')
 block(village,'Ground',(0,-1,0),(960,2,960),(60,77,55),1280)
-block(village,'EastWestRoad',(0,.06,0),(920,.12,20),(94,89,81),880)
-block(village,'NorthSouthRoad',(0,.08,0),(20,.15,920),(94,89,81),880)
-block(village,'Piata',(0,.13,0),(58,.2,58),(116,109,96),880)
+def yaw_model(model,x,z,angle):
+ c,s=math.cos(angle),math.sin(angle)
+ for cf in model.iter('CoordinateFrame'):
+  px,pz=float(cf.findtext('X'))-x,float(cf.findtext('Z'))-z
+  cf.find('X').text=str(x+c*px+s*pz); cf.find('Z').text=str(z-s*px+c*pz)
+  for column in range(3):
+   a,b=float(cf.findtext(f'R0{column}')),float(cf.findtext(f'R2{column}'))
+   cf.find(f'R0{column}').text=str(c*a+s*b); cf.find(f'R2{column}').text=str(-s*a+c*b)
+
+def path(name,points,width=12):
+ for (ax,az),(bx,bz) in zip(points,points[1:]):
+  x,z=(ax+bx)/2,(az+bz)/2
+  part=block(village,name,(x,.1,z),(width,.18,math.hypot(bx-ax,bz-az)+width/2),(112,103,86),880)
+  yaw_model(part,x,z,math.atan2(bx-ax,bz-az))
+
+path('MarketRoad',[(-340,0),(-180,0),(-95,8),(-35,0),(35,0),(115,-8),(210,0),(350,0)],18)
+path('ChapelLane',[(0,-380),(0,-250),(-12,-155),(0,-75),(0,0)],12)
+path('MonasteryLane',[(0,0),(0,80),(60,110),(60,220),(0,285),(0,330)],12)
+path('MillLane',[(-95,8),(-125,-45),(-155,-115),(-180,-160)],10)
+path('FarmLane',[(115,-8),(150,50),(180,110),(215,130)],10)
+path('ForestTrail',[(-180,0),(-230,65),(-270,125),(-300,220),(-300,290)],9)
+block(village,'Piata',(0,.13,0),(68,.2,62),(116,109,96),880)
 # Fountain basin, four low rim walls and central column.
 block(village,'FountainBasin',(0,.5,0),(13,1,13),(68,74,77),880)
 for x,z,sx,sz in [(0,-6,13,1),(0,6,13,1),(-6,0,1,13),(6,0,1,13)]:
  block(village,'FountainRim',(x,1.2,z),(sx,1.4,sz),(137,137,127),880)
-block(village,'Water',(0,1.1,0),(11,.2,11),(52,119,141),288,transparent=.35,collision=False)
+block(village,'Water',(0,1.1,0),(11,.2,11),(52,119,141),1568,transparent=.35,collision=False)
 block(village,'FountainColumn',(0,3,0),(2,5,2),(125,125,116),880)
 block(village,'FountainCrown',(0,5.5,0),(5,.8,5),(125,125,116),880)
 
@@ -78,7 +99,7 @@ def sign(parent,text,pos,width=15):
  size=E.SubElement(p,'UDim2',{'name':'Size'})
  for k,v in [('XS',1),('XO',0),('YS',1),('YO',0)]: E.SubElement(size,k).text=str(v)
 
-def house(name,x,z,w=24,d=22,h=15,c=(183,166,139)):
+def house(name,x,z,w=24,d=22,h=15,c=(183,166,139),facing=0):
  m,mp=item(village,'Model',name)
  prop(mp,'token','ModelStreamingMode',1)
  block(m,'Floor',(x,.3,z),(w,.6,d),(93,73,54),512)
@@ -94,7 +115,7 @@ def house(name,x,z,w=24,d=22,h=15,c=(183,166,139)):
  for dx in [-w/2,w/2]:
   for dz in [-d/2,d/2]: block(m,'Timber',(x+dx,h/2,z+dz),(1.2,h+1,1.2),(50,34,28),512)
  for dx in [-w/4,w/4]:
-  block(m,'Window',(x+dx,9,z-d/2-.56),(4,4,.1),(225,166,79),288,collision=False)
+  block(m,'Window',(x+dx,9,z-d/2-.56),(4,4,.1),(163,132,83),1568,transparent=.12,collision=False)
  # Two pitched roof panels meet at the ridge.
  angle=math.radians(32); roofwidth=(w/2+2)/math.cos(angle)
  for side in [-1,1]:
@@ -103,14 +124,20 @@ def house(name,x,z,w=24,d=22,h=15,c=(183,166,139)):
  block(m,'Chimney',(x+w/3,h+7,z+4),(3,9,3),(75,69,64),816)
  block(m,'Table',(x,3,z+4),(7,.8,4),(69,45,31),512)
  for dx in [-2.5,2.5]: block(m,'TableLeg',(x+dx,1.5,z+4),(1,3,1),(69,45,31),512)
+ block(m,'Bench',(x,1.8,z+7),(8,.7,2),(91,65,43),512)
+ block(m,'BedFrame',(x-w/3,1,z+d/4),(5,1.4,8),(76,54,37),512)
+ block(m,'Blanket',(x-w/3,1.9,z+d/4),(4.8,.4,6),(95,109,101),512)
+ block(m,'Pillow',(x-w/3,2,z+d/4+3),(4,.6,1.6),(185,176,150),512)
  sign(m,name,(x,12,z-d/2-.8),w-2)
+ yaw_model(m,x,z,facing)
  return m
 for args in [('HANUL CORBULUI',-47,-45,30,25,17,(174,147,117)),
  ('CASA FIERARULUI',-47,36,24,24,15,(154,143,130)),
  ('CASA CU IEDERA',44,38,25,25,15,(155,173,140)),
  ('FARMACIA',46,-44,28,23,16,(185,176,148)),
  ('CASA PADURARULUI',-82,-68,22,20,14,(160,151,135)),
- ('CASA VECHE',78,73,24,22,14,(162,145,124))]: house(*args)
+ ('CASA VECHE',78,73,24,22,14,(162,145,124))]:
+ house(*args,facing=math.pi if args[2]<0 else 0)
 # Bell tower landmark.
 tower,_=item(village,'Model','Turnul cu ceas')
 block(tower,'Tower',(-83,15,25),(16,30,16),(126,124,113),880)
@@ -149,8 +176,9 @@ for row in range(3):
   block(village,'Gravestone',(x,2,z),(3,4,1),(103,106,99),880)
   block(village,'Grave',(x,.2,z+2),(3,.3,5),(65,61,50),1280)
 # Trees around perimeter, lamps on roads.
-for i in range(96):
- a=i*math.tau/96; x,z=455*math.cos(a),455*math.sin(a)
+for i in range(64):
+ a=i*math.tau/64+random_layout.uniform(-.025,.025); radius=random_layout.uniform(420,466)
+ x,z=radius*math.cos(a),radius*math.sin(a)
  block(village,'Trunk',(x,5,z),(2,10,2),(64,46,35),512)
  block(village,'Canopy',(x,13,z),(9,13,9),(32,58,43),1280,collision=False)
 for x,z in [(-23,-23),(23,-23),(-23,23),(23,23),(-65,0),(65,0),(0,-60),(0,57)]:
@@ -168,9 +196,17 @@ def node(name,pos,c=(184,148,68),size=(3,3,3)):
 for name,x,z in [('CARTIERUL BRESLELOR',-220,0),('MINA ARGINTIE',300,0),
                  ('RUINELE STRAJERILOR',0,-300),('MANASTIREA LUMINII',0,300)]:
  sign(village,name,(x,9,z-18),34)
-for x in [-300,-220,-140,140,220,300]:
- for z in [-58,58]:
-  house('CASA BRESLEI',x,z,28,26,16)
+for i,(x,z) in enumerate([(-265,-42),(-205,-48),(-145,-38),(-220,42),(-155,48),(135,-46),(195,-50),(245,45)]):
+ house(['CASA TESATORULUI','CASA BRUTARULUI','CASA TAMPLARULUI'][i%3],x,z,24+(i%3)*2,23,14+i%3,
+       (176-i*3,160-i*2,133+i*2),math.pi if z<0 else 0)
+ path('DoorLane',[(x,z+(14 if z<0 else -14)),(x,0)],6)
+ # Private kitchen gardens behind the street frontage, with a gap toward the house.
+ gz=z+(-27 if z<0 else 27)
+ for dx in [-13,13]: block(village,'GardenFence',(x+dx,1.7,gz),(1,3.4,22),(92,73,48),512)
+ block(village,'GardenFence',(x,1.7,gz+(-11 if z<0 else 11)),(27,3.4,1),(92,73,48),512)
+ for row in range(3):
+  block(village,'VegetableBed',(x-8+row*8,.22,gz),(4,.4,17),(80,57,38),1280)
+  for dz in [-6,0,6]: block(village,'Cabbage',(x-8+row*8,.9,gz+dz),(2,1.3,2),(91,121,60),1280,collision=False)
 node('TravelGate',(0,4,615))
 node('RobuxShop',(34,3,15),(225,184,76))
 # Town services use the standard cross-platform ProximityPrompt interface.
@@ -178,7 +214,7 @@ for name,pos in [('QuestBoard',(-23,3,-15)),('Merchant',(23,3,-15)),
                  ('Trainer',(-23,3,15)),('Healer',(23,3,15))]: node(name,pos)
 # Forest west: predictable tree grid leaves room for paths and herb nodes.
 for i in range(45):
- x=-410+(i%9)*22; z=150+(i//9)*24
+ x=-410+(i%9)*22+random_layout.uniform(-5,5); z=150+(i//9)*24+random_layout.uniform(-5,5)
  block(village,'ForestTrunk',(x,5,z),(2,10,2),(64,46,35),512)
  block(village,'ForestCanopy',(x,15,z),(12,16,12),(32,58,43),1280,collision=False)
 for i in range(18): node(f'Herb_{i}',(-400+(i%6)*32,1,135+(i//6)*45),(94,176,108),(3,2,3))
@@ -197,6 +233,50 @@ node('Expedition_Ruins',(0,3,-365),(160,108,184))
 house('MANASTIRE',0,330,62,50,25,(188,180,153))
 node('RitualAltar',(0,3,285),(231,207,119),(8,4,8))
 node('Expedition_Forest',(-300,3,290),(101,170,112))
+# A working village: market stalls by the well, trade on the road, fields outside.
+for x,z in [(-19,-29),(19,-29)]:
+ stall,_=item(village,'Model','MarketStall')
+ for dx in [-6,6]:
+  for dz in [-3,3]: block(stall,'StallPost',(x+dx,3,z+dz),(.5,6,.5),(91,64,43),512)
+ block(stall,'Canvas',(x,6.2,z),(14,.4,8),(139,74,56),512)
+ block(stall,'Counter',(x,2.6,z),(12,1,5),(109,79,49),512)
+ for dx in [-4,0,4]: block(stall,'Produce',(x+dx,3.5,z),(2.5,1,3),(168,131,58),512)
+house('MOARA VECHE',-180,-160,28,26,19,(172,160,131),-math.pi/2)
+block(village,'MillPond',(-208,.12,-160),(22,.2,72),(64,106,119),1568,transparent=.25,collision=False)
+block(village,'MillBridge',(-208,.7,-130),(30,1,8),(104,77,47),512)
+for i in range(8):
+ a=i*math.tau/8
+ block(village,'WheelSpoke',(-196,7+5*math.cos(a),-160+5*math.sin(a)),(1,1.4,1.4),(75,53,36),512)
+house('FERMA DE LA RASCRUCE',215,130,30,25,16,(178,154,118))
+for row in range(8):
+ block(village,'FieldFurrow',(240+row*6,.12,205),(3,.22,76),(103,77,43),1280)
+ for z in range(175,240,12): block(village,'Wheat',(240+row*6,1.1,z),(2.5,2,5),(180,159,82),1280,collision=False)
+house('CAPELA SFANTULUI SOARE',55,-150,24,34,22,(190,182,158),math.pi)
+path('ChapelWalk',[(0,-155),(55,-155),(55,-125)],7)
+path('CemeteryWalk',[(55,-125),(55,-87),(80,-87)],6)
+path('InnWalk',[(-35,0),(-47,-22)],8)
+path('ShrineWalk',[(0,285),(30,285),(30,265)],7)
+node('ContractBoard',(-47,3,-26),(139,103,57),(5,4,1))
+node('Supply_Market',(-19,3,-24),(176,135,74),(4,3,3))
+node('Supply_Mill',(-160,2,-155),(176,135,74),(4,3,3))
+node('Supply_Farm',(215,2,110),(176,135,74),(4,3,3))
+node('DawnClue',(55,3,-127),(204,187,139),(4,4,1))
+node('DawnShrine',(30,3,265),(157,166,203),(5,5,5))
+node('Campfire',(-31,1,-40),(183,106,53),(4,1,4))
+for name,text,pos in [('InnGuide','CONTRACTE / ODIHNA',(-47,7,-25)),
+ ('FarmGuide','PROVIZII: FERMA',(215,7,111)),('MillGuide','PROVIZII: MOARA',(-159,7,-155)),
+ ('ShrineGuide','SIGILIUL ZORILOR',(30,8,265))]: sign(village,text,pos,19)
+# Replace abstract service cubes with readable counters and silhouettes, using no NPC AI loops.
+for name,part in [(n.findtext("Properties/string[@name='Name']"),n) for n in world.findall('Item')]:
+ if name.startswith('Supply_') or name in ('QuestBoard','ContractBoard','Merchant','Trainer','Healer','RobuxShop'):
+  part.find("Properties/token[@name='Material']").text='512'
+  part.find("Properties/Color3uint8[@name='Color3uint8']").text=str(0x916B43)
+ if name in ('Merchant','Trainer','Healer','RobuxShop'):
+  p=part.find('Properties'); x=float(p.findtext('CoordinateFrame/X')); z=float(p.findtext('CoordinateFrame/Z'))
+  vecp=p.find("Vector3[@name='size']"); vecp.find('X').text='5'; vecp.find('Y').text='2'; vecp.find('Z').text='3'
+  block(village,'ServiceTorso',(x,3.7,z+2),(2,2.8,1),(72,89,100),512,collision=False)
+  block(village,'ServiceHead',(x,5.7,z+2),(1.5,1.5,1.5),(197,162,125),256,collision=False)
+  sign(village,{'Merchant':'FIERAR','Trainer':'BRESLE','Healer':'VINDECATOR','RobuxShop':'COSMETICE'}[name],(x,8,z+2),12)
 for x,z in [(-300,0),(300,0),(0,-300),(0,270)]:
  block(village,'DistrictPlaza',(x,.15,z),(68,.3,48),(111,105,91),880)
 for x,z in [(-350,0),(-200,0),(200,0),(350,0),(0,-200),(0,-350),(0,180),(0,380)]:
@@ -205,15 +285,15 @@ for x,z in [(-350,0),(-200,0),(200,0),(350,0),(0,-200),(0,-350),(0,180),(0,380)]
  light,lp=item(lamp,'PointLight','Light'); prop(lp,'float','Range',30); prop(lp,'float','Brightness',1.2)
 
 server,_=item(xml,'ServerScriptService','ServerScriptService')
-for module in ['Config','Progression','Monetization','Rules','Weapons']:
+for module in ['Config','Progression','Monetization','Rules','Weapons','AdventureRules','BotRules','Bots','Sessions','SessionRules']:
  s,p=item(server,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 s,p=item(server,'Script','Game'); prop(p,'ProtectedString','Source',(ROOT/'src/Game.server.lua').read_text())
 rs,_=item(xml,'ReplicatedStorage','ReplicatedStorage')
-for module in ['MonetizationConfig','CombatRules']:
+for module in ['MonetizationConfig','CombatRules','Actors']:
  s,p=item(rs,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 starter,_=item(xml,'StarterPlayer','StarterPlayer')
 local,_=item(starter,'StarterPlayerScripts','StarterPlayerScripts')
-for filename in ['Controls.client.lua','Shop.client.lua','Combat.client.lua','Presentation.client.lua']:
+for filename in ['Controls.client.lua','Shop.client.lua','Combat.client.lua','Presentation.client.lua','Wayfinding.client.lua','Multiplayer.client.lua']:
  s,p=item(local,'LocalScript',filename.split('.')[0]); prop(p,'ProtectedString','Source',(ROOT/'src'/filename).read_text())
 light,p=item(xml,'Lighting','Lighting'); prop(p,'float','ClockTime',14); prop(p,'float','Brightness',2)
 color(p,'Ambient',(130,125,115)); prop(p,'float','FogEnd',500); prop(p,'float','FogStart',70)

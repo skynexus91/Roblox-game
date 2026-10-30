@@ -24,7 +24,8 @@ for crypt in crypts.findall('Item'):
 world=next(n for n in village.findall('Item') if name(n)=='WorldNodes')
 nodes={name(n):n for n in world.findall('Item')}
 for required in ['TravelGate','QuestBoard','Merchant','Trainer','Healer','RobuxShop','RitualAltar',
- 'Expedition_Forest','Expedition_Mine','Expedition_Ruins']:
+ 'Expedition_Forest','Expedition_Mine','Expedition_Ruins','ContractBoard','Supply_Market',
+ 'Supply_Mill','Supply_Farm','DawnClue','DawnShrine','Campfire']:
  assert required in nodes,required
 for kind,count in [('Herb_',18),('Ore_',12),('Relic_',9)]:
  assert sum(n.startswith(kind) for n in nodes)==count
@@ -38,6 +39,18 @@ workspace=next(n for n in items if n.attrib['class']=='Workspace')
 assert workspace.findtext("Properties/bool[@name='StreamingEnabled']")=='true'
 ground=next(n for n in village.findall('Item') if name(n)=='Ground')
 assert ground.findtext("Properties/Vector3[@name='size']/X")=='960'
+# Keep the monastery lane outside every crypt footprint, including the road width.
+# Sample the oriented road strip at two-stud intervals, not just its centreline.
+for lane in (n for n in village.findall('Item') if name(n)=='MonasteryLane'):
+ p=lane.find('Properties'); cf=p.find('CoordinateFrame'); size=p.find("Vector3[@name='size']")
+ x,z=float(cf.findtext('X')),float(cf.findtext('Z'))
+ width,length=float(size.findtext('X')),float(size.findtext('Z'))
+ for step in range(int(length/2)+1):
+  local_z=-length/2+step*2
+  for local_x in [-width/2,0,width/2]:
+   px=x+local_x*float(cf.findtext('R00'))+local_z*float(cf.findtext('R02'))
+   pz=z+local_x*float(cf.findtext('R20'))+local_z*float(cf.findtext('R22'))
+   assert not any(abs(px-cx)<19 and 138<pz<172 for cx in [-240,-120,0,120,240]), 'monastery road intersects crypt'
 for part in items:
  if part.attrib['class'] in ('Part','SpawnLocation'):
   assert part.findtext("Properties/bool[@name='Anchored']")=='true'
@@ -46,6 +59,7 @@ for part in items:
  for c in part.findall('Properties/Color3'):
   assert all(0<=float(v.text)<=1 for v in c), 'color outside normalized range'
 print('PASS XML: 960x960 map, 50 unique spawns, 5 crypts, RPG nodes, streaming, embedded sources')
+print('PASS layout: monastery road strip clears all five crypts')
 print('NOT RUN: Roblox import, runtime, real DataStores, purchases, multiplayer, device/load tests')
 
 lighting=next(n for n in items if n.attrib['class']=='Lighting')

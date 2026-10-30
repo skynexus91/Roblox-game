@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 *.rbxlx.lock
 *.rbxl.lock
+Satul_dupa_Apus_ReleaseCandidate.rbxlx
 .DS_Store
 
 assets/textures/*_source.png

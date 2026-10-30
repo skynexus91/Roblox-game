@@ -5,6 +5,11 @@ local Lighting = game:GetService('Lighting')
 local TweenService=game:GetService('TweenService')
 local Combat=require(RS:WaitForChild('CombatRules'))
 local Weapons=require(script.Parent.Weapons)
+local Bots=require(script.Parent.Bots)
+local Sessions=require(script.Parent.Sessions)
+local RunService=game:GetService('RunService')
+local function isBot(p) return type(p)=='table' and p.IsBot==true end
+local function emit(remote,p,data) if not isBot(p) then remote:FireClient(p,data) end end
 local net = Instance.new('Folder'); net.Name = 'ApusNet'; net.Parent = RS
 local action = Instance.new('RemoteEvent'); action.Name = 'Action'; action.Parent = net
 local status = Instance.new('RemoteEvent'); status.Name = 'Status'; status.Parent = net
@@ -16,6 +21,8 @@ local Monetization=require(script.Parent.Monetization)
 Monetization.Init()
 local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
+local practiceRound=false
+local pendingBotCount=nil
 local message = 'Sunt necesari minimum doi jucatori.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
 table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))<tonumber(b.Name:match('%d+')) end)
@@ -66,7 +73,7 @@ local function winner()
 end
 local function validTarget(p, id, range)
  if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 or math.abs(id)>9007199254740991 then return nil end
- local target=Players:GetPlayerByUserId(id)
+ local target=id<0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id)
  if not target or target==p or not alive(p) or not alive(target) then return nil end
  local a,b=root(p),root(target)
  if (a.Position-b.Position).Magnitude>(range or C.Range) then return nil end
@@ -125,7 +132,7 @@ RPG.Init(function(p)
  return s and not s.captured and phase~='Rezultat'
 end)
 local allowed={Inspect=true,Capture=true,Feed=true,Infect=true,Weapon=true}
-action.OnServerEvent:Connect(function(p, kind, id)
+local function handleAction(p, kind, id)
  local s=states[p]
  if not s or type(kind)~='string' or not allowed[kind] then return end
  local now=os.clock()
@@ -133,7 +140,8 @@ action.OnServerEvent:Connect(function(p, kind, id)
  s.nextRequest=now+0.25
  if not running then return end
  local tool=p.Character and p.Character:FindFirstChildOfClass('Tool')
- local weapon=tool and Combat.Weapons[tool:GetAttribute('ApusWeapon')]
+ local weaponKey=isBot(p) and (s.vampire and 'Claws' or 'SilverSword') or (tool and tool:GetAttribute('ApusWeapon'))
+ local weapon=Combat.Weapons[weaponKey]
  if kind=='Weapon' and not weapon then return end
  local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Apropie-te de o tinta vizibila, la maximum 10 studs.'); return end
  local t=states[target]
@@ -142,13 +150,13 @@ action.OnServerEvent:Connect(function(p, kind, id)
  if kind=='Weapon' then
   local a,b=root(p),root(target); local delta=b.Position-a.Position
   if delta.Magnitude<.01 then return end
-  local key=tool:GetAttribute('ApusWeapon')
+  local key=weaponKey
   if not Combat.CanHit(key,s.vampire,t.vampire,phase,delta.Magnitude,a.CFrame.LookVector:Dot(delta.Unit)) then return end
   s.cooldowns[kind]=now+cd
   local th=humanoid(target); local health=Combat.HealthAfter(th.Health,weapon.damage)
   th.Health=health
-  feedback:FireClient(p,{kind='Hit',weapon=key,target=target.UserId})
-  feedback:FireClient(target,{kind='Hurt'})
+  emit(feedback,p,{kind='Hit',weapon=key,target=target.UserId})
+  emit(feedback,target,{kind='Hurt'})
   if health<=1 then
    -- A defeat opens a brief capture window, without death/respawn exploits.
    t.weakened=now+8; t.reveal=now+8; paint(target)
@@ -177,7 +185,8 @@ action.OnServerEvent:Connect(function(p, kind, id)
   s.cooldowns[kind]=now+cd; s.infections=s.infections-1; t.pending=true
   tell(target,'Esti infectat. Devii vampir la urmatorul apus.'); tell(p,'Infectare reusita. Transformarea are loc la urmatorul apus.')
  end
-end)
+end
+action.OnServerEvent:Connect(handleAction)
 local function attach(p,char)
  local h=char:WaitForChild('Humanoid',10); local r=char:WaitForChild('HumanoidRootPart',10)
  if not h or not r or not states[p] then return end
@@ -187,7 +196,7 @@ local function attach(p,char)
   else move(p,spawns[math.random(#spawns)].Position+Vector3.new(0,3,0)) end
  else move(p,lobby.Position+Vector3.new(0,3,0)) end
  paint(p)
- Weapons.Give(p)
+ if not isBot(p) then Weapons.Give(p) end
  h.Died:Connect(function()
   if states[p] and running and states[p].active then
    -- Reset/death cannot erase infection or escape capture.
@@ -199,31 +208,72 @@ local function join(p)
  states[p]={active=false,vampire=false,captured=false,pending=false,cooldowns={},infections=0}
  p.CharacterAdded:Connect(function(char) attach(p,char) end)
  if p.Character then task.spawn(attach,p,p.Character) end
- task.spawn(RPG.Join,p)
- Monetization.Join(p)
+ if not isBot(p) then task.spawn(RPG.Join,p); Monetization.Join(p) end
 end
 Players.PlayerAdded:Connect(join)
 Players.PlayerRemoving:Connect(function(p)
  states[p]=nil; updateCrypts(); RPG.Remove(p)
 end)
 for _,p in ipairs(Players:GetPlayers()) do join(p) end
+Sessions.Init(function(count)
+ if not RunService:IsStudio() then return false,'Botii de test sunt disponibili numai in Studio.' end
+ if running or phase~='Asteptare' then
+  pendingBotCount=count; workspace:SetAttribute('ApusPendingBotCount',count)
+  return true,'Setarea '..count..' boti se aplica dupa runda curenta.'
+ end
+ Bots.SetCount(count,join,function(p) states[p]=nil end)
+ updateCrypts()
+ return true,'Boti: '..count..'. Runde de practica, fara recompense de runda.'
+end)
+Bots.Start(states,function() return phase end,handleAction,alive,root)
+-- Server-only test harness; never created in published servers or replicated to clients.
+if RunService:IsStudio() then
+ local probe=Instance.new('BindableFunction'); probe.Name='ApusStudioTest'; probe.Parent=game:GetService('ServerStorage')
+ local function resolve(id) return id<0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id) end
+ probe.OnInvoke=function(kind,a,b)
+  if kind=='Action' then
+   local actor=resolve(a.actor); if actor then handleAction(actor,a.kind,a.target) end
+  elseif kind=='Stage' then
+   local actor,target=resolve(a),resolve(b)
+   if actor and target then
+    move(actor,Vector3.new(-100,4,0)); move(target,Vector3.new(-100,4,-5))
+    local r=root(actor); if r then actor.Character:PivotTo(CFrame.lookAt(r.Position,root(target).Position)) end
+   end
+  elseif kind=='Bots' then
+   if phase~='Asteptare' then return {error='Between rounds only'} end
+   Bots.SetCount(a,join,function(p) states[p]=nil end)
+  end
+  local result={phase=phase,round=roundId,practice=practiceRound,actors={},humans=0,vampires=0}
+  result.humans,result.vampires=counts()
+  for p,s in pairs(states) do
+   table.insert(result.actors,{id=p.UserId,bot=isBot(p),active=s.active,vampire=s.vampire,captured=s.captured,
+    pending=s.pending,health=humanoid(p) and humanoid(p).Health,revealed=(s.reveal or 0)>os.clock(),jail=s.jail})
+  end
+  return result
+ end
+end
 local function readyRoster()
  local roster={}
- for _,p in ipairs(Players:GetPlayers()) do
+ if workspace:GetAttribute('ApusBotsConfiguring') then return roster end
+ for p in pairs(states) do
   local h=humanoid(p)
-  if RPG.Ready(p) and h and h.Health>0 and root(p) then table.insert(roster,p) end
+  if (isBot(p) or RPG.Ready(p)) and h and h.Health>0 and root(p) then table.insert(roster,p) end
  end
  return roster
 end
-local function setPhase(name,seconds)
- phase=name; remaining=seconds
- local night=name=='Noapte'
+local function setSky(night)
  workspace:SetAttribute('ApusNight',night)
  TweenService:Create(Lighting,TweenInfo.new(4,Enum.EasingStyle.Sine),{
   ClockTime=night and 0 or 14.5,Brightness=night and 1.3 or 2.2,
   Ambient=night and Color3.fromRGB(76,83,116) or Color3.fromRGB(133,126,112),
   OutdoorAmbient=night and Color3.fromRGB(85,96,126) or Color3.fromRGB(145,151,163)
  }):Play()
+end
+local function setPhase(name,seconds)
+ phase=name; remaining=seconds
+ workspace:SetAttribute('ApusPhase',name)
+ workspace:SetAttribute('ApusRoundId',roundId)
+ setSky(name=='Noapte')
  for p in pairs(states) do paint(p) end
 end
 local function waitPhase(seconds,check)
@@ -237,12 +287,12 @@ end
 task.spawn(function()
  while true do
   for p,s in pairs(states) do
-   local role='Spectator'
+   local role='Explorator'
    if s.active then role=s.vampire and 'Vampir' or 'Satean' end
    local note=(s.noticeUntil or 0)>os.clock() and s.notice or message
-   status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
+   if not isBot(p) then status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
     captured=s.captured,pending=s.pending,active=s.active,notice=note,
-    infections=s.infections,crypts=activeCrypts,rpg=RPG.Snapshot(p)})
+    infections=s.infections,crypts=activeCrypts,night=workspace:GetAttribute('ApusNight'),practice=practiceRound,rpg=RPG.Snapshot(p)}) end
    if phase=='Zi' and (s.reveal or 0)>0 and s.reveal<=os.clock() then s.reveal=0; paint(p) end
    if (s.weakened or 0)>0 and s.weakened<=os.clock() then
     s.weakened=0; local h=humanoid(p); if h and h.Health<=1 then h.Health=35 end; paint(p)
@@ -252,10 +302,22 @@ task.spawn(function()
  end
 end)
 while true do
- running=false; cycle=0; setPhase('Asteptare',0)
- message='Sunt necesari minimum doi jucatori. Cei intrati in timpul rundei asteapta aici.'
- repeat task.wait(1) until #readyRoster()>=C.MinPlayers
- message='Runda incepe curand.'; setPhase('Pregatire',C.Intermission); waitPhase(C.Intermission,false)
+ if pendingBotCount~=nil then
+  Bots.SetCount(pendingBotCount,join,function(p) states[p]=nil end)
+  pendingBotCount=nil; workspace:SetAttribute('ApusPendingBotCount',nil); updateCrypts()
+ end
+ running=false; practiceRound=false; cycle=0; setPhase('Asteptare',0)
+ message='Exploreaza prin portal. Contracte la han ziua; sigiliul manastirii noaptea. PvP: minimum 2 jucatori.'
+ local explorationTime=0
+ repeat
+  task.wait(1); explorationTime=explorationTime+1
+  remaining=120-explorationTime%120
+  if explorationTime%120==0 then setSky(not workspace:GetAttribute('ApusNight')) end
+ until #readyRoster()>=C.MinPlayers
+ practiceRound=RunService:IsStudio() and (workspace:GetAttribute('ApusBotCount') or 0)>0
+ message=practiceRound and 'PRACTICA CU BOTI - fara recompense de runda.' or 'Runda incepe curand.'
+ local preparation=practiceRound and 5 or C.Intermission
+ setPhase('Pregatire',preparation); waitPhase(preparation,false)
  if #readyRoster()>=C.MinPlayers then
   roundId=roundId+1
   local roster=readyRoster()
@@ -268,7 +330,7 @@ while true do
    s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0
    local h=humanoid(p)
    if not h or h.Health<=0 then p:LoadCharacterAsync() else
-    h.Health=h.MaxHealth; move(p,spawns[index].Position+Vector3.new(0,3,0))
+    h.Health=h.MaxHealth; move(p,practiceRound and Vector3.new(-70+(index-1)*9,4,-10) or spawns[index].Position+Vector3.new(0,3,0))
    end
   end
   updateCrypts()
@@ -276,18 +338,20 @@ while true do
   local result=nil
   for n=1,C.Cycles do
    cycle=n; message='Ziua: investigheaza si captureaza vampirii descoperiti.'
-   setPhase('Zi',C.Day); result=waitPhase(C.Day,true); if result then break end
+   local day=practiceRound and 20 or C.Day
+   setPhase('Zi',day); result=waitPhase(day,true); if result then break end
    for p,s in pairs(states) do if s.active and not s.captured then
     if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformarea s-a incheiat. Esti vampir!') end
     if s.vampire then s.infections=1 end
    end end
    message='Noaptea: ramaneti impreuna. Vampirii pot vana.'
-   setPhase('Noapte',C.Night); result=waitPhase(C.Night,true); if result then break end
+   local night=practiceRound and 20 or C.Night
+   setPhase('Noapte',night); result=waitPhase(night,true); if result then break end
   end
   running=false
   local vampireVictory=result~=nil and string.find(result,'Vampirii au castigat',1,true)~=nil
   for p,s in pairs(states) do
-   if s.active then RPG.RoundReward(p,s.vampire==vampireVictory) end
+   if s.active and not isBot(p) and not practiceRound then RPG.RoundReward(p,s.vampire==vampireVictory) end
   end
   message=result or 'Satenii au castigat: au supravietuit celor trei nopti.'
   setPhase('Rezultat',10); waitPhase(10,false)

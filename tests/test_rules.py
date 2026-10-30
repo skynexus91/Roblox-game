@@ -39,6 +39,7 @@ class RPGTests(unittest.TestCase):
  def setUp(self):
   self.lua=LuaRuntime(unpack_returned_tuples=True)
   self.lua.execute((ROOT/'tests/mock_roblox.lua').read_text())
+  self.lua.globals().script.Parent.AdventureRules=self.lua.execute((ROOT/'src/AdventureRules.lua').read_text())
   self.rpg=self.lua.execute((ROOT/'src/Progression.lua').read_text())
   self.lua.globals().RPG=self.rpg
  def test_load_levels_round_rewards_and_temporary_profile(self):
@@ -96,5 +97,43 @@ class RPGTests(unittest.TestCase):
   self.lua.execute('p=newPlayer(6); RPG.Join(p); RPG.Init(function() return true end)')
   self.lua.execute('p.Character.HumanoidRootPart.Position=Vector3.new(100); trigger("QuestBoard",p)')
   self.assertIn('Vorbeste',self.rpg.Snapshot(self.lua.globals().p).quest)
+
+ def test_studio_does_not_even_request_a_datastore(self):
+  self.assertEqual(self.lua.globals().DATASTORE_REQUESTS,0)
+
+ def test_contract_distinct_pickups_and_single_reward(self):
+  self.lua.execute('p=newPlayer(7); RPG.Join(p); RPG.Init(function() return true end); trigger("ContractBoard",p)')
+  self.lua.execute('advance(2); trigger("Supply_Market",p); advance(2); trigger("ContractBoard",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,0)
+  for name in ['Market','Market','Mill','Farm']:
+   self.lua.execute(f'advance(2); trigger("Supply_{name}",p)')
+  self.lua.execute('advance(2); trigger("ContractBoard",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,40)
+  self.lua.execute('advance(2); trigger("ContractBoard",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,40)
+
+ def test_contract_expiry_and_night_rejection(self):
+  self.lua.execute('p=newPlayer(8); RPG.Join(p); RPG.Init(function() return true end); trigger("ContractBoard",p)')
+  self.lua.execute('advance(180); workspace:SetAttribute("ApusNight",true); trigger("ContractBoard",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,0)
+  self.assertNotIn('Livrare:',self.rpg.Snapshot(self.lua.globals().p).adventure)
+
+ def test_ritual_requires_day_clue_night_and_cooldown(self):
+  self.lua.execute('p=newPlayer(9); RPG.Join(p); RPG.Init(function() return true end); trigger("DawnShrine",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,0)
+  self.lua.execute('advance(2); trigger("DawnClue",p); advance(2); trigger("DawnShrine",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,0)
+  self.lua.execute('workspace:SetAttribute("ApusNight",true); advance(2); trigger("DawnShrine",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,60)
+  self.lua.execute('workspace:SetAttribute("ApusNight",false); advance(2); trigger("DawnClue",p); workspace:SetAttribute("ApusNight",true); advance(2); trigger("DawnShrine",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,60)
+
+ def test_cooking_consumes_herbs_and_clamps_health(self):
+  self.lua.execute('p=newPlayer(10); RPG.Join(p); RPG.Init(function() return true end); p.Character.Humanoid.Health=90; trigger("Campfire",p)')
+  self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,90)
+  self.lua.execute('advance(2); trigger("Herb_0",p); advance(2); trigger("Herb_1",p); advance(2); trigger("Campfire",p)')
+  self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,100)
+  self.lua.execute('p.Character.Humanoid.Health=50; advance(46); trigger("Campfire",p)')
+  self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,50)
 
 if __name__=='__main__': unittest.main()

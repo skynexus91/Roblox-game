@@ -1,5 +1,13 @@
 # Satul după Apus — mini RPG multiplayer Roblox
 
+## Revizie 30 octombrie 2026
+
+**Boti si multiplayer:** meniul **Multiplayer** (buton / M / Select) include Host, Join cu cod si invitatii. In Studio poti activa **0 / 3 / 7 / 12 boti**, cu runde rapide fara recompense de runda. Schimbarile se aplica dupa runda curenta. **29 de teste locale trec**; luptele, infectarea, transformarea, capturarea si resetarea au fost probate cu boti in Studio. Host/Join necesita validare intr-o experienta publicata, cu aplicatia Roblox. [Instructiuni si probe](docs/BOTS_AND_MULTIPLAYER.md).
+
+Sat reorganizat în jurul pieței, ulițe, grădini, moară, fermă și capelă. Contractele hangiului leagă piața, moara și ferma (3 provizii / 180s). Inscripția capelei se citește ziua, iar sigiliul mănăstirii se activează noaptea. Două ierburi permit gătitul la vatra hanului pentru +25 HP. Explorarea solo alternează zi/noapte la 120s. Activitățile folosesc R / L1 / prompt tactil și nu dezvăluie rolurile secrete.
+
+**19 teste locale trec.** Contractul și ritualul au fost executate în Studio cu un jucător. Verificările multiplayer, salvările live și performanța pe dispozitive rămân deschise: [raportul de lansare](docs/RELEASE_REVIEW.md).
+
 Un orășel transilvănean de **960 × 960 studs**, cu explorare, misiuni și progres persistent, peste conflictul dintre săteni și vampiri. Un singur proiect, cu inputuri pentru PC, telefon și controller. **Maximum 50 de participanți într-o rundă.**
 
 **Stare: prototip de mini MMORPG, nu lansare finală.** Codul și fișierul sunt verificate local; importul, multiplayer-ul, salvările și achizițiile reale nu au fost executate în motorul Roblox. Nu este încă un MMORPG complet cu lumi persistente, raiduri și economie între jucători.

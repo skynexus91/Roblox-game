@@ -6,6 +6,7 @@ local RunService=game:GetService('RunService')
 local UIS=game:GetService('UserInputService')
 local CAS=game:GetService('ContextActionService')
 local player=Players.LocalPlayer
+local Actors=require(RS:WaitForChild('Actors'))
 local bloom=Lighting:FindFirstChild('ApusBloom')
 local rays=Lighting:FindFirstChild('ApusSunRays')
 local quality=UIS.TouchEnabled and 1 or 2
@@ -76,7 +77,7 @@ local spectating=false; local spectateIndex=0
 local function spectate()
  if not player:GetAttribute('Captured') then return end
  local targets={}
- for _,p in ipairs(Players:GetPlayers()) do
+ for _,p in ipairs(Actors.List()) do
   local h=p.Character and p.Character:FindFirstChildOfClass('Humanoid')
   if p~=player and p:GetAttribute('RoundActive') and not p:GetAttribute('Captured') and h and p.Character:FindFirstChild('HumanoidRootPart') then table.insert(targets,h) end
  end

@@ -1,5 +1,7 @@
 # Starea versiunii mini RPG — îmbunătățiri de gameplay și prezentare
 
+Actualizare 30 octombrie 2026: starea curentă, modificările satului, cele 19 teste și probele Studio sunt în [RELEASE_REVIEW.md](RELEASE_REVIEW.md). Detaliile de mai jos descriu baza reviziei anterioare; afirmațiile vechi despre lipsa testelor în motor nu mai descriu testele single-player efectuate.
+
 ## Adăugat în această revizie
 
 Arme gratuite (sabie, arbaletă, gheare), reguli de lovire pe server, slăbire temporară și capturare nocturnă a vampirilor învinși; feedback de lovitură; cameră spectator; setări de accesibilitate; grafică adaptivă; atmosferă și tranziții; trei texturi proprii generate în Higgsfield, comprimate și pregătite pentru import. Texturile NU sunt încă încărcate în Roblox: ID-urile sunt 0 și materialele incluse rămân fallback.
