@@ -3,7 +3,8 @@ local Players=game:GetService('Players')
 local Actors={}
 function Actors.List()
  local result=Players:GetPlayers()
- local folder=workspace:FindFirstChild('ApusBots')
+ for _,folderName in ipairs({'ApusBots','ApusCreatures'}) do
+ local folder=workspace:FindFirstChild(folderName)
  if folder then
   for _,model in ipairs(folder:GetChildren()) do
    local id=model:GetAttribute('ActorId')
@@ -13,6 +14,7 @@ function Actors.List()
     table.insert(result,actor)
    end
   end
+ end
  end
  return result
 end

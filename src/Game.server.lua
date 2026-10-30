@@ -7,6 +7,9 @@ local Combat=require(RS:WaitForChild('CombatRules'))
 local Weapons=require(script.Parent.Weapons)
 local Bots=require(script.Parent.Bots)
 local Sessions=require(script.Parent.Sessions)
+local Hunt=require(script.Parent.HuntRules)
+local Design=require(script.Parent.CharacterDesign)
+local Life=require(script.Parent.WorldLife)
 local RunService=game:GetService('RunService')
 local function isBot(p) return type(p)=='table' and p.IsBot==true end
 local function emit(remote,p,data) if not isBot(p) then remote:FireClient(p,data) end end
@@ -21,8 +24,11 @@ local Monetization=require(script.Parent.Monetization)
 Monetization.Init()
 local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
+local setPhase
 local practiceRound=false
 local pendingBotCount=nil
+local scores={humans=0,vampires=0}
+local practiceScores={humans=0,vampires=0}
 local message = 'At least two participants are required.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
 table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))<tonumber(b.Name:match('%d+')) end)
@@ -42,8 +48,14 @@ local function move(p, pos)
  local r=root(p); if r then p.Character:PivotTo(CFrame.new(pos)) end
 end
 local function tell(p,t) local s=states[p]; if s then s.notice=t; s.noticeUntil=os.clock()+5 end end
+local function protected(p)
+ local s,r=states[p],root(p)
+ return s and not s.captured and r and Hunt.Protected(s.vampire,r.Position.X,r.Position.Y,r.Position.Z)
+end
 local function paint(p)
  local s=states[p]; if not s or not p.Character then return end
+ if s.creature then return end
+ Design.Apply(p.Character,s.vampire and s.active and (phase=='Noapte' or s.captured or (s.reveal or 0)>os.clock()))
  p:SetAttribute('RoundActive',s.active); p:SetAttribute('Captured',s.captured)
  local old=p.Character:FindFirstChild('Revealed'); if old then old:Destroy() end
  if s.active and not s.captured and s.vampire and (phase=='Noapte' or (s.reveal or 0)>os.clock()) then
@@ -54,13 +66,14 @@ local function paint(p)
  local pr=root(p); if pr then pr.Anchored=s.captured end
  local hum=humanoid(p)
  if hum then
-  hum.WalkSpeed=(s.captured and 0) or ((s.weakened or 0)>os.clock() and 10) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
-  hum.JumpPower=s.captured and 0 or 50; hum.JumpHeight=s.captured and 0 or 7.2
+  local stopped=s.captured or (s.stunnedUntil or 0)>os.clock()
+  hum.WalkSpeed=(stopped and 0) or ((s.weakened or 0)>os.clock() and 10) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
+  hum.JumpPower=stopped and 0 or 50; hum.JumpHeight=stopped and 0 or 7.2
  end
 end
 local function counts()
  local humans,vamps=0,0
- for p,s in pairs(states) do if s.active and not s.captured and p.Parent==Players then
+ for p,s in pairs(states) do if s.active and not s.creature and not s.captured and p.Parent==Players then
   if s.vampire then vamps=vamps+1 else humans=humans+1 end
  end end
  return humans,vamps
@@ -73,8 +86,9 @@ local function winner()
 end
 local function validTarget(p, id, range)
  if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 or math.abs(id)>9007199254740991 then return nil end
- local target=id<0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id)
+ local target=id<0 and (Bots.Resolve(id) or Life.Resolve(id)) or Players:GetPlayerByUserId(id)
  if not target or target==p or not alive(p) or not alive(target) then return nil end
+ if protected(p) or protected(target) then return nil end
  local a,b=root(p),root(target)
  if (a.Position-b.Position).Magnitude>(range or C.Range) then return nil end
  local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude
@@ -99,7 +113,7 @@ local function assignJail(p)
 end
 local function updateCrypts()
  local count=0
- for p,s in pairs(states) do if s.active and p.Parent==Players then count=count+1 end end
+ for p,s in pairs(states) do if s.active and not s.creature and p.Parent==Players then count=count+1 end end
  local desired=Rules.CryptCount(count)
  activeCrypts=desired
  -- Move prisoners out before closing any occupied crypt.
@@ -126,6 +140,26 @@ local function capture(target)
  assignJail(target); move(target,jailPosition(target)); paint(target)
  tell(target,'Captured in crypt '..s.jail..' until the round ends.')
 end
+local function damageActor(target,amount)
+ local s,h=states[target],humanoid(target)
+ if not s or not h then return end
+ if s.creature then
+  h.Health=math.max(0,h.Health-amount)
+  if h.Health<=0 then Life.Defeat(target) end
+  return
+ end
+ h.Health=Combat.HealthAfter(h.Health,amount)
+ if s.vampire and amount>0 and root(target) then
+  feedback:FireAllClients({kind='VampireBlood',position=root(target).Position+Vector3.new(0,1,0)})
+ end
+ if h.Health<=1 then
+  s.weakened=os.clock()+8; s.reveal=os.clock()+8; paint(target)
+  tell(target,'Weakened for 8 seconds. Escape or call for help!')
+ end
+end
+Life.Init({states=states,root=root,alive=alive,protected=protected,hurt=damageActor,
+ register=function(p) states[p]={active=true,vampire=true,creature=true,captured=false,cooldowns={},infections=0} end,
+ remove=function(p) states[p]=nil end})
 updateCrypts()
 RPG.Init(function(p)
  local s=states[p]
@@ -138,13 +172,14 @@ local function handleAction(p, kind, id)
  local now=os.clock()
  if now<(s.nextRequest or 0) then return end
  s.nextRequest=now+0.25
- if not running then return end
+ if not running or (s.stunnedUntil or 0)>now then return end
  local tool=p.Character and p.Character:FindFirstChildOfClass('Tool')
- local weaponKey=isBot(p) and (s.vampire and 'Claws' or 'SilverSword') or (tool and tool:GetAttribute('ApusWeapon'))
+ local weaponKey=isBot(p) and (s.testWeapon or (s.vampire and 'Claws' or 'SilverSword')) or (tool and tool:GetAttribute('ApusWeapon'))
  local weapon=Combat.Weapons[weaponKey]
  if kind=='Weapon' and not weapon then return end
  local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Approach a visible target within 10 studs.'); return end
  local t=states[target]
+ if t.creature and kind~='Weapon' then return end
  local cd=kind=='Weapon' and weapon.cooldown or C[kind..'Cooldown']
  if now<(s.cooldowns[kind] or 0) then tell(p,'Ability is on cooldown.'); return end
  if kind=='Weapon' then
@@ -153,15 +188,18 @@ local function handleAction(p, kind, id)
   local key=weaponKey
   if not Combat.CanHit(key,s.vampire,t.vampire,phase,delta.Magnitude,a.CFrame.LookVector:Dot(delta.Unit)) then return end
   s.cooldowns[kind]=now+cd
-  local th=humanoid(target); local health=Combat.HealthAfter(th.Health,weapon.damage)
-  th.Health=health
+  if key=='Crucifix' then
+   t.stunnedUntil=now+3; t.reveal=now+8
+   if t.creature then target.stunnedUntil=now+3 else paint(target) end
+   tell(p,'Consecrated light repels the vampire for 3 seconds.')
+  elseif key=='WoodenStake' and not t.creature and Hunt.StakeFinishes(phase,humanoid(target).Health,(t.reveal or 0)>now,(t.weakened or 0)>now) then
+   capture(target); tell(p,'Vampire subdued with the wooden stake.')
+  else
+   damageActor(target,weapon.damage)
+   if key=='HolyWater' and states[target] then t.reveal=now+12; paint(target); tell(p,'Holy water exposes the vampire for 12 seconds.') end
+  end
   emit(feedback,p,{kind='Hit',weapon=key,target=target.UserId})
   emit(feedback,target,{kind='Hurt'})
-  if health<=1 then
-   -- A defeat opens a brief capture window, without death/respawn exploits.
-   t.weakened=now+8; t.reveal=now+8; paint(target)
-   tell(target,'Weakened for 8 seconds. Escape or call for help!')
-  end
  elseif kind=='Inspect' then
   if s.vampire or phase~='Zi' then return end
   s.cooldowns[kind]=now+cd
@@ -229,7 +267,7 @@ Bots.Start(states,function() return phase end,handleAction,alive,root)
 -- Server-only test harness; never created in published servers or replicated to clients.
 if RunService:IsStudio() then
  local probe=Instance.new('BindableFunction'); probe.Name='ApusStudioTest'; probe.Parent=game:GetService('ServerStorage')
- local function resolve(id) return id<0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id) end
+ local function resolve(id) return id<0 and (Bots.Resolve(id) or Life.Resolve(id)) or Players:GetPlayerByUserId(id) end
  probe.OnInvoke=function(kind,a,b)
   if kind=='Action' then
    local actor=resolve(a.actor); if actor then handleAction(actor,a.kind,a.target) end
@@ -242,12 +280,22 @@ if RunService:IsStudio() then
   elseif kind=='Bots' then
    if phase~='Asteptare' then return {error='Between rounds only'} end
    Bots.SetCount(a,join,function(p) states[p]=nil end)
+  elseif kind=='Equip' then
+   local actor=resolve(a); if actor and isBot(actor) and Combat.Weapons[b] then states[actor].testWeapon=b end
+  elseif kind=='Health' then
+   local actor=resolve(a); if actor and type(b)=='number' then humanoid(actor).Health=math.clamp(b,1,100) end
+  elseif kind=='Position' then
+   local actor=resolve(a); if actor and typeof(b)=='Vector3' then move(actor,b) end
+  elseif kind=='Score' then
+   practiceScores={humans=a,vampires=b}; Life.BeginRound(practiceScores); Life.OnPhase(phase)
+  elseif kind=='Phase' and (a=='Zi' or a=='Noapte') then
+   setPhase(a,20)
   end
-  local result={phase=phase,round=roundId,practice=practiceRound,actors={},humans=0,vampires=0}
+  local result={phase=phase,round=roundId,practice=practiceRound,actors={},humans=0,vampires=0,support=Life.support}
   result.humans,result.vampires=counts()
   for p,s in pairs(states) do
    table.insert(result.actors,{id=p.UserId,bot=isBot(p),active=s.active,vampire=s.vampire,captured=s.captured,
-    pending=s.pending,health=humanoid(p) and humanoid(p).Health,revealed=(s.reveal or 0)>os.clock(),jail=s.jail})
+    pending=s.pending,health=humanoid(p) and humanoid(p).Health,revealed=(s.reveal or 0)>os.clock(),jail=s.jail,creature=s.creature,stunned=(s.stunnedUntil or 0)>os.clock()})
   end
   return result
  end
@@ -257,7 +305,7 @@ local function readyRoster()
  if workspace:GetAttribute('ApusBotsConfiguring') then return roster end
  for p in pairs(states) do
   local h=humanoid(p)
-  if (isBot(p) or RPG.Ready(p)) and h and h.Health>0 and root(p) then table.insert(roster,p) end
+  if not states[p].creature and (isBot(p) or RPG.Ready(p)) and h and h.Health>0 and root(p) then table.insert(roster,p) end
  end
  return roster
 end
@@ -269,11 +317,12 @@ local function setSky(night)
   OutdoorAmbient=night and Color3.fromRGB(85,96,126) or Color3.fromRGB(145,151,163)
  }):Play()
 end
-local function setPhase(name,seconds)
+setPhase=function(name,seconds)
  phase=name; remaining=seconds
  workspace:SetAttribute('ApusPhase',name)
  workspace:SetAttribute('ApusRoundId',roundId)
  setSky(name=='Noapte')
+ Life.OnPhase(name)
  for p in pairs(states) do paint(p) end
 end
 local function waitPhase(seconds,check)
@@ -292,7 +341,13 @@ task.spawn(function()
    local note=(s.noticeUntil or 0)>os.clock() and s.notice or message
    if not isBot(p) then status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
     captured=s.captured,pending=s.pending,active=s.active,notice=note,
-    infections=s.infections,crypts=activeCrypts,night=workspace:GetAttribute('ApusNight'),practice=practiceRound,rpg=RPG.Snapshot(p)}) end
+    infections=s.infections,crypts=activeCrypts,night=workspace:GetAttribute('ApusNight'),practice=practiceRound,
+    score=practiceRound and practiceScores or scores,support=Life.support,sanctuary=protected(p) and true or false,rpg=RPG.Snapshot(p)}) end
+   if s.active and not s.creature and s.vampire and root(p) then
+    local pos=root(p).Position
+    if Hunt.InSanctuary(pos.X,pos.Y,pos.Z) then move(p,Vector3.new(55,4,-125)); tell(p,'Consecrated ground repels vampires.') end
+   end
+   if (s.stunnedUntil or 0)>0 and s.stunnedUntil<=os.clock() then s.stunnedUntil=0; paint(p) end
    if phase=='Zi' and (s.reveal or 0)>0 and s.reveal<=os.clock() then s.reveal=0; paint(p) end
    if (s.weakened or 0)>0 and s.weakened<=os.clock() then
     s.weakened=0; local h=humanoid(p); if h and h.Health<=1 then h.Health=35 end; paint(p)
@@ -309,10 +364,14 @@ while true do
  running=false; practiceRound=false; cycle=0; setPhase('Asteptare',0)
  message='Enter the portal to explore. Inn contracts by day; monastery seal at night. PvP: 2+ participants.'
  local explorationTime=0
+ local explorationDuration=C.Day
  repeat
   task.wait(1); explorationTime=explorationTime+1
-  remaining=120-explorationTime%120
-  if explorationTime%120==0 then setSky(not workspace:GetAttribute('ApusNight')) end
+  remaining=explorationDuration-explorationTime
+  if explorationTime>=explorationDuration then
+   local night=not workspace:GetAttribute('ApusNight'); setSky(night)
+   explorationTime=0; explorationDuration=night and C.Night or C.Day
+  end
  until #readyRoster()>=C.MinPlayers
  practiceRound=RunService:IsStudio() and (workspace:GetAttribute('ApusBotCount') or 0)>0
  message=practiceRound and 'BOT PRACTICE - no round rewards.' or 'The round starts soon.'
@@ -327,7 +386,7 @@ while true do
   local initialVampires=Rules.InitialVampires(#roster)
   for index,p in ipairs(roster) do
    local s=states[p]; s.active=true; s.vampire=(index<=initialVampires); s.captured=false; s.pending=false
-   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0
+   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0; s.stunnedUntil=0; s.testWeapon=nil
    local h=humanoid(p)
    if not h or h.Health<=0 then p:LoadCharacterAsync() else
     h.Health=h.MaxHealth; move(p,practiceRound and Vector3.new(-70+(index-1)*9,4,-10) or spawns[index].Position+Vector3.new(0,3,0))
@@ -335,12 +394,13 @@ while true do
   end
   updateCrypts()
   running=true
+  Life.BeginRound(practiceRound and practiceScores or scores)
   local result=nil
   for n=1,C.Cycles do
    cycle=n; message='Day: investigate and capture revealed vampires.'
    local day=practiceRound and 20 or C.Day
    setPhase('Zi',day); result=waitPhase(day,true); if result then break end
-   for p,s in pairs(states) do if s.active and not s.captured then
+   for p,s in pairs(states) do if s.active and not s.creature and not s.captured then
     if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformation complete. You are a vampire!') end
     if s.vampire then s.infections=1 end
    end end
@@ -351,13 +411,15 @@ while true do
   running=false
   local humansLeft,vampiresLeft=counts()
   local vampireVictory=Rules.VampireVictory(humansLeft,vampiresLeft)
+  local roundScores=practiceRound and practiceScores or scores
+  if vampireVictory then roundScores.vampires=roundScores.vampires+1 else roundScores.humans=roundScores.humans+1 end
   for p,s in pairs(states) do
    if s.active and not isBot(p) and not practiceRound then RPG.RoundReward(p,s.vampire==vampireVictory) end
   end
   message=result or 'Villagers win: they survived all three nights.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
-   s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0
+   s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0; s.stunnedUntil=0
    paint(p); move(p,lobby.Position+Vector3.new(0,3,0))
   end
   updateCrypts()

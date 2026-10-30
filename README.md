@@ -1,5 +1,7 @@
 # Village After Dusk — multiplayer Roblox RPG
 
+**Hunting/world-life update:** human/vampire outfits, Crucifix, Holy Water, Wooden Stake, church sanctuary, ambient animals, vampire night hounds and score-driven priest/bat support. Live days/nights are now **8 / 6 minutes**. **42 local tests** plus targeted Studio fixtures pass. [Rules and test evidence](docs/HUNTING_AND_WORLD_LIFE.md).
+
 **The game now uses English throughout its signs, objects, prompts, HUD and menus.** Saved role/class identifiers remain compatible. The English revision passes **36 local tests** and targeted Studio checks. See [English deployment check](docs/ENGLISH_DEPLOYMENT_CHECK.md) for evidence and remaining live release gates.
 
 ## Revizie 30 octombrie 2026

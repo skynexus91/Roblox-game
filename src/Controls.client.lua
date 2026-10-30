@@ -23,6 +23,7 @@ local targetLabel=label('Target',UDim2.fromScale(.25,.76),UDim2.fromScale(.5,.05
 local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07),13)
 local statsLabel=label('RPGStats',UDim2.fromScale(.02,.23),UDim2.fromScale(.38,.07),15)
 local questLabel=label('Quest',UDim2.fromScale(.02,.305),UDim2.fromScale(.38,.13),14)
+local scoreLabel=label('TeamScore',UDim2.fromScale(.57,.30),UDim2.fromScale(.41,.08),14)
 local data=nil
 local phaseNames={Asteptare='Waiting',Pregatire='Preparation',Zi='Day',Noapte='Night',Rezultat='Results'}
 local roleNames={Vampir='Vampire',Satean='Villager',Explorator='Explorer'}
@@ -87,6 +88,8 @@ status.OnClientEvent:Connect(function(s)
  detail.Text=(s.captured and 'Captured: wait for the next round. ') or (s.pending and 'INFECTED: transformation at the next dusk. ') or ''
  detail.Text=detail.Text..(s.notice or '')
  if s.practice then detail.Text='PRACTICE / BOTS | '..detail.Text end
+ local score=s.score or {humans=0,vampires=0}
+ scoreLabel.Text=string.format('Round wins: Humans %d / Vampires %d\nAid: %s%s',score.humans,score.vampires,s.support or 'None',s.sanctuary and ' | CHURCH SANCTUARY' or '')
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then

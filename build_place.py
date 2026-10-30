@@ -122,12 +122,13 @@ def house(name,x,z,w=24,d=22,h=15,c=(183,166,139),facing=0):
   block(m,'Roof',(x+side*(w/4+1),h+math.tan(angle)*(w/4+1),z),
         (roofwidth,1.3,d+4),(97,47,40),512,roll=-side*angle)
  block(m,'Chimney',(x+w/3,h+7,z+4),(3,9,3),(75,69,64),816)
- block(m,'Table',(x,3,z+4),(7,.8,4),(69,45,31),512)
- for dx in [-2.5,2.5]: block(m,'TableLeg',(x+dx,1.5,z+4),(1,3,1),(69,45,31),512)
- block(m,'Bench',(x,1.8,z+7),(8,.7,2),(91,65,43),512)
- block(m,'BedFrame',(x-w/3,1,z+d/4),(5,1.4,8),(76,54,37),512)
- block(m,'Blanket',(x-w/3,1.9,z+d/4),(4.8,.4,6),(95,109,101),512)
- block(m,'Pillow',(x-w/3,2,z+d/4+3),(4,.6,1.6),(185,176,150),512)
+ if 'CHAPEL' not in name and 'MONASTERY' not in name:
+  block(m,'Table',(x,3,z+4),(7,.8,4),(69,45,31),512)
+  for dx in [-2.5,2.5]: block(m,'TableLeg',(x+dx,1.5,z+4),(1,3,1),(69,45,31),512)
+  block(m,'Bench',(x,1.8,z+7),(8,.7,2),(91,65,43),512)
+  block(m,'BedFrame',(x-w/3,1,z+d/4),(5,1.4,8),(76,54,37),512)
+  block(m,'Blanket',(x-w/3,1.9,z+d/4),(4.8,.4,6),(95,109,101),512)
+  block(m,'Pillow',(x-w/3,2,z+d/4+3),(4,.6,1.6),(185,176,150),512)
  sign(m,name,(x,12,z-d/2-.8),w-2)
  yaw_model(m,x,z,facing)
  return m
@@ -252,6 +253,13 @@ for row in range(8):
  block(village,'FieldFurrow',(240+row*6,.12,205),(3,.22,76),(103,77,43),1280)
  for z in range(175,240,12): block(village,'Wheat',(240+row*6,1.1,z),(2.5,2,5),(180,159,82),1280,collision=False)
 house('SUNWARD CHAPEL',55,-150,24,34,22,(190,182,158),math.pi)
+block(village,'ChurchSanctuary',(55,11.5,-150),(22,23,32),transparent=1,collision=False)
+block(village,'ChurchAltar',(55,2,-160),(7,4,3),(178,168,141),880)
+block(village,'ChurchCrossStem',(55,9,-164),(.6,7,.6),(178,162,111),512)
+block(village,'ChurchCrossArm',(55,10,-164),(4,.6,.6),(178,162,111),512)
+for x in [48,62]:
+ for z in [-154,-149,-144]: block(village,'ChurchPew',(x,1.6,z),(5,2,2),(105,77,48),512)
+sign(village,'CHURCH - HUMAN SANCTUARY',(55,8,-129),23)
 path('ChapelWalk',[(0,-155),(55,-155),(55,-125)],7)
 path('CemeteryWalk',[(55,-125),(55,-87),(80,-87)],6)
 path('InnWalk',[(-35,0),(-47,-22)],8)
@@ -285,7 +293,7 @@ for x,z in [(-350,0),(-200,0),(200,0),(350,0),(0,-200),(0,-350),(0,180),(0,380)]
  light,lp=item(lamp,'PointLight','Light'); prop(lp,'float','Range',30); prop(lp,'float','Brightness',1.2)
 
 server,_=item(xml,'ServerScriptService','ServerScriptService')
-for module in ['Config','Progression','Monetization','Rules','Weapons','AdventureRules','BotRules','Bots','Sessions','SessionRules']:
+for module in ['Config','Progression','Monetization','Rules','Weapons','AdventureRules','BotRules','Bots','Sessions','SessionRules','HuntRules','CharacterDesign','WorldLife']:
  s,p=item(server,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 s,p=item(server,'Script','Game'); prop(p,'ProtectedString','Source',(ROOT/'src/Game.server.lua').read_text())
 rs,_=item(xml,'ReplicatedStorage','ReplicatedStorage')
@@ -293,7 +301,7 @@ for module in ['MonetizationConfig','CombatRules','Actors']:
  s,p=item(rs,'ModuleScript',module); prop(p,'ProtectedString','Source',(ROOT/'src'/f'{module}.lua').read_text())
 starter,_=item(xml,'StarterPlayer','StarterPlayer')
 local,_=item(starter,'StarterPlayerScripts','StarterPlayerScripts')
-for filename in ['Controls.client.lua','Shop.client.lua','Combat.client.lua','Presentation.client.lua','Wayfinding.client.lua','Multiplayer.client.lua']:
+for filename in ['Controls.client.lua','Shop.client.lua','Combat.client.lua','Presentation.client.lua','Wayfinding.client.lua','Multiplayer.client.lua','BloodFX.client.lua']:
  s,p=item(local,'LocalScript',filename.split('.')[0]); prop(p,'ProtectedString','Source',(ROOT/'src'/filename).read_text())
 light,p=item(xml,'Lighting','Lighting'); prop(p,'float','ClockTime',14); prop(p,'float','Brightness',2)
 color(p,'Ambient',(130,125,115)); prop(p,'float','FogEnd',500); prop(p,'float','FogStart',70)

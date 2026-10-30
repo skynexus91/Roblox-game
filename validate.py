@@ -31,6 +31,10 @@ for kind,count in [('Herb_',18),('Ore_',12),('Relic_',9)]:
  assert sum(n.startswith(kind) for n in nodes)==count
 for required in ('LobbyPoint','LobbySpawn','Ground'):
  assert any(name(n)==required for n in village.findall('Item')),required
+sanctuary=next(n for n in village.findall('Item') if name(n)=='ChurchSanctuary')
+assert sanctuary.findtext("Properties/bool[@name='CanCollide']")=='false'
+assert [float(sanctuary.findtext('Properties/CoordinateFrame/'+axis)) for axis in 'XYZ']==[55,11.5,-150]
+assert [float(sanctuary.findtext("Properties/Vector3[@name='size']/"+axis)) for axis in 'XYZ']==[22,23,32]
 scripts=[n.findtext("Properties/ProtectedString[@name='Source']") for n in items
  if n.attrib['class'] in ('Script','LocalScript','ModuleScript')]
 assert len(scripts)==len(sources)

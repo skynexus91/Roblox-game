@@ -21226,7 +21226,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1200">
+        <Item class="Part" referent="RBX1193">
           <Properties>
             <string name="Name">RitualAltar</string>
             <Vector3 name="size">
@@ -21259,7 +21259,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1201">
+        <Item class="Part" referent="RBX1194">
           <Properties>
             <string name="Name">Expedition_Forest</string>
             <Vector3 name="size">
@@ -21292,7 +21292,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1391">
+        <Item class="Part" referent="RBX1390">
           <Properties>
             <string name="Name">ContractBoard</string>
             <Vector3 name="size">
@@ -21325,7 +21325,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1392">
+        <Item class="Part" referent="RBX1391">
           <Properties>
             <string name="Name">Supply_Market</string>
             <Vector3 name="size">
@@ -21358,7 +21358,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1393">
+        <Item class="Part" referent="RBX1392">
           <Properties>
             <string name="Name">Supply_Mill</string>
             <Vector3 name="size">
@@ -21391,7 +21391,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1394">
+        <Item class="Part" referent="RBX1393">
           <Properties>
             <string name="Name">Supply_Farm</string>
             <Vector3 name="size">
@@ -21424,7 +21424,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1395">
+        <Item class="Part" referent="RBX1394">
           <Properties>
             <string name="Name">DawnClue</string>
             <Vector3 name="size">
@@ -21457,7 +21457,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1396">
+        <Item class="Part" referent="RBX1395">
           <Properties>
             <string name="Name">DawnShrine</string>
             <Vector3 name="size">
@@ -21490,7 +21490,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1397">
+        <Item class="Part" referent="RBX1396">
           <Properties>
             <string name="Name">Campfire</string>
             <Vector3 name="size">
@@ -38121,237 +38121,6 @@
         </Item>
         <Item class="Part" referent="RBX1190">
           <Properties>
-            <string name="Name">Table</string>
-            <Vector3 name="size">
-              <X>7</X>
-              <Y>0.8</Y>
-              <Z>4</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>0.0</X>
-              <Y>3</Y>
-              <Z>334.0</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1191">
-          <Properties>
-            <string name="Name">TableLeg</string>
-            <Vector3 name="size">
-              <X>1</X>
-              <Y>3</Y>
-              <Z>1</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>-2.5</X>
-              <Y>1.5</Y>
-              <Z>334.0</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1192">
-          <Properties>
-            <string name="Name">TableLeg</string>
-            <Vector3 name="size">
-              <X>1</X>
-              <Y>3</Y>
-              <Z>1</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>2.5</X>
-              <Y>1.5</Y>
-              <Z>334.0</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1193">
-          <Properties>
-            <string name="Name">Bench</string>
-            <Vector3 name="size">
-              <X>8</X>
-              <Y>0.7</Y>
-              <Z>2</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>0.0</X>
-              <Y>1.8</Y>
-              <Z>337.0</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">5980459</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1194">
-          <Properties>
-            <string name="Name">BedFrame</string>
-            <Vector3 name="size">
-              <X>5</X>
-              <Y>1.4</Y>
-              <Z>8</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>-20.666666666666668</X>
-              <Y>1</Y>
-              <Z>342.5</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4994597</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1195">
-          <Properties>
-            <string name="Name">Blanket</string>
-            <Vector3 name="size">
-              <X>4.8</X>
-              <Y>0.4</Y>
-              <Z>6</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>-20.666666666666668</X>
-              <Y>1.9</Y>
-              <Z>342.5</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">6253925</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1196">
-          <Properties>
-            <string name="Name">Pillow</string>
-            <Vector3 name="size">
-              <X>4</X>
-              <Y>0.6</Y>
-              <Z>1.6</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>-20.666666666666668</X>
-              <Y>2</Y>
-              <Z>345.5</Z>
-              <R00>1.0</R00>
-              <R01>0.0</R01>
-              <R02>0.0</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>0.0</R20>
-              <R21>0.0</R21>
-              <R22>1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">12169366</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1197">
-          <Properties>
             <string name="Name">Sign</string>
             <Vector3 name="size">
               <X>60</X>
@@ -38382,13 +38151,13 @@
             <bool name="CanTouch">false</bool>
             <bool name="CastShadow">false</bool>
           </Properties>
-          <Item class="SurfaceGui" referent="RBX1198">
+          <Item class="SurfaceGui" referent="RBX1191">
             <Properties>
               <string name="Name">Text</string>
               <token name="Face">5</token>
               <float name="PixelsPerStud">40</float>
             </Properties>
-            <Item class="TextLabel" referent="RBX1199">
+            <Item class="TextLabel" referent="RBX1192">
               <Properties>
                 <string name="Name">Label</string>
                 <string name="Text">MONASTERY</string>
@@ -38411,11 +38180,11 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Model" referent="RBX1202">
+      <Item class="Model" referent="RBX1195">
         <Properties>
           <string name="Name">MarketStall</string>
         </Properties>
-        <Item class="Part" referent="RBX1203">
+        <Item class="Part" referent="RBX1196">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38448,7 +38217,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1204">
+        <Item class="Part" referent="RBX1197">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38481,7 +38250,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1205">
+        <Item class="Part" referent="RBX1198">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38514,7 +38283,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1206">
+        <Item class="Part" referent="RBX1199">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38547,7 +38316,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1207">
+        <Item class="Part" referent="RBX1200">
           <Properties>
             <string name="Name">Canvas</string>
             <Vector3 name="size">
@@ -38580,7 +38349,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1208">
+        <Item class="Part" referent="RBX1201">
           <Properties>
             <string name="Name">Counter</string>
             <Vector3 name="size">
@@ -38613,7 +38382,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1209">
+        <Item class="Part" referent="RBX1202">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -38646,7 +38415,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1210">
+        <Item class="Part" referent="RBX1203">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -38679,7 +38448,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1211">
+        <Item class="Part" referent="RBX1204">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -38713,11 +38482,11 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Model" referent="RBX1212">
+      <Item class="Model" referent="RBX1205">
         <Properties>
           <string name="Name">MarketStall</string>
         </Properties>
-        <Item class="Part" referent="RBX1213">
+        <Item class="Part" referent="RBX1206">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38750,7 +38519,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1214">
+        <Item class="Part" referent="RBX1207">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38783,7 +38552,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1215">
+        <Item class="Part" referent="RBX1208">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38816,7 +38585,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1216">
+        <Item class="Part" referent="RBX1209">
           <Properties>
             <string name="Name">StallPost</string>
             <Vector3 name="size">
@@ -38849,7 +38618,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1217">
+        <Item class="Part" referent="RBX1210">
           <Properties>
             <string name="Name">Canvas</string>
             <Vector3 name="size">
@@ -38882,7 +38651,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1218">
+        <Item class="Part" referent="RBX1211">
           <Properties>
             <string name="Name">Counter</string>
             <Vector3 name="size">
@@ -38915,7 +38684,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1219">
+        <Item class="Part" referent="RBX1212">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -38948,7 +38717,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1220">
+        <Item class="Part" referent="RBX1213">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -38981,7 +38750,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1221">
+        <Item class="Part" referent="RBX1214">
           <Properties>
             <string name="Name">Produce</string>
             <Vector3 name="size">
@@ -39015,12 +38784,12 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Model" referent="RBX1222">
+      <Item class="Model" referent="RBX1215">
         <Properties>
           <string name="Name">OLD MILL</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
-        <Item class="Part" referent="RBX1223">
+        <Item class="Part" referent="RBX1216">
           <Properties>
             <string name="Name">Floor</string>
             <Vector3 name="size">
@@ -39053,7 +38822,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1224">
+        <Item class="Part" referent="RBX1217">
           <Properties>
             <string name="Name">Back</string>
             <Vector3 name="size">
@@ -39086,7 +38855,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1225">
+        <Item class="Part" referent="RBX1218">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -39119,7 +38888,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1226">
+        <Item class="Part" referent="RBX1219">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -39152,7 +38921,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1227">
+        <Item class="Part" referent="RBX1220">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -39185,7 +38954,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1228">
+        <Item class="Part" referent="RBX1221">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -39218,7 +38987,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1229">
+        <Item class="Part" referent="RBX1222">
           <Properties>
             <string name="Name">DoorLintel</string>
             <Vector3 name="size">
@@ -39251,7 +39020,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1230">
+        <Item class="Part" referent="RBX1223">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -39284,7 +39053,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1231">
+        <Item class="Part" referent="RBX1224">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -39317,7 +39086,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1232">
+        <Item class="Part" referent="RBX1225">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -39350,7 +39119,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1233">
+        <Item class="Part" referent="RBX1226">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -39383,7 +39152,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1234">
+        <Item class="Part" referent="RBX1227">
           <Properties>
             <string name="Name">DoorArch</string>
             <Vector3 name="size">
@@ -39416,7 +39185,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1235">
+        <Item class="Part" referent="RBX1228">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -39449,7 +39218,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1236">
+        <Item class="Part" referent="RBX1229">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -39482,7 +39251,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1237">
+        <Item class="Part" referent="RBX1230">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -39515,7 +39284,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1238">
+        <Item class="Part" referent="RBX1231">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -39548,7 +39317,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1239">
+        <Item class="Part" referent="RBX1232">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -39582,7 +39351,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1240">
+        <Item class="Part" referent="RBX1233">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -39616,7 +39385,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1241">
+        <Item class="Part" referent="RBX1234">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -39649,7 +39418,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1242">
+        <Item class="Part" referent="RBX1235">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -39682,7 +39451,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1243">
+        <Item class="Part" referent="RBX1236">
           <Properties>
             <string name="Name">Chimney</string>
             <Vector3 name="size">
@@ -39715,7 +39484,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1244">
+        <Item class="Part" referent="RBX1237">
           <Properties>
             <string name="Name">Table</string>
             <Vector3 name="size">
@@ -39748,7 +39517,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1245">
+        <Item class="Part" referent="RBX1238">
           <Properties>
             <string name="Name">TableLeg</string>
             <Vector3 name="size">
@@ -39781,7 +39550,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1246">
+        <Item class="Part" referent="RBX1239">
           <Properties>
             <string name="Name">TableLeg</string>
             <Vector3 name="size">
@@ -39814,7 +39583,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1247">
+        <Item class="Part" referent="RBX1240">
           <Properties>
             <string name="Name">Bench</string>
             <Vector3 name="size">
@@ -39847,7 +39616,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1248">
+        <Item class="Part" referent="RBX1241">
           <Properties>
             <string name="Name">BedFrame</string>
             <Vector3 name="size">
@@ -39880,7 +39649,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1249">
+        <Item class="Part" referent="RBX1242">
           <Properties>
             <string name="Name">Blanket</string>
             <Vector3 name="size">
@@ -39913,7 +39682,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1250">
+        <Item class="Part" referent="RBX1243">
           <Properties>
             <string name="Name">Pillow</string>
             <Vector3 name="size">
@@ -39946,7 +39715,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1251">
+        <Item class="Part" referent="RBX1244">
           <Properties>
             <string name="Name">Sign</string>
             <Vector3 name="size">
@@ -39978,13 +39747,13 @@
             <bool name="CanTouch">false</bool>
             <bool name="CastShadow">false</bool>
           </Properties>
-          <Item class="SurfaceGui" referent="RBX1252">
+          <Item class="SurfaceGui" referent="RBX1245">
             <Properties>
               <string name="Name">Text</string>
               <token name="Face">5</token>
               <float name="PixelsPerStud">40</float>
             </Properties>
-            <Item class="TextLabel" referent="RBX1253">
+            <Item class="TextLabel" referent="RBX1246">
               <Properties>
                 <string name="Name">Label</string>
                 <string name="Text">OLD MILL</string>
@@ -40007,7 +39776,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1254">
+      <Item class="Part" referent="RBX1247">
         <Properties>
           <string name="Name">MillPond</string>
           <Vector3 name="size">
@@ -40041,7 +39810,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1255">
+      <Item class="Part" referent="RBX1248">
         <Properties>
           <string name="Name">MillBridge</string>
           <Vector3 name="size">
@@ -40074,7 +39843,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1256">
+      <Item class="Part" referent="RBX1249">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40107,7 +39876,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1257">
+      <Item class="Part" referent="RBX1250">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40140,7 +39909,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1258">
+      <Item class="Part" referent="RBX1251">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40173,7 +39942,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1259">
+      <Item class="Part" referent="RBX1252">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40206,7 +39975,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1260">
+      <Item class="Part" referent="RBX1253">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40239,7 +40008,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1261">
+      <Item class="Part" referent="RBX1254">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40272,7 +40041,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1262">
+      <Item class="Part" referent="RBX1255">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40305,7 +40074,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1263">
+      <Item class="Part" referent="RBX1256">
         <Properties>
           <string name="Name">WheelSpoke</string>
           <Vector3 name="size">
@@ -40338,12 +40107,12 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Model" referent="RBX1264">
+      <Item class="Model" referent="RBX1257">
         <Properties>
           <string name="Name">CROSSROADS FARM</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
-        <Item class="Part" referent="RBX1265">
+        <Item class="Part" referent="RBX1258">
           <Properties>
             <string name="Name">Floor</string>
             <Vector3 name="size">
@@ -40376,7 +40145,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1266">
+        <Item class="Part" referent="RBX1259">
           <Properties>
             <string name="Name">Back</string>
             <Vector3 name="size">
@@ -40409,7 +40178,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1267">
+        <Item class="Part" referent="RBX1260">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -40442,7 +40211,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1268">
+        <Item class="Part" referent="RBX1261">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -40475,7 +40244,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1269">
+        <Item class="Part" referent="RBX1262">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -40508,7 +40277,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1270">
+        <Item class="Part" referent="RBX1263">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -40541,7 +40310,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1271">
+        <Item class="Part" referent="RBX1264">
           <Properties>
             <string name="Name">DoorLintel</string>
             <Vector3 name="size">
@@ -40574,7 +40343,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1272">
+        <Item class="Part" referent="RBX1265">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -40607,7 +40376,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1273">
+        <Item class="Part" referent="RBX1266">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -40640,7 +40409,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1274">
+        <Item class="Part" referent="RBX1267">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -40673,7 +40442,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1275">
+        <Item class="Part" referent="RBX1268">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -40706,7 +40475,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1276">
+        <Item class="Part" referent="RBX1269">
           <Properties>
             <string name="Name">DoorArch</string>
             <Vector3 name="size">
@@ -40739,7 +40508,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1277">
+        <Item class="Part" referent="RBX1270">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -40772,7 +40541,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1278">
+        <Item class="Part" referent="RBX1271">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -40805,7 +40574,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1279">
+        <Item class="Part" referent="RBX1272">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -40838,7 +40607,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1280">
+        <Item class="Part" referent="RBX1273">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -40871,7 +40640,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1281">
+        <Item class="Part" referent="RBX1274">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -40905,7 +40674,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1282">
+        <Item class="Part" referent="RBX1275">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -40939,7 +40708,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1283">
+        <Item class="Part" referent="RBX1276">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -40972,7 +40741,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1284">
+        <Item class="Part" referent="RBX1277">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -41005,7 +40774,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1285">
+        <Item class="Part" referent="RBX1278">
           <Properties>
             <string name="Name">Chimney</string>
             <Vector3 name="size">
@@ -41038,7 +40807,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1286">
+        <Item class="Part" referent="RBX1279">
           <Properties>
             <string name="Name">Table</string>
             <Vector3 name="size">
@@ -41071,7 +40840,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1287">
+        <Item class="Part" referent="RBX1280">
           <Properties>
             <string name="Name">TableLeg</string>
             <Vector3 name="size">
@@ -41104,7 +40873,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1288">
+        <Item class="Part" referent="RBX1281">
           <Properties>
             <string name="Name">TableLeg</string>
             <Vector3 name="size">
@@ -41137,7 +40906,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1289">
+        <Item class="Part" referent="RBX1282">
           <Properties>
             <string name="Name">Bench</string>
             <Vector3 name="size">
@@ -41170,7 +40939,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1290">
+        <Item class="Part" referent="RBX1283">
           <Properties>
             <string name="Name">BedFrame</string>
             <Vector3 name="size">
@@ -41203,7 +40972,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1291">
+        <Item class="Part" referent="RBX1284">
           <Properties>
             <string name="Name">Blanket</string>
             <Vector3 name="size">
@@ -41236,7 +41005,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1292">
+        <Item class="Part" referent="RBX1285">
           <Properties>
             <string name="Name">Pillow</string>
             <Vector3 name="size">
@@ -41269,7 +41038,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1293">
+        <Item class="Part" referent="RBX1286">
           <Properties>
             <string name="Name">Sign</string>
             <Vector3 name="size">
@@ -41301,13 +41070,13 @@
             <bool name="CanTouch">false</bool>
             <bool name="CastShadow">false</bool>
           </Properties>
-          <Item class="SurfaceGui" referent="RBX1294">
+          <Item class="SurfaceGui" referent="RBX1287">
             <Properties>
               <string name="Name">Text</string>
               <token name="Face">5</token>
               <float name="PixelsPerStud">40</float>
             </Properties>
-            <Item class="TextLabel" referent="RBX1295">
+            <Item class="TextLabel" referent="RBX1288">
               <Properties>
                 <string name="Name">Label</string>
                 <string name="Text">CROSSROADS FARM</string>
@@ -41330,7 +41099,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1296">
+      <Item class="Part" referent="RBX1289">
         <Properties>
           <string name="Name">FieldFurrow</string>
           <Vector3 name="size">
@@ -41363,7 +41132,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1297">
+      <Item class="Part" referent="RBX1290">
         <Properties>
           <string name="Name">Wheat</string>
           <Vector3 name="size">
@@ -41373,6 +41142,243 @@
           </Vector3>
           <CoordinateFrame name="CFrame">
             <X>240</X>
+            <Y>1.1</Y>
+            <Z>175</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1291">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>240</X>
+            <Y>1.1</Y>
+            <Z>187</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1292">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>240</X>
+            <Y>1.1</Y>
+            <Z>199</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1293">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>240</X>
+            <Y>1.1</Y>
+            <Z>211</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1294">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>240</X>
+            <Y>1.1</Y>
+            <Z>223</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1295">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>240</X>
+            <Y>1.1</Y>
+            <Z>235</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1296">
+        <Properties>
+          <string name="Name">FieldFurrow</string>
+          <Vector3 name="size">
+            <X>3</X>
+            <Y>0.22</Y>
+            <Z>76</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>246</X>
+            <Y>0.12</Y>
+            <Z>205</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6769963</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1280</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1297">
+        <Properties>
+          <string name="Name">Wheat</string>
+          <Vector3 name="size">
+            <X>2.5</X>
+            <Y>2</Y>
+            <Z>5</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>246</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -41406,7 +41412,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>240</X>
+            <X>246</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -41440,7 +41446,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>240</X>
+            <X>246</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -41474,7 +41480,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>240</X>
+            <X>246</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -41508,7 +41514,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>240</X>
+            <X>246</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -41542,7 +41548,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>240</X>
+            <X>246</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -41576,7 +41582,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -41609,7 +41615,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -41643,7 +41649,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -41677,7 +41683,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -41711,7 +41717,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -41745,7 +41751,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -41779,7 +41785,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>246</X>
+            <X>252</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -41813,7 +41819,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -41846,7 +41852,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -41880,7 +41886,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -41914,7 +41920,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -41948,7 +41954,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -41982,7 +41988,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -42016,7 +42022,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>252</X>
+            <X>258</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -42050,7 +42056,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -42083,7 +42089,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -42117,7 +42123,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -42151,7 +42157,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -42185,7 +42191,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -42219,7 +42225,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -42253,7 +42259,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>258</X>
+            <X>264</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -42287,7 +42293,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -42320,7 +42326,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -42354,7 +42360,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -42388,7 +42394,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -42422,7 +42428,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -42456,7 +42462,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -42490,7 +42496,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>264</X>
+            <X>270</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -42524,7 +42530,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -42557,7 +42563,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -42591,7 +42597,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -42625,7 +42631,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -42659,7 +42665,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -42693,7 +42699,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -42727,7 +42733,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>270</X>
+            <X>276</X>
             <Y>1.1</Y>
             <Z>235</Z>
             <R00>1.0</R00>
@@ -42761,7 +42767,7 @@
             <Z>76</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>0.12</Y>
             <Z>205</Z>
             <R00>1.0</R00>
@@ -42794,7 +42800,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>1.1</Y>
             <Z>175</Z>
             <R00>1.0</R00>
@@ -42828,7 +42834,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>1.1</Y>
             <Z>187</Z>
             <R00>1.0</R00>
@@ -42862,7 +42868,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>1.1</Y>
             <Z>199</Z>
             <R00>1.0</R00>
@@ -42896,7 +42902,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>1.1</Y>
             <Z>211</Z>
             <R00>1.0</R00>
@@ -42930,7 +42936,7 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
+            <X>282</X>
             <Y>1.1</Y>
             <Z>223</Z>
             <R00>1.0</R00>
@@ -42964,243 +42970,6 @@
             <Z>5</Z>
           </Vector3>
           <CoordinateFrame name="CFrame">
-            <X>276</X>
-            <Y>1.1</Y>
-            <Z>235</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1345">
-        <Properties>
-          <string name="Name">FieldFurrow</string>
-          <Vector3 name="size">
-            <X>3</X>
-            <Y>0.22</Y>
-            <Z>76</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>0.12</Y>
-            <Z>205</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">6769963</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1346">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>1.1</Y>
-            <Z>175</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1347">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>1.1</Y>
-            <Z>187</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1348">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>1.1</Y>
-            <Z>199</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1349">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>1.1</Y>
-            <Z>211</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1350">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>282</X>
-            <Y>1.1</Y>
-            <Z>223</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">11837266</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">false</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1280</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CanQuery">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1351">
-        <Properties>
-          <string name="Name">Wheat</string>
-          <Vector3 name="size">
-            <X>2.5</X>
-            <Y>2</Y>
-            <Z>5</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
             <X>282</X>
             <Y>1.1</Y>
             <Z>235</Z>
@@ -43226,12 +42995,12 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Model" referent="RBX1352">
+      <Item class="Model" referent="RBX1345">
         <Properties>
           <string name="Name">SUNWARD CHAPEL</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
-        <Item class="Part" referent="RBX1353">
+        <Item class="Part" referent="RBX1346">
           <Properties>
             <string name="Name">Floor</string>
             <Vector3 name="size">
@@ -43264,7 +43033,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1354">
+        <Item class="Part" referent="RBX1347">
           <Properties>
             <string name="Name">Back</string>
             <Vector3 name="size">
@@ -43297,7 +43066,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1355">
+        <Item class="Part" referent="RBX1348">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -43330,7 +43099,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1356">
+        <Item class="Part" referent="RBX1349">
           <Properties>
             <string name="Name">Side</string>
             <Vector3 name="size">
@@ -43363,7 +43132,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1357">
+        <Item class="Part" referent="RBX1350">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -43396,7 +43165,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1358">
+        <Item class="Part" referent="RBX1351">
           <Properties>
             <string name="Name">Front</string>
             <Vector3 name="size">
@@ -43429,7 +43198,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1359">
+        <Item class="Part" referent="RBX1352">
           <Properties>
             <string name="Name">DoorLintel</string>
             <Vector3 name="size">
@@ -43462,7 +43231,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1360">
+        <Item class="Part" referent="RBX1353">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -43495,7 +43264,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1361">
+        <Item class="Part" referent="RBX1354">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -43528,7 +43297,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1362">
+        <Item class="Part" referent="RBX1355">
           <Properties>
             <string name="Name">DoorFrame</string>
             <Vector3 name="size">
@@ -43561,7 +43330,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1363">
+        <Item class="Part" referent="RBX1356">
           <Properties>
             <string name="Name">WindowSill</string>
             <Vector3 name="size">
@@ -43594,7 +43363,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1364">
+        <Item class="Part" referent="RBX1357">
           <Properties>
             <string name="Name">DoorArch</string>
             <Vector3 name="size">
@@ -43627,7 +43396,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1365">
+        <Item class="Part" referent="RBX1358">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -43660,7 +43429,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1366">
+        <Item class="Part" referent="RBX1359">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -43693,7 +43462,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1367">
+        <Item class="Part" referent="RBX1360">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -43726,7 +43495,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1368">
+        <Item class="Part" referent="RBX1361">
           <Properties>
             <string name="Name">Timber</string>
             <Vector3 name="size">
@@ -43759,7 +43528,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1369">
+        <Item class="Part" referent="RBX1362">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -43793,7 +43562,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1370">
+        <Item class="Part" referent="RBX1363">
           <Properties>
             <string name="Name">Window</string>
             <Vector3 name="size">
@@ -43827,7 +43596,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1371">
+        <Item class="Part" referent="RBX1364">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -43860,7 +43629,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1372">
+        <Item class="Part" referent="RBX1365">
           <Properties>
             <string name="Name">Roof</string>
             <Vector3 name="size">
@@ -43893,7 +43662,7 @@
             <bool name="CastShadow">true</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1373">
+        <Item class="Part" referent="RBX1366">
           <Properties>
             <string name="Name">Chimney</string>
             <Vector3 name="size">
@@ -43926,238 +43695,7 @@
             <bool name="CastShadow">false</bool>
           </Properties>
         </Item>
-        <Item class="Part" referent="RBX1374">
-          <Properties>
-            <string name="Name">Table</string>
-            <Vector3 name="size">
-              <X>7</X>
-              <Y>0.8</Y>
-              <Z>4</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>55.0</X>
-              <Y>3</Y>
-              <Z>-154.0</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1375">
-          <Properties>
-            <string name="Name">TableLeg</string>
-            <Vector3 name="size">
-              <X>1</X>
-              <Y>3</Y>
-              <Z>1</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>57.5</X>
-              <Y>1.5</Y>
-              <Z>-154.0</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1376">
-          <Properties>
-            <string name="Name">TableLeg</string>
-            <Vector3 name="size">
-              <X>1</X>
-              <Y>3</Y>
-              <Z>1</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>52.5</X>
-              <Y>1.5</Y>
-              <Z>-154.0</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4533535</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1377">
-          <Properties>
-            <string name="Name">Bench</string>
-            <Vector3 name="size">
-              <X>8</X>
-              <Y>0.7</Y>
-              <Z>2</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>55.0</X>
-              <Y>1.8</Y>
-              <Z>-157.0</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">5980459</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1378">
-          <Properties>
-            <string name="Name">BedFrame</string>
-            <Vector3 name="size">
-              <X>5</X>
-              <Y>1.4</Y>
-              <Z>8</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>63.0</X>
-              <Y>1</Y>
-              <Z>-158.5</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">4994597</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1379">
-          <Properties>
-            <string name="Name">Blanket</string>
-            <Vector3 name="size">
-              <X>4.8</X>
-              <Y>0.4</Y>
-              <Z>6</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>63.0</X>
-              <Y>1.9</Y>
-              <Z>-158.5</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">6253925</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1380">
-          <Properties>
-            <string name="Name">Pillow</string>
-            <Vector3 name="size">
-              <X>4</X>
-              <Y>0.6</Y>
-              <Z>1.6</Z>
-            </Vector3>
-            <CoordinateFrame name="CFrame">
-              <X>63.0</X>
-              <Y>2</Y>
-              <Z>-161.5</Z>
-              <R00>-1.0</R00>
-              <R01>0.0</R01>
-              <R02>1.2246467991473532e-16</R02>
-              <R10>0.0</R10>
-              <R11>1.0</R11>
-              <R12>0</R12>
-              <R20>-1.2246467991473532e-16</R20>
-              <R21>0.0</R21>
-              <R22>-1.0</R22>
-            </CoordinateFrame>
-            <Color3uint8 name="Color3uint8">12169366</Color3uint8>
-            <bool name="Anchored">true</bool>
-            <bool name="CanCollide">true</bool>
-            <float name="Transparency">0</float>
-            <token name="Material">512</token>
-            <token name="TopSurface">0</token>
-            <token name="BottomSurface">0</token>
-            <bool name="CanTouch">false</bool>
-            <bool name="CastShadow">true</bool>
-          </Properties>
-        </Item>
-        <Item class="Part" referent="RBX1381">
+        <Item class="Part" referent="RBX1367">
           <Properties>
             <string name="Name">Sign</string>
             <Vector3 name="size">
@@ -44189,13 +43727,13 @@
             <bool name="CanTouch">false</bool>
             <bool name="CastShadow">false</bool>
           </Properties>
-          <Item class="SurfaceGui" referent="RBX1382">
+          <Item class="SurfaceGui" referent="RBX1368">
             <Properties>
               <string name="Name">Text</string>
               <token name="Face">5</token>
               <float name="PixelsPerStud">40</float>
             </Properties>
-            <Item class="TextLabel" referent="RBX1383">
+            <Item class="TextLabel" referent="RBX1369">
               <Properties>
                 <string name="Name">Label</string>
                 <string name="Text">SUNWARD CHAPEL</string>
@@ -44218,7 +43756,398 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1384">
+      <Item class="Part" referent="RBX1370">
+        <Properties>
+          <string name="Name">ChurchSanctuary</string>
+          <Vector3 name="size">
+            <X>22</X>
+            <Y>23</Y>
+            <Z>32</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>55</X>
+            <Y>11.5</Y>
+            <Z>-150</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">7237230</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">false</bool>
+          <float name="Transparency">1</float>
+          <token name="Material">256</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CanQuery">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1371">
+        <Properties>
+          <string name="Name">ChurchAltar</string>
+          <Vector3 name="size">
+            <X>7</X>
+            <Y>4</Y>
+            <Z>3</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>55</X>
+            <Y>2</Y>
+            <Z>-160</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11708557</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">880</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1372">
+        <Properties>
+          <string name="Name">ChurchCrossStem</string>
+          <Vector3 name="size">
+            <X>0.6</X>
+            <Y>7</Y>
+            <Z>0.6</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>55</X>
+            <Y>9</Y>
+            <Z>-164</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11706991</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1373">
+        <Properties>
+          <string name="Name">ChurchCrossArm</string>
+          <Vector3 name="size">
+            <X>4</X>
+            <Y>0.6</Y>
+            <Z>0.6</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>55</X>
+            <Y>10</Y>
+            <Z>-164</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">11706991</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1374">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>48</X>
+            <Y>1.6</Y>
+            <Z>-154</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1375">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>48</X>
+            <Y>1.6</Y>
+            <Z>-149</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1376">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>48</X>
+            <Y>1.6</Y>
+            <Z>-144</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1377">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>62</X>
+            <Y>1.6</Y>
+            <Z>-154</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1378">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>62</X>
+            <Y>1.6</Y>
+            <Z>-149</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1379">
+        <Properties>
+          <string name="Name">ChurchPew</string>
+          <Vector3 name="size">
+            <X>5</X>
+            <Y>2</Y>
+            <Z>2</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>62</X>
+            <Y>1.6</Y>
+            <Z>-144</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">6901040</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
+      </Item>
+      <Item class="Part" referent="RBX1380">
+        <Properties>
+          <string name="Name">Sign</string>
+          <Vector3 name="size">
+            <X>23</X>
+            <Y>3</Y>
+            <Z>0.4</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>55</X>
+            <Y>8</Y>
+            <Z>-129</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">2563610</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">512</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">false</bool>
+        </Properties>
+        <Item class="SurfaceGui" referent="RBX1381">
+          <Properties>
+            <string name="Name">Text</string>
+            <token name="Face">5</token>
+            <float name="PixelsPerStud">40</float>
+          </Properties>
+          <Item class="TextLabel" referent="RBX1382">
+            <Properties>
+              <string name="Name">Label</string>
+              <string name="Text">CHURCH - HUMAN SANCTUARY</string>
+              <bool name="TextScaled">true</bool>
+              <float name="BackgroundTransparency">1</float>
+              <Color3 name="TextColor3">
+                <R>0.9411764705882353</R>
+                <G>0.8470588235294118</G>
+                <B>0.6313725490196078</B>
+              </Color3>
+              <token name="Font">4</token>
+              <UDim2 name="Size">
+                <XS>1</XS>
+                <XO>0</XO>
+                <YS>1</YS>
+                <YO>0</YO>
+              </UDim2>
+            </Properties>
+          </Item>
+        </Item>
+      </Item>
+      <Item class="Part" referent="RBX1383">
         <Properties>
           <string name="Name">ChapelWalk</string>
           <Vector3 name="size">
@@ -44251,7 +44180,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1385">
+      <Item class="Part" referent="RBX1384">
         <Properties>
           <string name="Name">ChapelWalk</string>
           <Vector3 name="size">
@@ -44284,7 +44213,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1386">
+      <Item class="Part" referent="RBX1385">
         <Properties>
           <string name="Name">CemeteryWalk</string>
           <Vector3 name="size">
@@ -44317,7 +44246,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1387">
+      <Item class="Part" referent="RBX1386">
         <Properties>
           <string name="Name">CemeteryWalk</string>
           <Vector3 name="size">
@@ -44350,7 +44279,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1388">
+      <Item class="Part" referent="RBX1387">
         <Properties>
           <string name="Name">InnWalk</string>
           <Vector3 name="size">
@@ -44383,7 +44312,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1389">
+      <Item class="Part" referent="RBX1388">
         <Properties>
           <string name="Name">ShrineWalk</string>
           <Vector3 name="size">
@@ -44416,7 +44345,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1390">
+      <Item class="Part" referent="RBX1389">
         <Properties>
           <string name="Name">ShrineWalk</string>
           <Vector3 name="size">
@@ -44449,7 +44378,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1398">
+      <Item class="Part" referent="RBX1397">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44481,13 +44410,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1399">
+        <Item class="SurfaceGui" referent="RBX1398">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1400">
+          <Item class="TextLabel" referent="RBX1399">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">CONTRACTS / REST</string>
@@ -44509,7 +44438,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1401">
+      <Item class="Part" referent="RBX1400">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44541,13 +44470,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1402">
+        <Item class="SurfaceGui" referent="RBX1401">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1403">
+          <Item class="TextLabel" referent="RBX1402">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">SUPPLIES: FARM</string>
@@ -44569,7 +44498,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1404">
+      <Item class="Part" referent="RBX1403">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44601,13 +44530,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1405">
+        <Item class="SurfaceGui" referent="RBX1404">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1406">
+          <Item class="TextLabel" referent="RBX1405">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">SUPPLIES: MILL</string>
@@ -44629,7 +44558,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1407">
+      <Item class="Part" referent="RBX1406">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44661,13 +44590,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1408">
+        <Item class="SurfaceGui" referent="RBX1407">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1409">
+          <Item class="TextLabel" referent="RBX1408">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">DAWN SEAL</string>
@@ -44689,7 +44618,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1410">
+      <Item class="Part" referent="RBX1409">
         <Properties>
           <string name="Name">ServiceTorso</string>
           <Vector3 name="size">
@@ -44723,7 +44652,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1411">
+      <Item class="Part" referent="RBX1410">
         <Properties>
           <string name="Name">ServiceHead</string>
           <Vector3 name="size">
@@ -44757,7 +44686,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1412">
+      <Item class="Part" referent="RBX1411">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44789,13 +44718,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1413">
+        <Item class="SurfaceGui" referent="RBX1412">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1414">
+          <Item class="TextLabel" referent="RBX1413">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">COSMETICS</string>
@@ -44817,7 +44746,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1415">
+      <Item class="Part" referent="RBX1414">
         <Properties>
           <string name="Name">ServiceTorso</string>
           <Vector3 name="size">
@@ -44851,7 +44780,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1416">
+      <Item class="Part" referent="RBX1415">
         <Properties>
           <string name="Name">ServiceHead</string>
           <Vector3 name="size">
@@ -44885,7 +44814,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1417">
+      <Item class="Part" referent="RBX1416">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -44917,13 +44846,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1418">
+        <Item class="SurfaceGui" referent="RBX1417">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1419">
+          <Item class="TextLabel" referent="RBX1418">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">BLACKSMITH</string>
@@ -44945,7 +44874,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1420">
+      <Item class="Part" referent="RBX1419">
         <Properties>
           <string name="Name">ServiceTorso</string>
           <Vector3 name="size">
@@ -44979,7 +44908,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1421">
+      <Item class="Part" referent="RBX1420">
         <Properties>
           <string name="Name">ServiceHead</string>
           <Vector3 name="size">
@@ -45013,7 +44942,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1422">
+      <Item class="Part" referent="RBX1421">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -45045,13 +44974,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1423">
+        <Item class="SurfaceGui" referent="RBX1422">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1424">
+          <Item class="TextLabel" referent="RBX1423">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">GUILDS</string>
@@ -45073,7 +45002,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1425">
+      <Item class="Part" referent="RBX1424">
         <Properties>
           <string name="Name">ServiceTorso</string>
           <Vector3 name="size">
@@ -45107,7 +45036,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1426">
+      <Item class="Part" referent="RBX1425">
         <Properties>
           <string name="Name">ServiceHead</string>
           <Vector3 name="size">
@@ -45141,7 +45070,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1427">
+      <Item class="Part" referent="RBX1426">
         <Properties>
           <string name="Name">Sign</string>
           <Vector3 name="size">
@@ -45173,13 +45102,13 @@
           <bool name="CanTouch">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="SurfaceGui" referent="RBX1428">
+        <Item class="SurfaceGui" referent="RBX1427">
           <Properties>
             <string name="Name">Text</string>
             <token name="Face">5</token>
             <float name="PixelsPerStud">40</float>
           </Properties>
-          <Item class="TextLabel" referent="RBX1429">
+          <Item class="TextLabel" referent="RBX1428">
             <Properties>
               <string name="Name">Label</string>
               <string name="Text">HEALER</string>
@@ -45201,7 +45130,7 @@
           </Item>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1430">
+      <Item class="Part" referent="RBX1429">
         <Properties>
           <string name="Name">DistrictPlaza</string>
           <Vector3 name="size">
@@ -45234,7 +45163,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1431">
+      <Item class="Part" referent="RBX1430">
         <Properties>
           <string name="Name">DistrictPlaza</string>
           <Vector3 name="size">
@@ -45267,7 +45196,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1432">
+      <Item class="Part" referent="RBX1431">
         <Properties>
           <string name="Name">DistrictPlaza</string>
           <Vector3 name="size">
@@ -45300,7 +45229,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1433">
+      <Item class="Part" referent="RBX1432">
         <Properties>
           <string name="Name">DistrictPlaza</string>
           <Vector3 name="size">
@@ -45333,7 +45262,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1434">
+      <Item class="Part" referent="RBX1433">
         <Properties>
           <string name="Name">RoadLamp</string>
           <Vector3 name="size">
@@ -45366,7 +45295,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1435">
+      <Item class="Part" referent="RBX1434">
         <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
@@ -45399,49 +45328,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1436">
+        <Item class="PointLight" referent="RBX1435">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1436">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>-187</X>
+            <Y>7</Y>
+            <Z>0</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1437">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>-187</X>
-            <Y>7</Y>
-            <Z>0</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1438">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45473,49 +45402,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1439">
+        <Item class="PointLight" referent="RBX1438">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1439">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>213</X>
+            <Y>7</Y>
+            <Z>0</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1440">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>213</X>
-            <Y>7</Y>
-            <Z>0</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1441">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45547,49 +45476,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1442">
+        <Item class="PointLight" referent="RBX1441">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1442">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>363</X>
+            <Y>7</Y>
+            <Z>0</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1443">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>363</X>
-            <Y>7</Y>
-            <Z>0</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1444">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45621,49 +45550,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1445">
+        <Item class="PointLight" referent="RBX1444">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1445">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>13</X>
+            <Y>7</Y>
+            <Z>-200</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1446">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>13</X>
-            <Y>7</Y>
-            <Z>-200</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1447">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45695,49 +45624,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1448">
+        <Item class="PointLight" referent="RBX1447">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1448">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>13</X>
+            <Y>7</Y>
+            <Z>-350</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1449">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>13</X>
-            <Y>7</Y>
-            <Z>-350</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1450">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45769,49 +45698,49 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1451">
+        <Item class="PointLight" referent="RBX1450">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
             <float name="Brightness">1.2</float>
           </Properties>
         </Item>
+      </Item>
+      <Item class="Part" referent="RBX1451">
+        <Properties>
+          <string name="Name">RoadLamp</string>
+          <Vector3 name="size">
+            <X>1</X>
+            <Y>14</Y>
+            <Z>1</Z>
+          </Vector3>
+          <CoordinateFrame name="CFrame">
+            <X>13</X>
+            <Y>7</Y>
+            <Z>180</Z>
+            <R00>1.0</R00>
+            <R01>-0.0</R01>
+            <R02>0</R02>
+            <R10>0.0</R10>
+            <R11>1.0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
+          <bool name="Anchored">true</bool>
+          <bool name="CanCollide">true</bool>
+          <float name="Transparency">0</float>
+          <token name="Material">1088</token>
+          <token name="TopSurface">0</token>
+          <token name="BottomSurface">0</token>
+          <bool name="CanTouch">false</bool>
+          <bool name="CastShadow">true</bool>
+        </Properties>
       </Item>
       <Item class="Part" referent="RBX1452">
         <Properties>
-          <string name="Name">RoadLamp</string>
-          <Vector3 name="size">
-            <X>1</X>
-            <Y>14</Y>
-            <Z>1</Z>
-          </Vector3>
-          <CoordinateFrame name="CFrame">
-            <X>13</X>
-            <Y>7</Y>
-            <Z>180</Z>
-            <R00>1.0</R00>
-            <R01>-0.0</R01>
-            <R02>0</R02>
-            <R10>0.0</R10>
-            <R11>1.0</R11>
-            <R12>0</R12>
-            <R20>0</R20>
-            <R21>0</R21>
-            <R22>1</R22>
-          </CoordinateFrame>
-          <Color3uint8 name="Color3uint8">3419944</Color3uint8>
-          <bool name="Anchored">true</bool>
-          <bool name="CanCollide">true</bool>
-          <float name="Transparency">0</float>
-          <token name="Material">1088</token>
-          <token name="TopSurface">0</token>
-          <token name="BottomSurface">0</token>
-          <bool name="CanTouch">false</bool>
-          <bool name="CastShadow">true</bool>
-        </Properties>
-      </Item>
-      <Item class="Part" referent="RBX1453">
-        <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
             <X>2</X>
@@ -45843,7 +45772,7 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1454">
+        <Item class="PointLight" referent="RBX1453">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
@@ -45851,7 +45780,7 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Part" referent="RBX1455">
+      <Item class="Part" referent="RBX1454">
         <Properties>
           <string name="Name">RoadLamp</string>
           <Vector3 name="size">
@@ -45884,7 +45813,7 @@
           <bool name="CastShadow">true</bool>
         </Properties>
       </Item>
-      <Item class="Part" referent="RBX1456">
+      <Item class="Part" referent="RBX1455">
         <Properties>
           <string name="Name">RoadLantern</string>
           <Vector3 name="size">
@@ -45917,7 +45846,7 @@
           <bool name="CanQuery">false</bool>
           <bool name="CastShadow">false</bool>
         </Properties>
-        <Item class="PointLight" referent="RBX1457">
+        <Item class="PointLight" referent="RBX1456">
           <Properties>
             <string name="Name">Light</string>
             <float name="Range">30</float>
@@ -45927,16 +45856,16 @@
       </Item>
     </Item>
   </Item>
-  <Item class="ServerScriptService" referent="RBX1458">
+  <Item class="ServerScriptService" referent="RBX1457">
     <Properties>
       <string name="Name">ServerScriptService</string>
     </Properties>
-    <Item class="ModuleScript" referent="RBX1459">
+    <Item class="ModuleScript" referent="RBX1458">
       <Properties>
         <string name="Name">Config</string>
         <ProtectedString name="Source">-- The admission cap must ALSO be set to 50 in Creator Dashboard place settings.
 return {
- MinPlayers=2, MaxPlayers=50, Day=240, Night=180, Cycles=3, Intermission=20,
+ MinPlayers=2, MaxPlayers=50, Day=480, Night=360, Cycles=3, Intermission=30,
  Range=10, InspectCooldown=20, CaptureCooldown=5, FeedCooldown=8, InfectCooldown=25,
  SaveInterval=90, LockLifetime=300, MaxLevel=30,
  -- Studio uses disposable profiles by default. Never enable API access on live data for tests.
@@ -45945,7 +45874,7 @@ return {
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1460">
+    <Item class="ModuleScript" referent="RBX1459">
       <Properties>
         <string name="Name">Progression</string>
         <ProtectedString name="Source">-- Server-owned RPG profiles, session leases, quests and contextual interactions.
@@ -46242,7 +46171,7 @@ return RPG
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1461">
+    <Item class="ModuleScript" referent="RBX1460">
       <Properties>
         <string name="Name">Monetization</string>
         <ProtectedString name="Source">local Players=game:GetService('Players')
@@ -46311,7 +46240,7 @@ return Monetization
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1462">
+    <Item class="ModuleScript" referent="RBX1461">
       <Properties>
         <string name="Name">Rules</string>
         <ProtectedString name="Source">-- Pure rules shared by the round controller and behavior tests.
@@ -46342,7 +46271,7 @@ return Rules
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1463">
+    <Item class="ModuleScript" referent="RBX1462">
       <Properties>
         <string name="Name">Weapons</string>
         <ProtectedString name="Source">local Weapons={}
@@ -46362,7 +46291,7 @@ function Weapons.Give(p)
  local pack=p:WaitForChild('Backpack',10); if not pack then return end
  for _,old in ipairs(pack:GetChildren()) do if old:GetAttribute('ApusWeapon') then old:Destroy() end end
  -- Everyone receives the same gear. Inventory never leaks the secret role by day.
- for _,key in ipairs({'SilverSword','Crossbow','Claws'}) do
+ for _,key in ipairs({'SilverSword','Crossbow','Claws','Crucifix','HolyWater','WoodenStake'}) do
   local w=Combat.Weapons[key]
   local tool=Instance.new('Tool'); tool.Name=w.name; tool.ToolTip=w.name
   tool.CanBeDropped=false; tool:SetAttribute('ApusWeapon',key)
@@ -46374,6 +46303,16 @@ function Weapons.Give(p)
   elseif key=='Crossbow' then
    piece(tool,'Stock',Vector3.new(.4,.45,2),Vector3.new(0,.4,-.6),Color3.fromRGB(109,75,48),handle)
    piece(tool,'Bow',Vector3.new(2.6,.15,.2),Vector3.new(0,.5,-1.4),Color3.fromRGB(158,165,175),handle)
+  elseif key=='Crucifix' then
+   piece(tool,'CrossStem',Vector3.new(.18,1.5,.18),Vector3.new(0,1,0),Color3.fromRGB(195,190,157),handle)
+   piece(tool,'CrossArm',Vector3.new(.95,.18,.18),Vector3.new(0,1.35,0),Color3.fromRGB(195,190,157),handle)
+  elseif key=='HolyWater' then
+   local bottle=piece(tool,'HolyWaterVial',Vector3.new(.65,1.1,.65),Vector3.new(0,.85,0),Color3.fromRGB(134,198,215),handle)
+   bottle.Material=Enum.Material.Glass; bottle.Transparency=.25
+   piece(tool,'Stopper',Vector3.new(.4,.25,.4),Vector3.new(0,1.5,0),Color3.fromRGB(147,114,65),handle)
+  elseif key=='WoodenStake' then
+   local stake=piece(tool,'AshwoodStake',Vector3.new(.35,2.4,.35),Vector3.new(0,1.2,0),Color3.fromRGB(119,78,43),handle)
+   stake.Material=Enum.Material.Wood
   else
    for i=-1,1 do piece(tool,'Claw',Vector3.new(.12,1.6,.12),Vector3.new(i*.3,1.1,0),Color3.fromRGB(149,72,108),handle) end
   end
@@ -46384,7 +46323,7 @@ return Weapons
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1464">
+    <Item class="ModuleScript" referent="RBX1463">
       <Properties>
         <string name="Name">AdventureRules</string>
         <ProtectedString name="Source">-- Pure rules shared by server progression and deterministic tests.
@@ -46402,7 +46341,7 @@ return Rules
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1465">
+    <Item class="ModuleScript" referent="RBX1464">
       <Properties>
         <string name="Name">BotRules</string>
         <ProtectedString name="Source">local Rules={}
@@ -46428,7 +46367,7 @@ return Rules
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1466">
+    <Item class="ModuleScript" referent="RBX1465">
       <Properties>
         <string name="Name">Bots</string>
         <ProtectedString name="Source">-- Studio-only NPC participants. They call the actual round action handler.
@@ -46544,7 +46483,7 @@ return Bots
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1467">
+    <Item class="ModuleScript" referent="RBX1466">
       <Properties>
         <string name="Name">Sessions</string>
         <ProtectedString name="Source">-- Private-session routing. Access tokens stay server-side; clients receive short join codes.
@@ -46631,7 +46570,7 @@ return Sessions
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1468">
+    <Item class="ModuleScript" referent="RBX1467">
       <Properties>
         <string name="Name">SessionRules</string>
         <ProtectedString name="Source">local Rules={}
@@ -46645,7 +46584,238 @@ return Rules
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="Script" referent="RBX1469">
+    <Item class="ModuleScript" referent="RBX1468">
+      <Properties>
+        <string name="Name">HuntRules</string>
+        <ProtectedString name="Source">local Rules={}
+function Rules.Support(humanScore,vampireScore)
+ if vampireScore&gt;humanScore then return 'Priest' end
+ if humanScore&gt;vampireScore then return 'Bat' end
+ return 'None'
+end
+function Rules.InSanctuary(x,y,z)
+ return x&gt;=44 and x&lt;=66 and y&gt;=0 and y&lt;=23 and z&gt;=-166 and z&lt;=-134
+end
+function Rules.Protected(vampire,x,y,z)
+ return not vampire and Rules.InSanctuary(x,y,z)
+end
+function Rules.StakeFinishes(phase,health,revealed,weakened)
+ return health&lt;=25 or weakened or (phase=='Zi' and revealed)
+end
+return Rules
+</ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="RBX1469">
+      <Properties>
+        <string name="Name">CharacterDesign</string>
+        <ProtectedString name="Source">-- Original role silhouettes; concealed vampires retain the common daytime outfit.
+local Design={}
+local original=setmetatable({},{__mode='k'})
+function Design.Apply(char,vampire)
+ local style=vampire and 'Vampire' or 'Hunter'
+ if char:GetAttribute('ApusOutfitStyle')==style then return end
+ local torso=char:FindFirstChild('UpperTorso') or char:FindFirstChild('Torso')
+ local head=char:FindFirstChild('Head')
+ if not torso or not head then return end
+ local old=char:FindFirstChild('ApusOutfit'); if old then old:Destroy() end
+ local outfit=Instance.new('Model'); outfit.Name='ApusOutfit'; outfit.Parent=char
+ if not original[head] then original[head]=head.Color end
+ head.Color=vampire and Color3.fromRGB(190,196,204) or original[head]
+ local function piece(name,anchor,size,offset,color)
+  local p=Instance.new('Part'); p.Name=name; p.Size=size; p.Material=Enum.Material.Fabric; p.Color=color
+  p.CanCollide=false; p.CanTouch=false; p.CanQuery=false; p.Massless=true; p.CastShadow=false
+  p.CFrame=anchor.CFrame*CFrame.new(offset); p.Parent=outfit
+  local weld=Instance.new('WeldConstraint'); weld.Part0=anchor; weld.Part1=p; weld.Parent=p
+  return p
+ end
+ local width=torso.Size.X
+ piece('Tunic',torso,Vector3.new(width+.1,torso.Size.Y*.85,torso.Size.Z+.1),Vector3.zero,
+  vampire and Color3.fromRGB(42,28,43) or Color3.fromRGB(49,68,82))
+ piece('LeatherBelt',torso,Vector3.new(width+.18,.22,torso.Size.Z+.18),Vector3.new(0,-torso.Size.Y*.32,0),Color3.fromRGB(94,64,40))
+ if vampire then
+  piece('CrimsonMantle',torso,Vector3.new(width+1.1,.35,torso.Size.Z+.45),Vector3.new(0,torso.Size.Y*.4,.1),Color3.fromRGB(105,25,39))
+  piece('CrimsonCape',torso,Vector3.new(width+.5,torso.Size.Y*1.5,.18),Vector3.new(0,-.55,torso.Size.Z/2+.25),Color3.fromRGB(88,20,34))
+  for _,side in ipairs({-1,1}) do
+   local eye=piece('RedEye',head,Vector3.new(.16,.1,.04),Vector3.new(side*.25,.08,-head.Size.Z/2-.02),Color3.fromRGB(160,32,39)); eye.Material=Enum.Material.SmoothPlastic
+   piece('Fang',head,Vector3.new(.09,.14,.07),Vector3.new(side*.15,-.23,-head.Size.Z/2-.04),Color3.fromRGB(227,222,203))
+  end
+ else
+  piece('HunterShoulder',torso,Vector3.new(.5,.3,torso.Size.Z+.25),Vector3.new(width*.4,torso.Size.Y*.42,0),Color3.fromRGB(104,79,47))
+  local badge=piece('SilverInsignia',torso,Vector3.new(.28,.4,.08),Vector3.new(-width*.28,.15,-torso.Size.Z/2-.1),Color3.fromRGB(179,189,192)); badge.Material=Enum.Material.Metal
+ end
+ char:SetAttribute('ApusOutfitStyle',style)
+end
+return Design
+</ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="RBX1470">
+      <Properties>
+        <string name="Name">WorldLife</string>
+        <ProtectedString name="Source">-- Bounded shared updates: ten wildlife models, at most three hostile helpers.
+local Pathfinding=game:GetService('PathfindingService')
+local Hunt=require(script.Parent.HuntRules)
+local Life={actors={},support='None',phase='Asteptare'}
+local ctx,creatures,scenery
+local fauna={}
+local function model(name,kind)
+ local m=Instance.new('Model'); m.Name=name; m:SetAttribute('CreatureKind',kind)
+ local root=Instance.new('Part'); root.Name='HumanoidRootPart'; root.Size=Vector3.new(1,1,1); root.Transparency=1
+ root.Anchored=true; root.CanCollide=false; root.CanTouch=false; root.CanQuery=false; root.Parent=m; m.PrimaryPart=root
+ local function part(name,size,pos,color,cls)
+  local p=Instance.new(cls or 'Part'); p.Name=name; p.Size=size; p.CFrame=CFrame.new(pos); p.Color=color
+  p.Material=Enum.Material.SmoothPlastic; p.Anchored=true; p.CanCollide=false; p.CanTouch=false; p.CanQuery=false; p.CastShadow=false; p.Parent=m
+  return p
+ end
+ local coat=kind=='NightHound' and Color3.fromRGB(48,47,60) or Color3.fromRGB(128,92,58)
+ if kind=='Bat' then
+  part('Body',Vector3.new(.8,1.1,.8),Vector3.zero,Color3.fromRGB(54,30,47))
+  for _,side in ipairs({-1,1}) do
+   part('Wing',Vector3.new(2.3,.15,1.8),Vector3.new(side*1.35,0,0),Color3.fromRGB(89,32,48),'WedgePart')
+   part('Ear',Vector3.new(.22,.6,.3),Vector3.new(side*.27,.7,0),Color3.fromRGB(61,33,48))
+   part('Eye',Vector3.new(.09,.09,.05),Vector3.new(side*.18,.2,-.43),Color3.fromRGB(191,49,49))
+  end
+ elseif kind=='Priest' then
+  part('Robe',Vector3.new(2.1,3,1.1),Vector3.new(0,-.35,0),Color3.fromRGB(224,214,181))
+  part('Stole',Vector3.new(.65,2.9,1.18),Vector3.new(0,-.3,0),Color3.fromRGB(75,57,93))
+  part('Head',Vector3.new(1.5,1.3,1.2),Vector3.new(0,1.8,0),Color3.fromRGB(191,159,129))
+  part('Beard',Vector3.new(1,.6,.22),Vector3.new(0,1.3,-.67),Color3.fromRGB(186,184,175))
+  part('Cross',Vector3.new(.15,.75,.1),Vector3.new(0,.4,-.65),Color3.fromRGB(187,158,85))
+  part('CrossArm',Vector3.new(.5,.12,.1),Vector3.new(0,.55,-.65),Color3.fromRGB(187,158,85))
+ elseif kind=='Chicken' then
+  part('Body',Vector3.new(.9,.8,1.1),Vector3.zero,Color3.fromRGB(207,192,161))
+  part('Head',Vector3.new(.5,.6,.5),Vector3.new(0,.5,-.5),Color3.fromRGB(222,211,184))
+  part('Comb',Vector3.new(.15,.25,.35),Vector3.new(0,.9,-.5),Color3.fromRGB(154,48,43))
+  part('Beak',Vector3.new(.3,.2,.35),Vector3.new(0,.5,-.8),Color3.fromRGB(192,146,56))
+  for _,s in ipairs({-1,1}) do part('Leg',Vector3.new(.12,.6,.12),Vector3.new(s*.25,-.6,0),Color3.fromRGB(192,146,56)) end
+ else
+  local rabbit=kind=='Rabbit'
+  local scale=rabbit and .5 or 1
+  part('Body',Vector3.new(1.4,1.4,2.4)*scale,Vector3.zero,coat)
+  part('Head',Vector3.new(.9,1,1.1)*scale,Vector3.new(0,.45,-1.35)*scale,coat)
+  for _,s in ipairs({-1,1}) do
+   part('Eye',Vector3.new(.1,.1,.12),Vector3.new(s*.38,.65,-1.86)*scale,kind=='NightHound' and Color3.fromRGB(155,48,51) or Color3.fromRGB(35,28,25))
+   part('Ear',Vector3.new(.2,rabbit and 1.3 or .6,.35)*scale,Vector3.new(s*.3,1.1,-1.4)*scale,coat)
+   for _,z in ipairs({-.75,.75}) do part('Leg',Vector3.new(.3,1.4,.4)*scale,Vector3.new(s*.5,-1.2,z)*scale,coat) end
+  end
+  part('Tail',Vector3.new(.3,.3,1)*scale,Vector3.new(0,.2,1.5)*scale,coat)
+  if kind=='Deer' then
+   for _,s in ipairs({-1,1}) do part('Antler',Vector3.new(.15,1.1,.15),Vector3.new(s*.3,1.6,-1.25),Color3.fromRGB(162,145,110)) end
+  end
+ end
+ return m
+end
+local function clearHelpers()
+ for id,a in pairs(Life.actors) do ctx.remove(a); a.Character:Destroy(); Life.actors[id]=nil end
+ if Life.priest then Life.priest:Destroy(); Life.priest=nil end
+end
+local function spawnHostile(id,kind,pos)
+ local m=model(kind=='Bat' and 'Crimson Bat' or 'Night Hound',kind)
+ local hum=Instance.new('Humanoid'); hum.RequiresNeck=false; hum.BreakJointsOnDeath=false; hum.MaxHealth=kind=='Bat' and 60 or 70; hum.Health=hum.MaxHealth; hum.DisplayName=m.Name; hum.Parent=m
+ m:SetAttribute('ActorId',id); m:SetAttribute('RoundActive',true); m:SetAttribute('Captured',false); m.Parent=creatures; m:PivotTo(CFrame.new(pos))
+ local actor={IsBot=true,IsCreature=true,UserId=id,Name=m.Name,DisplayName=m.Name,Character=m,Parent=game.Players,kind=kind,nextHit=0}
+ function actor:GetAttribute(k) return self.Character:GetAttribute(k) end
+ function actor:SetAttribute(k,v) self.Character:SetAttribute(k,v) end
+ Life.actors[id]=actor; ctx.register(actor)
+end
+function Life.Resolve(id) return Life.actors[id] end
+function Life.Defeat(actor)
+ if Life.actors[actor.UserId] then ctx.remove(actor); Life.actors[actor.UserId]=nil; actor.Character:Destroy() end
+end
+function Life.BeginRound(scores)
+ Life.support=Hunt.Support(scores.humans,scores.vampires)
+ workspace:SetAttribute('ApusSupport',Life.support)
+end
+function Life.OnPhase(phase)
+ Life.phase=phase; clearHelpers()
+ if phase~='Zi' and phase~='Noapte' then return end
+ if Life.support=='Priest' then
+  Life.priest=model('Father Alden','Priest'); Life.priest.Parent=scenery; Life.priest:PivotTo(CFrame.new(55,2.5,-148)); Life.nextHeal=0
+  local b=Instance.new('BillboardGui'); b.Size=UDim2.fromOffset(160,32); b.StudsOffset=Vector3.new(0,4,0); b.MaxDistance=50; b.Parent=Life.priest.PrimaryPart
+  local t=Instance.new('TextLabel'); t.Size=UDim2.fromScale(1,1); t.BackgroundTransparency=1; t.Text='FATHER ALDEN\nHealing nearby humans'; t.TextColor3=Color3.fromRGB(238,220,168); t.TextSize=12; t.Parent=b
+ end
+ if phase=='Noapte' then
+  spawnHostile(-1001,'NightHound',Vector3.new(-95,2,-75))
+  spawnHostile(-1002,'NightHound',Vector3.new(95,2,75))
+  if Life.support=='Bat' then spawnHostile(-1003,'Bat',Vector3.new(0,12,-80)) end
+ end
+end
+function Life.Init(context)
+ ctx=context
+ creatures=Instance.new('Folder'); creatures.Name='ApusCreatures'; creatures.Parent=workspace
+ scenery=Instance.new('Folder'); scenery.Name='ApusWildlife'; scenery.Parent=workspace
+ for i=1,10 do
+  local kind=i&lt;=3 and 'Deer' or i&lt;=6 and 'Rabbit' or 'Chicken'
+  local pos=i&lt;=3 and Vector3.new(-340+i*20,2,210) or i&lt;=6 and Vector3.new(185+(i-3)*9,1,190) or Vector3.new(200+(i-6)*7,1,160)
+  local m=model(kind,kind); m.Parent=scenery; m:PivotTo(CFrame.new(pos)); table.insert(fauna,{model=m,home=pos,index=i})
+ end
+ task.spawn(function()
+  local tick=0
+  while true do
+   task.wait(.5); tick=tick+1
+   if tick%4==0 then
+    for _,a in ipairs(fauna) do
+     local now=os.clock()*.1+a.index
+     local pos=a.home+Vector3.new(math.sin(now)*5,0,math.cos(now*.8)*5)
+     a.model:PivotTo(CFrame.new(pos)*CFrame.Angles(0,now,0))
+    end
+   end
+   if Life.priest and os.clock()&gt;=(Life.nextHeal or 0) then
+    Life.nextHeal=os.clock()+8
+    for p,s in pairs(ctx.states) do if not s.vampire and not s.creature and ctx.alive(p) and (ctx.root(p).Position-Life.priest:GetPivot().Position).Magnitude&lt;=20 then
+     local h=p.Character:FindFirstChildOfClass('Humanoid'); h.Health=math.min(h.MaxHealth,h.Health+12)
+    end end
+   end
+   for _,a in pairs(Life.actors) do
+    if os.clock()&gt;=(a.stunnedUntil or 0) then
+     local r=a.Character.PrimaryPart; local nearest,distance=nil,120
+     for p,s in pairs(ctx.states) do
+      if not s.vampire and not s.creature and ctx.alive(p) and not ctx.protected(p) then
+       local d=(ctx.root(p).Position-r.Position).Magnitude
+       if d&lt;distance then nearest=p; distance=d end
+      end
+     end
+     if nearest then
+      local target=ctx.root(nearest).Position; local goal=target+Vector3.new(0,a.kind=='Bat' and 8 or -1,0)
+      if a.kind~='Bat' then
+       if not a.routeAt or os.clock()&gt;=a.routeAt then
+        a.routeAt=os.clock()+3
+        local path=Pathfinding:CreatePath({AgentRadius=2,AgentHeight=4,AgentCanJump=false})
+        local ok=pcall(function() path:ComputeAsync(r.Position,target) end)
+        a.points=ok and path.Status==Enum.PathStatus.Success and path:GetWaypoints() or nil; a.index=2
+       end
+       local point=a.points and a.points[a.index]
+       if point then
+        goal=point.Position+Vector3.new(0,2,0)
+        if (goal-r.Position).Magnitude&lt;3 then a.index=a.index+1 end
+       end
+      end
+      local delta=goal-r.Position
+      if delta.Magnitude&gt;.3 then
+       local pos=r.Position+delta.Unit*math.min(delta.Magnitude,(a.kind=='Bat' and 14 or 12)*.5)
+       local facing=Vector3.new(delta.X,0,delta.Z)
+       if Life.actors[a.UserId]==a and not Hunt.InSanctuary(pos.X,pos.Y,pos.Z) and facing.Magnitude&gt;.01 then a.Character:PivotTo(CFrame.lookAt(pos,pos+facing)) end
+      end
+      local range=a.kind=='Bat' and 12 or 6
+      if Life.actors[a.UserId]==a and Life.phase=='Noapte' and ctx.alive(nearest) and not ctx.protected(nearest) and (ctx.root(nearest).Position-r.Position).Magnitude&lt;=range and os.clock()&gt;=a.nextHit then
+       target=ctx.root(nearest).Position
+       local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude; ray.FilterDescendantsInstances={a.Character,nearest.Character}
+       if not workspace:Raycast(r.Position,target-r.Position,ray) then
+        a.nextHit=os.clock()+(a.kind=='Bat' and 5 or 6); ctx.hurt(nearest,a.kind=='Bat' and 8 or 5)
+       end
+      end
+     end
+    end
+   end
+  end
+ end)
+end
+return Life
+</ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="Script" referent="RBX1471">
       <Properties>
         <string name="Name">Game</string>
         <ProtectedString name="Source">-- Satul dupa Apus: server-authoritative prototype. No external assets.
@@ -46657,6 +46827,9 @@ local Combat=require(RS:WaitForChild('CombatRules'))
 local Weapons=require(script.Parent.Weapons)
 local Bots=require(script.Parent.Bots)
 local Sessions=require(script.Parent.Sessions)
+local Hunt=require(script.Parent.HuntRules)
+local Design=require(script.Parent.CharacterDesign)
+local Life=require(script.Parent.WorldLife)
 local RunService=game:GetService('RunService')
 local function isBot(p) return type(p)=='table' and p.IsBot==true end
 local function emit(remote,p,data) if not isBot(p) then remote:FireClient(p,data) end end
@@ -46671,8 +46844,11 @@ local Monetization=require(script.Parent.Monetization)
 Monetization.Init()
 local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
+local setPhase
 local practiceRound=false
 local pendingBotCount=nil
+local scores={humans=0,vampires=0}
+local practiceScores={humans=0,vampires=0}
 local message = 'At least two participants are required.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
 table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))&lt;tonumber(b.Name:match('%d+')) end)
@@ -46692,8 +46868,14 @@ local function move(p, pos)
  local r=root(p); if r then p.Character:PivotTo(CFrame.new(pos)) end
 end
 local function tell(p,t) local s=states[p]; if s then s.notice=t; s.noticeUntil=os.clock()+5 end end
+local function protected(p)
+ local s,r=states[p],root(p)
+ return s and not s.captured and r and Hunt.Protected(s.vampire,r.Position.X,r.Position.Y,r.Position.Z)
+end
 local function paint(p)
  local s=states[p]; if not s or not p.Character then return end
+ if s.creature then return end
+ Design.Apply(p.Character,s.vampire and s.active and (phase=='Noapte' or s.captured or (s.reveal or 0)&gt;os.clock()))
  p:SetAttribute('RoundActive',s.active); p:SetAttribute('Captured',s.captured)
  local old=p.Character:FindFirstChild('Revealed'); if old then old:Destroy() end
  if s.active and not s.captured and s.vampire and (phase=='Noapte' or (s.reveal or 0)&gt;os.clock()) then
@@ -46704,13 +46886,14 @@ local function paint(p)
  local pr=root(p); if pr then pr.Anchored=s.captured end
  local hum=humanoid(p)
  if hum then
-  hum.WalkSpeed=(s.captured and 0) or ((s.weakened or 0)&gt;os.clock() and 10) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
-  hum.JumpPower=s.captured and 0 or 50; hum.JumpHeight=s.captured and 0 or 7.2
+  local stopped=s.captured or (s.stunnedUntil or 0)&gt;os.clock()
+  hum.WalkSpeed=(stopped and 0) or ((s.weakened or 0)&gt;os.clock() and 10) or (phase=='Noapte' and s.vampire and s.active and 20) or 16
+  hum.JumpPower=stopped and 0 or 50; hum.JumpHeight=stopped and 0 or 7.2
  end
 end
 local function counts()
  local humans,vamps=0,0
- for p,s in pairs(states) do if s.active and not s.captured and p.Parent==Players then
+ for p,s in pairs(states) do if s.active and not s.creature and not s.captured and p.Parent==Players then
   if s.vampire then vamps=vamps+1 else humans=humans+1 end
  end end
  return humans,vamps
@@ -46723,8 +46906,9 @@ local function winner()
 end
 local function validTarget(p, id, range)
  if type(id)~='number' or id~=id or id==math.huge or id==-math.huge or id%1~=0 or math.abs(id)&gt;9007199254740991 then return nil end
- local target=id&lt;0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id)
+ local target=id&lt;0 and (Bots.Resolve(id) or Life.Resolve(id)) or Players:GetPlayerByUserId(id)
  if not target or target==p or not alive(p) or not alive(target) then return nil end
+ if protected(p) or protected(target) then return nil end
  local a,b=root(p),root(target)
  if (a.Position-b.Position).Magnitude&gt;(range or C.Range) then return nil end
  local ray=RaycastParams.new(); ray.FilterType=Enum.RaycastFilterType.Exclude
@@ -46749,7 +46933,7 @@ local function assignJail(p)
 end
 local function updateCrypts()
  local count=0
- for p,s in pairs(states) do if s.active and p.Parent==Players then count=count+1 end end
+ for p,s in pairs(states) do if s.active and not s.creature and p.Parent==Players then count=count+1 end end
  local desired=Rules.CryptCount(count)
  activeCrypts=desired
  -- Move prisoners out before closing any occupied crypt.
@@ -46776,6 +46960,26 @@ local function capture(target)
  assignJail(target); move(target,jailPosition(target)); paint(target)
  tell(target,'Captured in crypt '..s.jail..' until the round ends.')
 end
+local function damageActor(target,amount)
+ local s,h=states[target],humanoid(target)
+ if not s or not h then return end
+ if s.creature then
+  h.Health=math.max(0,h.Health-amount)
+  if h.Health&lt;=0 then Life.Defeat(target) end
+  return
+ end
+ h.Health=Combat.HealthAfter(h.Health,amount)
+ if s.vampire and amount&gt;0 and root(target) then
+  feedback:FireAllClients({kind='VampireBlood',position=root(target).Position+Vector3.new(0,1,0)})
+ end
+ if h.Health&lt;=1 then
+  s.weakened=os.clock()+8; s.reveal=os.clock()+8; paint(target)
+  tell(target,'Weakened for 8 seconds. Escape or call for help!')
+ end
+end
+Life.Init({states=states,root=root,alive=alive,protected=protected,hurt=damageActor,
+ register=function(p) states[p]={active=true,vampire=true,creature=true,captured=false,cooldowns={},infections=0} end,
+ remove=function(p) states[p]=nil end})
 updateCrypts()
 RPG.Init(function(p)
  local s=states[p]
@@ -46788,13 +46992,14 @@ local function handleAction(p, kind, id)
  local now=os.clock()
  if now&lt;(s.nextRequest or 0) then return end
  s.nextRequest=now+0.25
- if not running then return end
+ if not running or (s.stunnedUntil or 0)&gt;now then return end
  local tool=p.Character and p.Character:FindFirstChildOfClass('Tool')
- local weaponKey=isBot(p) and (s.vampire and 'Claws' or 'SilverSword') or (tool and tool:GetAttribute('ApusWeapon'))
+ local weaponKey=isBot(p) and (s.testWeapon or (s.vampire and 'Claws' or 'SilverSword')) or (tool and tool:GetAttribute('ApusWeapon'))
  local weapon=Combat.Weapons[weaponKey]
  if kind=='Weapon' and not weapon then return end
  local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Approach a visible target within 10 studs.'); return end
  local t=states[target]
+ if t.creature and kind~='Weapon' then return end
  local cd=kind=='Weapon' and weapon.cooldown or C[kind..'Cooldown']
  if now&lt;(s.cooldowns[kind] or 0) then tell(p,'Ability is on cooldown.'); return end
  if kind=='Weapon' then
@@ -46803,15 +47008,18 @@ local function handleAction(p, kind, id)
   local key=weaponKey
   if not Combat.CanHit(key,s.vampire,t.vampire,phase,delta.Magnitude,a.CFrame.LookVector:Dot(delta.Unit)) then return end
   s.cooldowns[kind]=now+cd
-  local th=humanoid(target); local health=Combat.HealthAfter(th.Health,weapon.damage)
-  th.Health=health
+  if key=='Crucifix' then
+   t.stunnedUntil=now+3; t.reveal=now+8
+   if t.creature then target.stunnedUntil=now+3 else paint(target) end
+   tell(p,'Consecrated light repels the vampire for 3 seconds.')
+  elseif key=='WoodenStake' and not t.creature and Hunt.StakeFinishes(phase,humanoid(target).Health,(t.reveal or 0)&gt;now,(t.weakened or 0)&gt;now) then
+   capture(target); tell(p,'Vampire subdued with the wooden stake.')
+  else
+   damageActor(target,weapon.damage)
+   if key=='HolyWater' and states[target] then t.reveal=now+12; paint(target); tell(p,'Holy water exposes the vampire for 12 seconds.') end
+  end
   emit(feedback,p,{kind='Hit',weapon=key,target=target.UserId})
   emit(feedback,target,{kind='Hurt'})
-  if health&lt;=1 then
-   -- A defeat opens a brief capture window, without death/respawn exploits.
-   t.weakened=now+8; t.reveal=now+8; paint(target)
-   tell(target,'Weakened for 8 seconds. Escape or call for help!')
-  end
  elseif kind=='Inspect' then
   if s.vampire or phase~='Zi' then return end
   s.cooldowns[kind]=now+cd
@@ -46879,7 +47087,7 @@ Bots.Start(states,function() return phase end,handleAction,alive,root)
 -- Server-only test harness; never created in published servers or replicated to clients.
 if RunService:IsStudio() then
  local probe=Instance.new('BindableFunction'); probe.Name='ApusStudioTest'; probe.Parent=game:GetService('ServerStorage')
- local function resolve(id) return id&lt;0 and Bots.Resolve(id) or Players:GetPlayerByUserId(id) end
+ local function resolve(id) return id&lt;0 and (Bots.Resolve(id) or Life.Resolve(id)) or Players:GetPlayerByUserId(id) end
  probe.OnInvoke=function(kind,a,b)
   if kind=='Action' then
    local actor=resolve(a.actor); if actor then handleAction(actor,a.kind,a.target) end
@@ -46892,12 +47100,22 @@ if RunService:IsStudio() then
   elseif kind=='Bots' then
    if phase~='Asteptare' then return {error='Between rounds only'} end
    Bots.SetCount(a,join,function(p) states[p]=nil end)
+  elseif kind=='Equip' then
+   local actor=resolve(a); if actor and isBot(actor) and Combat.Weapons[b] then states[actor].testWeapon=b end
+  elseif kind=='Health' then
+   local actor=resolve(a); if actor and type(b)=='number' then humanoid(actor).Health=math.clamp(b,1,100) end
+  elseif kind=='Position' then
+   local actor=resolve(a); if actor and typeof(b)=='Vector3' then move(actor,b) end
+  elseif kind=='Score' then
+   practiceScores={humans=a,vampires=b}; Life.BeginRound(practiceScores); Life.OnPhase(phase)
+  elseif kind=='Phase' and (a=='Zi' or a=='Noapte') then
+   setPhase(a,20)
   end
-  local result={phase=phase,round=roundId,practice=practiceRound,actors={},humans=0,vampires=0}
+  local result={phase=phase,round=roundId,practice=practiceRound,actors={},humans=0,vampires=0,support=Life.support}
   result.humans,result.vampires=counts()
   for p,s in pairs(states) do
    table.insert(result.actors,{id=p.UserId,bot=isBot(p),active=s.active,vampire=s.vampire,captured=s.captured,
-    pending=s.pending,health=humanoid(p) and humanoid(p).Health,revealed=(s.reveal or 0)&gt;os.clock(),jail=s.jail})
+    pending=s.pending,health=humanoid(p) and humanoid(p).Health,revealed=(s.reveal or 0)&gt;os.clock(),jail=s.jail,creature=s.creature,stunned=(s.stunnedUntil or 0)&gt;os.clock()})
   end
   return result
  end
@@ -46907,7 +47125,7 @@ local function readyRoster()
  if workspace:GetAttribute('ApusBotsConfiguring') then return roster end
  for p in pairs(states) do
   local h=humanoid(p)
-  if (isBot(p) or RPG.Ready(p)) and h and h.Health&gt;0 and root(p) then table.insert(roster,p) end
+  if not states[p].creature and (isBot(p) or RPG.Ready(p)) and h and h.Health&gt;0 and root(p) then table.insert(roster,p) end
  end
  return roster
 end
@@ -46919,11 +47137,12 @@ local function setSky(night)
   OutdoorAmbient=night and Color3.fromRGB(85,96,126) or Color3.fromRGB(145,151,163)
  }):Play()
 end
-local function setPhase(name,seconds)
+setPhase=function(name,seconds)
  phase=name; remaining=seconds
  workspace:SetAttribute('ApusPhase',name)
  workspace:SetAttribute('ApusRoundId',roundId)
  setSky(name=='Noapte')
+ Life.OnPhase(name)
  for p in pairs(states) do paint(p) end
 end
 local function waitPhase(seconds,check)
@@ -46942,7 +47161,13 @@ task.spawn(function()
    local note=(s.noticeUntil or 0)&gt;os.clock() and s.notice or message
    if not isBot(p) then status:FireClient(p,{phase=phase,time=remaining,cycle=cycle,maxCycles=C.Cycles,role=role,
     captured=s.captured,pending=s.pending,active=s.active,notice=note,
-    infections=s.infections,crypts=activeCrypts,night=workspace:GetAttribute('ApusNight'),practice=practiceRound,rpg=RPG.Snapshot(p)}) end
+    infections=s.infections,crypts=activeCrypts,night=workspace:GetAttribute('ApusNight'),practice=practiceRound,
+    score=practiceRound and practiceScores or scores,support=Life.support,sanctuary=protected(p) and true or false,rpg=RPG.Snapshot(p)}) end
+   if s.active and not s.creature and s.vampire and root(p) then
+    local pos=root(p).Position
+    if Hunt.InSanctuary(pos.X,pos.Y,pos.Z) then move(p,Vector3.new(55,4,-125)); tell(p,'Consecrated ground repels vampires.') end
+   end
+   if (s.stunnedUntil or 0)&gt;0 and s.stunnedUntil&lt;=os.clock() then s.stunnedUntil=0; paint(p) end
    if phase=='Zi' and (s.reveal or 0)&gt;0 and s.reveal&lt;=os.clock() then s.reveal=0; paint(p) end
    if (s.weakened or 0)&gt;0 and s.weakened&lt;=os.clock() then
     s.weakened=0; local h=humanoid(p); if h and h.Health&lt;=1 then h.Health=35 end; paint(p)
@@ -46959,10 +47184,14 @@ while true do
  running=false; practiceRound=false; cycle=0; setPhase('Asteptare',0)
  message='Enter the portal to explore. Inn contracts by day; monastery seal at night. PvP: 2+ participants.'
  local explorationTime=0
+ local explorationDuration=C.Day
  repeat
   task.wait(1); explorationTime=explorationTime+1
-  remaining=120-explorationTime%120
-  if explorationTime%120==0 then setSky(not workspace:GetAttribute('ApusNight')) end
+  remaining=explorationDuration-explorationTime
+  if explorationTime&gt;=explorationDuration then
+   local night=not workspace:GetAttribute('ApusNight'); setSky(night)
+   explorationTime=0; explorationDuration=night and C.Night or C.Day
+  end
  until #readyRoster()&gt;=C.MinPlayers
  practiceRound=RunService:IsStudio() and (workspace:GetAttribute('ApusBotCount') or 0)&gt;0
  message=practiceRound and 'BOT PRACTICE - no round rewards.' or 'The round starts soon.'
@@ -46977,7 +47206,7 @@ while true do
   local initialVampires=Rules.InitialVampires(#roster)
   for index,p in ipairs(roster) do
    local s=states[p]; s.active=true; s.vampire=(index&lt;=initialVampires); s.captured=false; s.pending=false
-   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0
+   s.cooldowns={}; s.infections=0; s.reveal=0; s.jail=nil; s.jailSlot=nil; s.weakened=0; s.stunnedUntil=0; s.testWeapon=nil
    local h=humanoid(p)
    if not h or h.Health&lt;=0 then p:LoadCharacterAsync() else
     h.Health=h.MaxHealth; move(p,practiceRound and Vector3.new(-70+(index-1)*9,4,-10) or spawns[index].Position+Vector3.new(0,3,0))
@@ -46985,12 +47214,13 @@ while true do
   end
   updateCrypts()
   running=true
+  Life.BeginRound(practiceRound and practiceScores or scores)
   local result=nil
   for n=1,C.Cycles do
    cycle=n; message='Day: investigate and capture revealed vampires.'
    local day=practiceRound and 20 or C.Day
    setPhase('Zi',day); result=waitPhase(day,true); if result then break end
-   for p,s in pairs(states) do if s.active and not s.captured then
+   for p,s in pairs(states) do if s.active and not s.creature and not s.captured then
     if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformation complete. You are a vampire!') end
     if s.vampire then s.infections=1 end
    end end
@@ -47001,13 +47231,15 @@ while true do
   running=false
   local humansLeft,vampiresLeft=counts()
   local vampireVictory=Rules.VampireVictory(humansLeft,vampiresLeft)
+  local roundScores=practiceRound and practiceScores or scores
+  if vampireVictory then roundScores.vampires=roundScores.vampires+1 else roundScores.humans=roundScores.humans+1 end
   for p,s in pairs(states) do
    if s.active and not isBot(p) and not practiceRound then RPG.RoundReward(p,s.vampire==vampireVictory) end
   end
   message=result or 'Villagers win: they survived all three nights.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
-   s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0
+   s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0; s.stunnedUntil=0
    paint(p); move(p,lobby.Position+Vector3.new(0,3,0))
   end
   updateCrypts()
@@ -47017,11 +47249,11 @@ end
       </Properties>
     </Item>
   </Item>
-  <Item class="ReplicatedStorage" referent="RBX1470">
+  <Item class="ReplicatedStorage" referent="RBX1472">
     <Properties>
       <string name="Name">ReplicatedStorage</string>
     </Properties>
-    <Item class="ModuleScript" referent="RBX1471">
+    <Item class="ModuleScript" referent="RBX1473">
       <Properties>
         <string name="Name">MonetizationConfig</string>
         <ProtectedString name="Source">-- Create these passes under YOUR experience. Zero means disabled, never a test charge.
@@ -47034,7 +47266,7 @@ return {
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1472">
+    <Item class="ModuleScript" referent="RBX1474">
       <Properties>
         <string name="Name">CombatRules</string>
         <ProtectedString name="Source">-- Pure combat rules. Values never come from the client.
@@ -47043,10 +47275,13 @@ Combat.Weapons={
  SilverSword={name='Silver Sword',range=8,cooldown=1.0,damage=24,arc=.25,color={188,211,227}},
  Crossbow={name='Crossbow',range=45,cooldown=2.6,damage=16,arc=.80,color={109,75,48}},
  Claws={name='Claws',range=7,cooldown=1.2,damage=19,arc=.15,color={149,72,108}},
+ Crucifix={name='Crucifix',range=12,cooldown=12,damage=0,arc=.3,day=true},
+ HolyWater={name='Holy Water',range=18,cooldown=8,damage=18,arc=.5,day=true},
+ WoodenStake={name='Wooden Stake',range=6,cooldown=2,damage=8,arc=.3,day=true},
 }
 function Combat.CanHit(key,attackerVampire,targetVampire,phase,distance,facing)
  local w=Combat.Weapons[key]
- if not w or phase~='Noapte' or attackerVampire==targetVampire then return false end
+ if not w or (phase~='Noapte' and not (w.day and phase=='Zi')) or attackerVampire==targetVampire then return false end
  if (key=='Claws')~=attackerVampire then return false end
  return distance&lt;=w.range and facing&gt;=w.arc
 end
@@ -47056,7 +47291,7 @@ return Combat
 </ProtectedString>
       </Properties>
     </Item>
-    <Item class="ModuleScript" referent="RBX1473">
+    <Item class="ModuleScript" referent="RBX1475">
       <Properties>
         <string name="Name">Actors</string>
         <ProtectedString name="Source">-- Clients see public actor attributes, never the server's hidden role table.
@@ -47064,7 +47299,8 @@ local Players=game:GetService('Players')
 local Actors={}
 function Actors.List()
  local result=Players:GetPlayers()
- local folder=workspace:FindFirstChild('ApusBots')
+ for _,folderName in ipairs({'ApusBots','ApusCreatures'}) do
+ local folder=workspace:FindFirstChild(folderName)
  if folder then
   for _,model in ipairs(folder:GetChildren()) do
    local id=model:GetAttribute('ActorId')
@@ -47075,6 +47311,7 @@ function Actors.List()
    end
   end
  end
+ end
  return result
 end
 return Actors
@@ -47082,15 +47319,15 @@ return Actors
       </Properties>
     </Item>
   </Item>
-  <Item class="StarterPlayer" referent="RBX1474">
+  <Item class="StarterPlayer" referent="RBX1476">
     <Properties>
       <string name="Name">StarterPlayer</string>
     </Properties>
-    <Item class="StarterPlayerScripts" referent="RBX1475">
+    <Item class="StarterPlayerScripts" referent="RBX1477">
       <Properties>
         <string name="Name">StarterPlayerScripts</string>
       </Properties>
-      <Item class="LocalScript" referent="RBX1476">
+      <Item class="LocalScript" referent="RBX1478">
         <Properties>
           <string name="Name">Controls</string>
           <ProtectedString name="Source">local Players=game:GetService('Players')
@@ -47118,6 +47355,7 @@ local targetLabel=label('Target',UDim2.fromScale(.25,.76),UDim2.fromScale(.5,.05
 local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07),13)
 local statsLabel=label('RPGStats',UDim2.fromScale(.02,.23),UDim2.fromScale(.38,.07),15)
 local questLabel=label('Quest',UDim2.fromScale(.02,.305),UDim2.fromScale(.38,.13),14)
+local scoreLabel=label('TeamScore',UDim2.fromScale(.57,.30),UDim2.fromScale(.41,.08),14)
 local data=nil
 local phaseNames={Asteptare='Waiting',Pregatire='Preparation',Zi='Day',Noapte='Night',Rezultat='Results'}
 local roleNames={Vampir='Vampire',Satean='Villager',Explorator='Explorer'}
@@ -47182,6 +47420,8 @@ status.OnClientEvent:Connect(function(s)
  detail.Text=(s.captured and 'Captured: wait for the next round. ') or (s.pending and 'INFECTED: transformation at the next dusk. ') or ''
  detail.Text=detail.Text..(s.notice or '')
  if s.practice then detail.Text='PRACTICE / BOTS | '..detail.Text end
+ local score=s.score or {humans=0,vampires=0}
+ scoreLabel.Text=string.format('Round wins: Humans %d / Vampires %d\nAid: %s%s',score.humans,score.vampires,s.support or 'None',s.sanctuary and ' | CHURCH SANCTUARY' or '')
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then
@@ -47236,7 +47476,7 @@ player:GetAttributeChangedSignal('OwnsGoldenLantern'):Connect(refreshLight)
 </ProtectedString>
         </Properties>
       </Item>
-      <Item class="LocalScript" referent="RBX1477">
+      <Item class="LocalScript" referent="RBX1479">
         <Properties>
           <string name="Name">Shop</string>
           <ProtectedString name="Source">local Players=game:GetService('Players')
@@ -47324,7 +47564,7 @@ end)
 </ProtectedString>
         </Properties>
       </Item>
-      <Item class="LocalScript" referent="RBX1478">
+      <Item class="LocalScript" referent="RBX1480">
         <Properties>
           <string name="Name">Combat</string>
           <ProtectedString name="Source">local Players=game:GetService('Players')
@@ -47400,7 +47640,7 @@ if player.Character then attach(player.Character) end
 </ProtectedString>
         </Properties>
       </Item>
-      <Item class="LocalScript" referent="RBX1479">
+      <Item class="LocalScript" referent="RBX1481">
         <Properties>
           <string name="Name">Presentation</string>
           <ProtectedString name="Source">-- Client-only scalability. Never changes hit validation, visibility range of targets or rewards.
@@ -47466,6 +47706,7 @@ graphics.Activated:Connect(function()
 end)
 motion.Activated:Connect(function()
  reduced=not reduced; motion.Text='Reduced effects: '..(reduced and 'On' or 'Off'); apply()
+ player:SetAttribute('ApusReducedEffects',reduced)
 end)
 brightness.Activated:Connect(function()
  bright=not bright; brightness.Text='Brightness: '..(bright and 'Boosted' or 'Normal'); apply()
@@ -47540,7 +47781,7 @@ end)
 </ProtectedString>
         </Properties>
       </Item>
-      <Item class="LocalScript" referent="RBX1480">
+      <Item class="LocalScript" referent="RBX1482">
         <Properties>
           <string name="Name">Wayfinding</string>
           <ProtectedString name="Source">-- Stream-safe labels, culled by Roblox. No per-frame search or x-ray markers.
@@ -47562,7 +47803,7 @@ workspace.DescendantAdded:Connect(track)
 </ProtectedString>
         </Properties>
       </Item>
-      <Item class="LocalScript" referent="RBX1481">
+      <Item class="LocalScript" referent="RBX1483">
         <Properties>
           <string name="Name">Multiplayer</string>
           <ProtectedString name="Source">local Players=game:GetService('Players')
@@ -47645,9 +47886,35 @@ end)
 </ProtectedString>
         </Properties>
       </Item>
+      <Item class="LocalScript" referent="RBX1484">
+        <Properties>
+          <string name="Name">BloodFX</string>
+          <ProtectedString name="Source">-- Brief vampire-only red hit flecks. No stains or persistent emitters.
+local Players=game:GetService('Players')
+local Tween=game:GetService('TweenService')
+local Debris=game:GetService('Debris')
+local p=Players.LocalPlayer
+local active=0
+game.ReplicatedStorage:WaitForChild('ApusNet'):WaitForChild('Feedback').OnClientEvent:Connect(function(event)
+ if event.kind~='VampireBlood' or typeof(event.position)~='Vector3' or p:GetAttribute('ApusReducedEffects') then return end
+ local camera=workspace.CurrentCamera
+ if not camera or (camera.CFrame.Position-event.position).Magnitude&gt;100 or active&gt;=24 then return end
+ for i=1,math.min(5,24-active) do
+  local fleck=Instance.new('Part'); fleck.Name='VampireHitFleck'; fleck.Anchored=true
+  fleck.CanCollide=false; fleck.CanTouch=false; fleck.CanQuery=false; fleck.CastShadow=false
+  fleck.Size=Vector3.new(.09,.12,.09); fleck.Color=Color3.fromRGB(148,29,40); fleck.Material=Enum.Material.SmoothPlastic
+  fleck.Position=event.position; fleck.Parent=workspace; active=active+1
+  local a=i*math.pi*2/5
+  Tween:Create(fleck,TweenInfo.new(.35),{Position=event.position+Vector3.new(math.cos(a)*.7,-.4,math.sin(a)*.7),Transparency=1}):Play()
+  Debris:AddItem(fleck,.4); task.delay(.4,function() active=math.max(0,active-1) end)
+ end
+end)
+</ProtectedString>
+        </Properties>
+      </Item>
     </Item>
   </Item>
-  <Item class="Lighting" referent="RBX1482">
+  <Item class="Lighting" referent="RBX1485">
     <Properties>
       <string name="Name">Lighting</string>
       <float name="ClockTime">14</float>
@@ -47675,7 +47942,7 @@ end)
       <float name="EnvironmentDiffuseScale">0.65</float>
       <float name="EnvironmentSpecularScale">0.45</float>
     </Properties>
-    <Item class="Atmosphere" referent="RBX1483">
+    <Item class="Atmosphere" referent="RBX1486">
       <Properties>
         <string name="Name">ApusAtmosphere</string>
         <float name="Density">0.22</float>
@@ -47693,7 +47960,7 @@ end)
         </Color3>
       </Properties>
     </Item>
-    <Item class="BloomEffect" referent="RBX1484">
+    <Item class="BloomEffect" referent="RBX1487">
       <Properties>
         <string name="Name">ApusBloom</string>
         <float name="Intensity">0.12</float>
@@ -47701,7 +47968,7 @@ end)
         <float name="Threshold">1.4</float>
       </Properties>
     </Item>
-    <Item class="ColorCorrectionEffect" referent="RBX1485">
+    <Item class="ColorCorrectionEffect" referent="RBX1488">
       <Properties>
         <string name="Name">ApusGrade</string>
         <float name="Contrast">0.08</float>
@@ -47713,7 +47980,7 @@ end)
         </Color3>
       </Properties>
     </Item>
-    <Item class="SunRaysEffect" referent="RBX1486">
+    <Item class="SunRaysEffect" referent="RBX1489">
       <Properties>
         <string name="Name">ApusSunRays</string>
         <float name="Intensity">0.025</float>
@@ -47722,7 +47989,7 @@ end)
       </Properties>
     </Item>
   </Item>
-  <Item class="MaterialService" referent="RBX1487">
+  <Item class="MaterialService" referent="RBX1490">
     <Properties>
       <string name="Name">MaterialService</string>
       <bool name="Use2022Materials">true</bool>
