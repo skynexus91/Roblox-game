@@ -23,7 +23,7 @@ local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
 local practiceRound=false
 local pendingBotCount=nil
-local message = 'Sunt necesari minimum doi jucatori.'
+local message = 'At least two participants are required.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
 table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))<tonumber(b.Name:match('%d+')) end)
 local cryptFolder=workspace.Village:WaitForChild('Crypts')
@@ -67,8 +67,8 @@ local function counts()
 end
 local function winner()
  local h,v=counts()
- if v==0 then return 'Satenii au castigat: toti vampirii au fost capturati.' end
- if h==0 then return 'Vampirii au castigat: satul a fost cucerit.' end
+ if v==0 then return 'Villagers win: all vampires have been captured.' end
+ if h==0 then return 'Vampires win: the village has fallen.' end
  return nil
 end
 local function validTarget(p, id, range)
@@ -124,7 +124,7 @@ end
 local function capture(target)
  local s=states[target]; s.captured=true; s.pending=false
  assignJail(target); move(target,jailPosition(target)); paint(target)
- tell(target,'Capturat in cripta '..s.jail..' pana la sfarsitul rundei.')
+ tell(target,'Captured in crypt '..s.jail..' until the round ends.')
 end
 updateCrypts()
 RPG.Init(function(p)
@@ -143,10 +143,10 @@ local function handleAction(p, kind, id)
  local weaponKey=isBot(p) and (s.vampire and 'Claws' or 'SilverSword') or (tool and tool:GetAttribute('ApusWeapon'))
  local weapon=Combat.Weapons[weaponKey]
  if kind=='Weapon' and not weapon then return end
- local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Apropie-te de o tinta vizibila, la maximum 10 studs.'); return end
+ local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Approach a visible target within 10 studs.'); return end
  local t=states[target]
  local cd=kind=='Weapon' and weapon.cooldown or C[kind..'Cooldown']
- if now<(s.cooldowns[kind] or 0) then tell(p,'Abilitatea se reincarca.'); return end
+ if now<(s.cooldowns[kind] or 0) then tell(p,'Ability is on cooldown.'); return end
  if kind=='Weapon' then
   local a,b=root(p),root(target); local delta=b.Position-a.Position
   if delta.Magnitude<.01 then return end
@@ -160,30 +160,30 @@ local function handleAction(p, kind, id)
   if health<=1 then
    -- A defeat opens a brief capture window, without death/respawn exploits.
    t.weakened=now+8; t.reveal=now+8; paint(target)
-   tell(target,'Slabit timp de 8 secunde. Fugi sau cere ajutor!')
+   tell(target,'Weakened for 8 seconds. Escape or call for help!')
   end
  elseif kind=='Inspect' then
   if s.vampire or phase~='Zi' then return end
   s.cooldowns[kind]=now+cd
-  if t.vampire then t.reveal=now+15; paint(target); tell(p,'Vampir descoperit! Captureaza-l in 15 secunde.')
-  elseif t.pending then tell(p,'Tinta este infectata. Se transforma la urmatorul apus.')
-  else tell(p,'Tinta este om.') end
+  if t.vampire then t.reveal=now+15; paint(target); tell(p,'Vampire revealed! Capture them within 15 seconds.')
+  elseif t.pending then tell(p,'The target is infected and transforms at the next dusk.')
+  else tell(p,'The target is human.') end
  elseif kind=='Capture' then
   if s.vampire or (phase~='Zi' and not ((t.weakened or 0)>now)) then return end
   s.cooldowns[kind]=now+cd
-  if t.vampire and (t.reveal or 0)>now then capture(target); tell(p,'Vampir capturat in cripta.')
-  else tell(p,'Capturezi doar vampiri descoperiti prin investigare.') end
+  if t.vampire and (t.reveal or 0)>now then capture(target); tell(p,'Vampire captured in a crypt.')
+  else tell(p,'You can only capture vampires revealed by investigation.') end
  elseif kind=='Feed' then
   if not s.vampire or phase~='Noapte' or t.vampire then return end
   s.cooldowns[kind]=now+cd
   local th=humanoid(target); local sh=humanoid(p)
   -- Nonlethal stylized feed: nobody is removed from play by health damage.
   th.Health=math.max(25,th.Health-20); sh.Health=math.min(sh.MaxHealth,sh.Health+25)
-  tell(target,'Un vampir s-a hranit! Cauta protectia celorlalti.'); tell(p,'Ti-ai refacut sanatatea.')
+  tell(target,'A vampire fed on you! Seek safety with others.'); tell(p,'You recovered health.')
  elseif kind=='Infect' then
   if not s.vampire or phase~='Noapte' or t.vampire or t.pending or s.infections<1 then return end
   s.cooldowns[kind]=now+cd; s.infections=s.infections-1; t.pending=true
-  tell(target,'Esti infectat. Devii vampir la urmatorul apus.'); tell(p,'Infectare reusita. Transformarea are loc la urmatorul apus.')
+  tell(target,'You are infected. You become a vampire at the next dusk.'); tell(p,'Infection successful. Transformation occurs at the next dusk.')
  end
 end
 action.OnServerEvent:Connect(handleAction)
@@ -216,14 +216,14 @@ Players.PlayerRemoving:Connect(function(p)
 end)
 for _,p in ipairs(Players:GetPlayers()) do join(p) end
 Sessions.Init(function(count)
- if not RunService:IsStudio() then return false,'Botii de test sunt disponibili numai in Studio.' end
+ if not RunService:IsStudio() then return false,'Test bots are available only in Studio.' end
  if running or phase~='Asteptare' then
   pendingBotCount=count; workspace:SetAttribute('ApusPendingBotCount',count)
-  return true,'Setarea '..count..' boti se aplica dupa runda curenta.'
+  return true,'Setting '..count..' bots will apply after this round.'
  end
  Bots.SetCount(count,join,function(p) states[p]=nil end)
  updateCrypts()
- return true,'Boti: '..count..'. Runde de practica, fara recompense de runda.'
+ return true,'Bots: '..count..'. Practice rounds award no round rewards.'
 end)
 Bots.Start(states,function() return phase end,handleAction,alive,root)
 -- Server-only test harness; never created in published servers or replicated to clients.
@@ -307,7 +307,7 @@ while true do
   pendingBotCount=nil; workspace:SetAttribute('ApusPendingBotCount',nil); updateCrypts()
  end
  running=false; practiceRound=false; cycle=0; setPhase('Asteptare',0)
- message='Exploreaza prin portal. Contracte la han ziua; sigiliul manastirii noaptea. PvP: minimum 2 jucatori.'
+ message='Enter the portal to explore. Inn contracts by day; monastery seal at night. PvP: 2+ participants.'
  local explorationTime=0
  repeat
   task.wait(1); explorationTime=explorationTime+1
@@ -315,7 +315,7 @@ while true do
   if explorationTime%120==0 then setSky(not workspace:GetAttribute('ApusNight')) end
  until #readyRoster()>=C.MinPlayers
  practiceRound=RunService:IsStudio() and (workspace:GetAttribute('ApusBotCount') or 0)>0
- message=practiceRound and 'PRACTICA CU BOTI - fara recompense de runda.' or 'Runda incepe curand.'
+ message=practiceRound and 'BOT PRACTICE - no round rewards.' or 'The round starts soon.'
  local preparation=practiceRound and 5 or C.Intermission
  setPhase('Pregatire',preparation); waitPhase(preparation,false)
  if #readyRoster()>=C.MinPlayers then
@@ -337,23 +337,24 @@ while true do
   running=true
   local result=nil
   for n=1,C.Cycles do
-   cycle=n; message='Ziua: investigheaza si captureaza vampirii descoperiti.'
+   cycle=n; message='Day: investigate and capture revealed vampires.'
    local day=practiceRound and 20 or C.Day
    setPhase('Zi',day); result=waitPhase(day,true); if result then break end
    for p,s in pairs(states) do if s.active and not s.captured then
-    if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformarea s-a incheiat. Esti vampir!') end
+    if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformation complete. You are a vampire!') end
     if s.vampire then s.infections=1 end
    end end
-   message='Noaptea: ramaneti impreuna. Vampirii pot vana.'
+   message='Night: stay together. Vampires can hunt.'
    local night=practiceRound and 20 or C.Night
    setPhase('Noapte',night); result=waitPhase(night,true); if result then break end
   end
   running=false
-  local vampireVictory=result~=nil and string.find(result,'Vampirii au castigat',1,true)~=nil
+  local humansLeft,vampiresLeft=counts()
+  local vampireVictory=Rules.VampireVictory(humansLeft,vampiresLeft)
   for p,s in pairs(states) do
    if s.active and not isBot(p) and not practiceRound then RPG.RoundReward(p,s.vampire==vampireVictory) end
   end
-  message=result or 'Satenii au castigat: au supravietuit celor trei nopti.'
+  message=result or 'Villagers win: they survived all three nights.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
    s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0

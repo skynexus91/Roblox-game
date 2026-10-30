@@ -19,33 +19,34 @@ local function button(name,text,callback)
  place(b); b.Activated:Connect(callback); return b
 end
 local message=Instance.new('TextLabel'); message.Name='Message'; message.Size=UDim2.new(1,-24,0,52); message.BackgroundTransparency=1
-message.TextColor3=Color3.fromRGB(243,222,178); message.TextWrapped=true; message.TextSize=14
-message.Text='MULTIPLAYER\nHost: sesiune privata. Distribuie codul celor cu care vrei sa joci (expira in 2 ore).'; place(message); message.Parent=panel
+message.TextColor3=Color3.fromRGB(243,222,178); message.TextWrapped=true; message.TextSize=14; message.TextScaled=true
+local messageLimit=Instance.new('UITextSizeConstraint'); messageLimit.MinTextSize=10; messageLimit.MaxTextSize=14; messageLimit.Parent=message
+message.Text='MULTIPLAYER\nHost a private session. Share its code with your group (expires in 2 hours).'; place(message); message.Parent=panel
 local waiting=false
 local function request(kind,value)
  if waiting then return end
- waiting=true; message.Text='Se proceseaza...'
+ waiting=true; message.Text='Working...'
  task.spawn(function()
   local ok,r=pcall(function() return remote:InvokeServer(kind,value) end)
-  message.Text=ok and type(r)=='table' and r.message or 'Conexiune indisponibila. Reincearca.'
+  message.Text=ok and type(r)=='table' and r.message or 'Connection unavailable. Please try again.'
   waiting=false
  end)
 end
-button('Host','Host / creeaza sesiune',function() request('Host') end)
-local code=Instance.new('TextBox'); code.Name='JoinCode'; code.PlaceholderText='Cod de 8 caractere'; code.Text=''; code.ClearTextOnFocus=false
+button('Host','Host / create session',function() request('Host') end)
+local code=Instance.new('TextBox'); code.Name='JoinCode'; code.PlaceholderText='8-character join code'; code.Text=''; code.ClearTextOnFocus=false
 code.Size=UDim2.new(1,-24,0,32); code.TextSize=16; place(code); code.Parent=panel
-button('Join','Join / intra cu cod',function() request('Join',code.Text) end)
-button('Invite','Invita in joc (trimite si codul)',function()
+button('Join','Join / enter code',function() request('Join',code.Text) end)
+button('Invite','Invite friends (also share your code)',function()
  task.spawn(function()
   local ok,allowed=pcall(function() return Social:CanSendGameInviteAsync(p) end)
   if ok and allowed then
    local sent=pcall(function() Social:PromptGameInvite(p) end)
-   if not sent then message.Text='Invitatia nu este disponibila. Foloseste codul sesiunii.' end
-  else message.Text='Invitatiile nu sunt disponibile aici. Foloseste codul sesiunii.' end
+   if not sent then message.Text='Invitation unavailable. Use the session code.' end
+  else message.Text='Invitations are unavailable here. Use the session code.' end
  end)
 end)
 local counts={0,3,7,12}
-local botButton=button('Bots','Studio: boti 0 / 3 / 7 / 12',function()
+local botButton=button('Bots','Studio: bots 0 / 3 / 7 / 12',function()
  local current=workspace:GetAttribute('ApusPendingBotCount') or workspace:GetAttribute('ApusBotCount') or 0
  local index=table.find(counts,current) or 1
  request('Bots',counts[index%#counts+1])
@@ -54,16 +55,16 @@ local function refreshBots()
  local count=workspace:GetAttribute('ApusBotCount') or 0
  local waitingPhase=workspace:GetAttribute('ApusPhase')=='Asteptare'
  local pending=workspace:GetAttribute('ApusPendingBotCount')
- botButton.Text='Studio: '..count..' boti | '..(pending~=nil and ('urmeaza '..pending) or (waitingPhase and 'schimba 0/3/7/12' or 'schimba dupa runda'))
+ botButton.Text='Studio: '..count..' bots | '..(pending~=nil and ('next: '..pending) or (waitingPhase and 'change 0/3/7/12' or 'change after round'))
 end
 workspace:GetAttributeChangedSignal('ApusBotCount'):Connect(refreshBots)
 workspace:GetAttributeChangedSignal('ApusPhase'):Connect(refreshBots)
 workspace:GetAttributeChangedSignal('ApusPendingBotCount'):Connect(refreshBots)
 refreshBots()
-button('Close','Inchide',function() panel.Visible=false end)
+button('Close','Close',function() panel.Visible=false end)
 local function refreshCode()
  local value=p:GetAttribute('ApusJoinCode')
- if value then code.Text=value; message.Text='Codul sesiunii: '..value..' (2 ore)' end
+ if value then code.Text=value; message.Text='Session code: '..value..' (2 hours)' end
 end
 p:GetAttributeChangedSignal('ApusJoinCode'):Connect(refreshCode)
 p:GetAttributeChangedSignal('ApusSessionError'):Connect(function() message.Text=p:GetAttribute('ApusSessionError') or '' end)

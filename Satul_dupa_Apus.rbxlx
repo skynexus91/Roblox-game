@@ -906,7 +906,7 @@
       </Item>
       <Item class="Part" referent="RBX30">
         <Properties>
-          <string name="Name">Piata</string>
+          <string name="Name">MarketSquare</string>
           <Vector3 name="size">
             <X>68</X>
             <Y>0.2</Y>
@@ -1204,7 +1204,7 @@
       </Item>
       <Item class="Model" referent="RBX39">
         <Properties>
-          <string name="Name">HANUL CORBULUI</string>
+          <string name="Name">THE RAVEN INN</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX40">
@@ -2174,7 +2174,7 @@
             <Item class="TextLabel" referent="RBX70">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">HANUL CORBULUI</string>
+                <string name="Text">THE RAVEN INN</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -2196,7 +2196,7 @@
       </Item>
       <Item class="Model" referent="RBX71">
         <Properties>
-          <string name="Name">CASA FIERARULUI</string>
+          <string name="Name">BLACKSMITH'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX72">
@@ -3166,7 +3166,7 @@
             <Item class="TextLabel" referent="RBX102">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA FIERARULUI</string>
+                <string name="Text">BLACKSMITH'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -3188,7 +3188,7 @@
       </Item>
       <Item class="Model" referent="RBX103">
         <Properties>
-          <string name="Name">CASA CU IEDERA</string>
+          <string name="Name">IVY COTTAGE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX104">
@@ -4158,7 +4158,7 @@
             <Item class="TextLabel" referent="RBX134">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA CU IEDERA</string>
+                <string name="Text">IVY COTTAGE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -4180,7 +4180,7 @@
       </Item>
       <Item class="Model" referent="RBX135">
         <Properties>
-          <string name="Name">FARMACIA</string>
+          <string name="Name">APOTHECARY</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX136">
@@ -5150,7 +5150,7 @@
             <Item class="TextLabel" referent="RBX166">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">FARMACIA</string>
+                <string name="Text">APOTHECARY</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -5172,7 +5172,7 @@
       </Item>
       <Item class="Model" referent="RBX167">
         <Properties>
-          <string name="Name">CASA PADURARULUI</string>
+          <string name="Name">FORESTER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX168">
@@ -6142,7 +6142,7 @@
             <Item class="TextLabel" referent="RBX198">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA PADURARULUI</string>
+                <string name="Text">FORESTER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -6164,7 +6164,7 @@
       </Item>
       <Item class="Model" referent="RBX199">
         <Properties>
-          <string name="Name">CASA VECHE</string>
+          <string name="Name">OLD COTTAGE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX200">
@@ -7134,7 +7134,7 @@
             <Item class="TextLabel" referent="RBX230">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA VECHE</string>
+                <string name="Text">OLD COTTAGE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -7156,7 +7156,7 @@
       </Item>
       <Item class="Model" referent="RBX231">
         <Properties>
-          <string name="Name">Turnul cu ceas</string>
+          <string name="Name">Clock Tower</string>
         </Properties>
         <Item class="Part" referent="RBX232">
           <Properties>
@@ -8133,7 +8133,7 @@
               <Item class="TextLabel" referent="RBX264">
                 <Properties>
                   <string name="Name">Label</string>
-                  <string name="Text">CRIPTA 1</string>
+                  <string name="Text">CRYPT 1</string>
                   <bool name="TextScaled">true</bool>
                   <float name="BackgroundTransparency">1</float>
                   <Color3 name="TextColor3">
@@ -9025,7 +9025,7 @@
               <Item class="TextLabel" referent="RBX293">
                 <Properties>
                   <string name="Name">Label</string>
-                  <string name="Text">CRIPTA 2</string>
+                  <string name="Text">CRYPT 2</string>
                   <bool name="TextScaled">true</bool>
                   <float name="BackgroundTransparency">1</float>
                   <Color3 name="TextColor3">
@@ -9917,7 +9917,7 @@
               <Item class="TextLabel" referent="RBX322">
                 <Properties>
                   <string name="Name">Label</string>
-                  <string name="Text">CRIPTA 3</string>
+                  <string name="Text">CRYPT 3</string>
                   <bool name="TextScaled">true</bool>
                   <float name="BackgroundTransparency">1</float>
                   <Color3 name="TextColor3">
@@ -10809,7 +10809,7 @@
               <Item class="TextLabel" referent="RBX351">
                 <Properties>
                   <string name="Name">Label</string>
-                  <string name="Text">CRIPTA 4</string>
+                  <string name="Text">CRYPT 4</string>
                   <bool name="TextScaled">true</bool>
                   <float name="BackgroundTransparency">1</float>
                   <Color3 name="TextColor3">
@@ -11701,7 +11701,7 @@
               <Item class="TextLabel" referent="RBX380">
                 <Properties>
                   <string name="Name">Label</string>
-                  <string name="Text">CRIPTA 5</string>
+                  <string name="Text">CRYPT 5</string>
                   <bool name="TextScaled">true</bool>
                   <float name="BackgroundTransparency">1</float>
                   <Color3 name="TextColor3">
@@ -12031,7 +12031,7 @@
           <Item class="TextLabel" referent="RBX391">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">SATUL DUPA APUS</string>
+              <string name="Text">VILLAGE AFTER DUSK</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -21565,7 +21565,7 @@
           <Item class="TextLabel" referent="RBX626">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">CARTIERUL BRESLELOR</string>
+              <string name="Text">GUILD QUARTER</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -21625,7 +21625,7 @@
           <Item class="TextLabel" referent="RBX629">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">MINA ARGINTIE</string>
+              <string name="Text">SILVER MINE</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -21685,7 +21685,7 @@
           <Item class="TextLabel" referent="RBX632">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">RUINELE STRAJERILOR</string>
+              <string name="Text">WATCHKEEPER RUINS</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -21745,7 +21745,7 @@
           <Item class="TextLabel" referent="RBX635">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">MANASTIREA LUMINII</string>
+              <string name="Text">MONASTERY OF LIGHT</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -21766,7 +21766,7 @@
       </Item>
       <Item class="Model" referent="RBX636">
         <Properties>
-          <string name="Name">CASA TESATORULUI</string>
+          <string name="Name">WEAVER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX637">
@@ -22736,7 +22736,7 @@
             <Item class="TextLabel" referent="RBX667">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA TESATORULUI</string>
+                <string name="Text">WEAVER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -23295,7 +23295,7 @@
       </Item>
       <Item class="Model" referent="RBX684">
         <Properties>
-          <string name="Name">CASA BRUTARULUI</string>
+          <string name="Name">BAKER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX685">
@@ -24265,7 +24265,7 @@
             <Item class="TextLabel" referent="RBX715">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA BRUTARULUI</string>
+                <string name="Text">BAKER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -24824,7 +24824,7 @@
       </Item>
       <Item class="Model" referent="RBX732">
         <Properties>
-          <string name="Name">CASA TAMPLARULUI</string>
+          <string name="Name">CARPENTER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX733">
@@ -25794,7 +25794,7 @@
             <Item class="TextLabel" referent="RBX763">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA TAMPLARULUI</string>
+                <string name="Text">CARPENTER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -26353,7 +26353,7 @@
       </Item>
       <Item class="Model" referent="RBX780">
         <Properties>
-          <string name="Name">CASA TESATORULUI</string>
+          <string name="Name">WEAVER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX781">
@@ -27323,7 +27323,7 @@
             <Item class="TextLabel" referent="RBX811">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA TESATORULUI</string>
+                <string name="Text">WEAVER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -27882,7 +27882,7 @@
       </Item>
       <Item class="Model" referent="RBX828">
         <Properties>
-          <string name="Name">CASA BRUTARULUI</string>
+          <string name="Name">BAKER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX829">
@@ -28852,7 +28852,7 @@
             <Item class="TextLabel" referent="RBX859">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA BRUTARULUI</string>
+                <string name="Text">BAKER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -29411,7 +29411,7 @@
       </Item>
       <Item class="Model" referent="RBX876">
         <Properties>
-          <string name="Name">CASA TAMPLARULUI</string>
+          <string name="Name">CARPENTER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX877">
@@ -30381,7 +30381,7 @@
             <Item class="TextLabel" referent="RBX907">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA TAMPLARULUI</string>
+                <string name="Text">CARPENTER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -30940,7 +30940,7 @@
       </Item>
       <Item class="Model" referent="RBX924">
         <Properties>
-          <string name="Name">CASA TESATORULUI</string>
+          <string name="Name">WEAVER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX925">
@@ -31910,7 +31910,7 @@
             <Item class="TextLabel" referent="RBX955">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA TESATORULUI</string>
+                <string name="Text">WEAVER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -32469,7 +32469,7 @@
       </Item>
       <Item class="Model" referent="RBX972">
         <Properties>
-          <string name="Name">CASA BRUTARULUI</string>
+          <string name="Name">BAKER'S HOUSE</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX973">
@@ -33439,7 +33439,7 @@
             <Item class="TextLabel" referent="RBX1003">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CASA BRUTARULUI</string>
+                <string name="Text">BAKER'S HOUSE</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -37421,7 +37421,7 @@
       </Item>
       <Item class="Model" referent="RBX1168">
         <Properties>
-          <string name="Name">MANASTIRE</string>
+          <string name="Name">MONASTERY</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX1169">
@@ -38391,7 +38391,7 @@
             <Item class="TextLabel" referent="RBX1199">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">MANASTIRE</string>
+                <string name="Text">MONASTERY</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -39017,7 +39017,7 @@
       </Item>
       <Item class="Model" referent="RBX1222">
         <Properties>
-          <string name="Name">MOARA VECHE</string>
+          <string name="Name">OLD MILL</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX1223">
@@ -39987,7 +39987,7 @@
             <Item class="TextLabel" referent="RBX1253">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">MOARA VECHE</string>
+                <string name="Text">OLD MILL</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -40340,7 +40340,7 @@
       </Item>
       <Item class="Model" referent="RBX1264">
         <Properties>
-          <string name="Name">FERMA DE LA RASCRUCE</string>
+          <string name="Name">CROSSROADS FARM</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX1265">
@@ -41310,7 +41310,7 @@
             <Item class="TextLabel" referent="RBX1295">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">FERMA DE LA RASCRUCE</string>
+                <string name="Text">CROSSROADS FARM</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -43228,7 +43228,7 @@
       </Item>
       <Item class="Model" referent="RBX1352">
         <Properties>
-          <string name="Name">CAPELA SFANTULUI SOARE</string>
+          <string name="Name">SUNWARD CHAPEL</string>
           <token name="ModelStreamingMode">1</token>
         </Properties>
         <Item class="Part" referent="RBX1353">
@@ -44198,7 +44198,7 @@
             <Item class="TextLabel" referent="RBX1383">
               <Properties>
                 <string name="Name">Label</string>
-                <string name="Text">CAPELA SFANTULUI SOARE</string>
+                <string name="Text">SUNWARD CHAPEL</string>
                 <bool name="TextScaled">true</bool>
                 <float name="BackgroundTransparency">1</float>
                 <Color3 name="TextColor3">
@@ -44490,7 +44490,7 @@
           <Item class="TextLabel" referent="RBX1400">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">CONTRACTE / ODIHNA</string>
+              <string name="Text">CONTRACTS / REST</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -44550,7 +44550,7 @@
           <Item class="TextLabel" referent="RBX1403">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">PROVIZII: FERMA</string>
+              <string name="Text">SUPPLIES: FARM</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -44610,7 +44610,7 @@
           <Item class="TextLabel" referent="RBX1406">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">PROVIZII: MOARA</string>
+              <string name="Text">SUPPLIES: MILL</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -44670,7 +44670,7 @@
           <Item class="TextLabel" referent="RBX1409">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">SIGILIUL ZORILOR</string>
+              <string name="Text">DAWN SEAL</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -44798,7 +44798,7 @@
           <Item class="TextLabel" referent="RBX1414">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">COSMETICE</string>
+              <string name="Text">COSMETICS</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -44926,7 +44926,7 @@
           <Item class="TextLabel" referent="RBX1419">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">FIERAR</string>
+              <string name="Text">BLACKSMITH</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -45054,7 +45054,7 @@
           <Item class="TextLabel" referent="RBX1424">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">BRESLE</string>
+              <string name="Text">GUILDS</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -45182,7 +45182,7 @@
           <Item class="TextLabel" referent="RBX1429">
             <Properties>
               <string name="Name">Label</string>
-              <string name="Text">VINDECATOR</string>
+              <string name="Text">HEALER</string>
               <bool name="TextScaled">true</bool>
               <float name="BackgroundTransparency">1</float>
               <Color3 name="TextColor3">
@@ -45962,11 +45962,12 @@ local temporary=RunService:IsStudio() and not Config.StudioPersistence
 local store=not temporary and DSS:GetDataStore('ApusRPG_v1') or nil
 local closing=false
 local classes={'Vanator','Cercetas','Carturar'}
+local classNames={Vanator='Hunter',Cercetas='Scout',Carturar='Scholar'}
 local quests={
- {kind='Herb',need=5,text='Culege 5 ierburi in padurea de la sud-vest',xp=100,gold=50},
- {kind='Ore',need=4,text='Aduna 4 minereuri din mina de la est',xp=140,gold=70},
- {kind='Relic',need=3,text='Gaseste 3 relicve in ruinele de la nord',xp=180,gold=90},
- {kind='Ritual',need=1,text='Activeaza altarul manastirii din sud',xp=240,gold=120},
+ {kind='Herb',need=5,text='Gather 5 herbs in the southwestern forest',xp=100,gold=50},
+ {kind='Ore',need=4,text='Collect 4 ore deposits at the eastern mine',xp=140,gold=70},
+ {kind='Relic',need=3,text='Find 3 relics in the northern ruins',xp=180,gold=90},
+ {kind='Ritual',need=1,text='Activate the monastery altar to the south',xp=240,gold=120},
 }
 local function integer(n,max)
  if type(n)~='number' or n~=n or n==math.huge or n==-math.huge then return 0 end
@@ -45991,7 +45992,7 @@ local function publish(p,s)
  p:SetAttribute('RPGReady',true)
  p:SetAttribute('LanternTier',d.lantern)
  local stats=p:FindFirstChild('leaderstats')
- if stats then stats.Nivel.Value=RPG.Level(d.xp); stats.Aur.Value=d.gold end
+ if stats then stats.Level.Value=RPG.Level(d.xp); stats.Gold.Value=d.gold end
 end
 local function reward(p,s,xp,gold)
  -- No client can supply reward amounts, item prices or quest completion.
@@ -46002,7 +46003,7 @@ end
 local function notice(p,text) p:SetAttribute('RPGNotice',text) end
 function RPG.Ready(p) return profiles[p]~=nil and not profiles[p].leaving end
 function RPG.Join(p)
- if closing then p:Kick('Serverul se inchide. Reconecteaza-te.'); return end
+ if closing then p:Kick('The server is shutting down. Please reconnect.'); return end
  local data=nil
  if temporary then data=clean(nil) else
   for attempt=1,3 do
@@ -46022,15 +46023,15 @@ function RPG.Join(p)
   end
  end
  if not data then
-  if p.Parent==Players then p:Kick('Profil indisponibil sau deschis pe alt server. Reincearca in cateva minute.') end
+  if p.Parent==Players then p:Kick('Your profile is unavailable or open on another server. Please try again in a few minutes.') end
   return
  end
  profiles[p]={data=data,saving=false,leaving=false,lastSave=os.clock(),nodes={},visits={},nextUse=0,packages={}}
  if p.Parent~=Players or closing then RPG.Remove(p); return end
  local stats=Instance.new('Folder'); stats.Name='leaderstats'; stats.Parent=p
- for _,n in ipairs({'Nivel','Aur'}) do local v=Instance.new('IntValue'); v.Name=n; v.Parent=stats end
- p:SetAttribute('SaveStatus',temporary and 'TEST - progres temporar' or 'Salvare activa')
- notice(p,'Sfat: tabla de misiuni este langa fantana. Interactiune: R / L1 / atingere.')
+ for _,n in ipairs({'Level','Gold'}) do local v=Instance.new('IntValue'); v.Name=n; v.Parent=stats end
+ p:SetAttribute('SaveStatus',temporary and 'TEST - temporary progress' or 'Saving enabled')
+ notice(p,'Tip: the quest board is beside the fountain. Interact: R / L1 / touch.')
  publish(p,profiles[p])
 end
 local function save(p,release)
@@ -46058,13 +46059,13 @@ local function save(p,release)
  end
  s.saving=false
  if succeeded then
-  s.lastSave=os.clock(); p:SetAttribute('SaveStatus','Salvat')
+  s.lastSave=os.clock(); p:SetAttribute('SaveStatus','Saved')
  else
-  p:SetAttribute('SaveStatus','Salvare esuata - reincercare automata')
+  p:SetAttribute('SaveStatus','Save failed - retrying automatically')
   warn('Apus profile save failed for user '..p.UserId)
   if lost or os.clock()-s.lastSave&gt;Config.LockLifetime-30 then
    s.leaving=true
-   if p.Parent==Players then p:Kick('Conexiunea cu salvarea s-a intrerupt. Reconecteaza-te.') end
+   if p.Parent==Players then p:Kick('The connection to your saved profile was lost. Please reconnect.') end
   end
  end
  return succeeded
@@ -46081,14 +46082,14 @@ function RPG.Snapshot(p)
  local s=profiles[p]
  if not s then return {ready=false} end
  local d=s.data; local q=quests[d.quest]
- local adventure=s.contractAt and ('Livrare: '..(s.packageCount or 0)..'/3 | '..math.max(0,180-math.floor(os.clock()-s.contractAt))..'s | Han')
-  or (s.clue and 'Sigiliu descifrat: activeaza altarul noaptea' or 'Contracte la han | Indiciu la capela ziua')
+ local adventure=s.contractAt and ('Delivery: '..(s.packageCount or 0)..'/3 | '..math.max(0,180-math.floor(os.clock()-s.contractAt))..'s | Inn')
+  or (s.clue and 'Seal deciphered: activate the shrine at night' or 'Contracts at the inn | Chapel clue by day')
  local signature=table.concat({d.xp,d.gold,d.class,d.lantern,d.quest,d.count,tostring(d.accepted),d.completed,adventure,p:GetAttribute('SaveStatus') or '',p:GetAttribute('RPGNotice') or ''},'|')
  if signature==s.snapshotKey then return s.snapshot end
  s.snapshotKey=signature
  s.snapshot={ready=true,level=RPG.Level(d.xp),xp=d.xp,nextXP=Config.MaxLevel&gt;RPG.Level(d.xp)
   and 100*RPG.Level(d.xp)^2 or d.xp,gold=d.gold,class=d.class,lantern=d.lantern,
-  quest=d.accepted and (q.text..' ('..d.count..'/'..q.need..')') or 'Vorbeste cu tabla de misiuni din piata',
+  quest=d.accepted and (q.text..' ('..d.count..'/'..q.need..')') or 'Visit the quest board in the market square',
   completed=d.completed,adventure=adventure,save=p:GetAttribute('SaveStatus'),notice=p:GetAttribute('RPGNotice')}
  return s.snapshot
 end
@@ -46101,7 +46102,7 @@ local function progress(p,s,kind)
  local d=s.data; local q=quests[d.quest]
  if not d.accepted or kind~=q.kind or d.count&gt;=q.need then return end
  d.count=d.count+1
- notice(p,d.count&gt;=q.need and 'Obiectiv complet. Revino la tabla de misiuni pentru recompensa.'
+ notice(p,d.count&gt;=q.need and 'Objective complete. Return to the quest board for your reward.'
   or (q.text..' '..d.count..'/'..q.need))
 end
 function RPG.Init(canInteract)
@@ -46113,22 +46114,22 @@ function RPG.Init(canInteract)
    prompt.Name='RPGInteract'; prompt.MaxActivationDistance=10
    prompt.RequiresLineOfSight=true; prompt.HoldDuration=.5
    prompt.KeyboardKeyCode=Enum.KeyCode.R; prompt.GamepadKeyCode=Enum.KeyCode.ButtonL1
-   prompt.ObjectText=name; prompt.ActionText='Interactioneaza'
-   if name:match('^Herb_') then prompt.ObjectText='Ierburi'; prompt.ActionText='Culege'
-   elseif name:match('^Ore_') then prompt.ObjectText='Minereu'; prompt.ActionText='Extrage'
-   elseif name:match('^Relic_') then prompt.ObjectText='Relicva'; prompt.ActionText='Cerceteaza'
-   elseif name=='QuestBoard' then prompt.ObjectText='Misiuni'; prompt.ActionText='Accepta / Incaseaza'
-   elseif name=='Merchant' then prompt.ObjectText='Fierar'; prompt.ActionText='Lanterna +1 (100/200/300 aur)'
-   elseif name=='Healer' then prompt.ObjectText='Vindecator'; prompt.ActionText='Vindeca (30 aur)'
-   elseif name=='Trainer' then prompt.ObjectText='Breasla'; prompt.ActionText='Schimba specializarea'
-   elseif name=='TravelGate' then prompt.ObjectText='Spre sat'; prompt.ActionText='Exploreaza'
-   elseif name=='ContractBoard' then prompt.ObjectText='Hanul Corbului'; prompt.ActionText='Contract: 3 livrari / 180s'
-   elseif name:match('^Supply_') then prompt.ObjectText='Provizii'; prompt.ActionText='Ridica pentru han'
-   elseif name=='DawnClue' then prompt.ObjectText='InscripÈ›ia capelei'; prompt.ActionText='Cerceteaza ziua'
-   elseif name=='DawnShrine' then prompt.ObjectText='Sigiliul zorilor'; prompt.ActionText='Ritual nocturn'
-   elseif name=='Campfire' then prompt.ObjectText='Vatra hanului'; prompt.ActionText='Gateste: 2 ierburi / +25 HP'
-   elseif name:match('^Expedition_') then prompt.ObjectText='Expeditie'; prompt.ActionText='Exploreaza 3 repere'
-   elseif name=='RitualAltar' then prompt.ObjectText='Altar'; prompt.ActionText='Activeaza ritualul' end
+   prompt.ObjectText=name; prompt.ActionText='Interact'
+   if name:match('^Herb_') then prompt.ObjectText='Herbs'; prompt.ActionText='Gather'
+   elseif name:match('^Ore_') then prompt.ObjectText='Ore'; prompt.ActionText='Mine'
+   elseif name:match('^Relic_') then prompt.ObjectText='Relic'; prompt.ActionText='Investigate'
+   elseif name=='QuestBoard' then prompt.ObjectText='Quests'; prompt.ActionText='Accept / Claim reward'
+   elseif name=='Merchant' then prompt.ObjectText='Blacksmith'; prompt.ActionText='Lantern +1 (100/200/300 gold)'
+   elseif name=='Healer' then prompt.ObjectText='Healer'; prompt.ActionText='Heal (30 gold)'
+   elseif name=='Trainer' then prompt.ObjectText='Guild trainer'; prompt.ActionText='Change specialization'
+   elseif name=='TravelGate' then prompt.ObjectText='Enter village'; prompt.ActionText='Explore'
+   elseif name=='ContractBoard' then prompt.ObjectText='The Raven Inn'; prompt.ActionText='Contract: 3 supplies / 180s'
+   elseif name:match('^Supply_') then prompt.ObjectText='Supplies'; prompt.ActionText='Collect for the inn'
+   elseif name=='DawnClue' then prompt.ObjectText='Chapel inscription'; prompt.ActionText='Read by daylight'
+   elseif name=='DawnShrine' then prompt.ObjectText='Dawn Seal'; prompt.ActionText='Night ritual'
+   elseif name=='Campfire' then prompt.ObjectText='Inn hearth'; prompt.ActionText='Cook: 2 herbs / +25 HP'
+   elseif name:match('^Expedition_') then prompt.ObjectText='Expedition'; prompt.ActionText='Explore 3 landmarks'
+   elseif name=='RitualAltar' then prompt.ObjectText='Altar'; prompt.ActionText='Perform ritual' end
    prompt.Parent=part
    prompt.Triggered:Connect(function(p)
     local s=profiles[p]; local char=p.Character
@@ -46144,73 +46145,73 @@ function RPG.Init(canInteract)
     local d=s.data
     if Adventure.ContractExpired(s.contractAt,now) then
      s.contractAt=nil; s.packages={}; s.packageCount=0
-     notice(p,'Contract expirat. Poti accepta din nou la han.')
+     notice(p,'Contract expired. Accept another at the inn.')
     end
     if name=='TravelGate' then
      if p:GetAttribute('RoundActive') then return end
-     char:PivotTo(CFrame.new(0,4,-20)); notice(p,'Explorare PvE. Vei participa la urmatoarea runda.'); return
+     char:PivotTo(CFrame.new(0,4,-20)); notice(p,'PvE exploration. You will join the next round.'); return
     elseif name=='ContractBoard' then
      if s.contractAt then
       if Adventure.CanDeliver(s.contractAt,now,s.packageCount or 0) then
        reward(p,s,80,40); s.contractAt=nil; s.packages={}; s.packageCount=0; s.contractReady=now+180
-       notice(p,'Provizii livrate: +80 XP / +40 aur. Urmatorul contract in 3 minute.')
-      else notice(p,'Ridica provizii din piata, de la moara si de la ferma. Revino in 180s.') end
-     elseif now&lt;(s.contractReady or 0) then notice(p,'Hangiul are provizii. Revino mai tarziu.')
-     elseif workspace:GetAttribute('ApusNight') then notice(p,'Contractele se accepta ziua. Noaptea cauta sigiliul.')
-     else s.contractAt=now; s.packages={}; s.packageCount=0; notice(p,'Contract acceptat: piata, moara, ferma -&gt; han, in 180s.') end
+       notice(p,'Supplies delivered: +80 XP / +40 gold. Next contract in 3 minutes.')
+      else notice(p,'Collect supplies from the market, mill and farm. Return within 180s.') end
+     elseif now&lt;(s.contractReady or 0) then notice(p,'The inn is stocked. Come back later.')
+     elseif workspace:GetAttribute('ApusNight') then notice(p,'Accept contracts by day. Search for the seal at night.')
+     else s.contractAt=now; s.packages={}; s.packageCount=0; notice(p,'Contract accepted: market, mill, farm -&gt; inn, within 180s.') end
     elseif name:match('^Supply_') then
-     if not s.contractAt then notice(p,'Accepta intai un contract la han.')
-     elseif s.packages[name] then notice(p,'Ai ridicat deja proviziile de aici.')
-     else s.packages[name]=true; s.packageCount=(s.packageCount or 0)+1; notice(p,'Provizii '..s.packageCount..'/3. Revino la han.') end
+     if not s.contractAt then notice(p,'Accept a contract at the inn first.')
+     elseif s.packages[name] then notice(p,'You have already collected these supplies.')
+     else s.packages[name]=true; s.packageCount=(s.packageCount or 0)+1; notice(p,'Supplies '..s.packageCount..'/3. Return to the inn.') end
     elseif name=='DawnClue' then
-     if workspace:GetAttribute('ApusNight') then notice(p,'InscripÈ›ia poate fi citita doar la lumina zilei.')
-     else s.clue=true; notice(p,'Indiciu: la noapte, aprinde sigiliul din curtea manastirii.') end
+     if workspace:GetAttribute('ApusNight') then notice(p,'The inscription can only be read by daylight.')
+     else s.clue=true; notice(p,'Clue: tonight, awaken the seal in the monastery courtyard.') end
     elseif name=='DawnShrine' then
      if Adventure.CanRitual(s.clue,workspace:GetAttribute('ApusNight'),now,s.ritualReady) then
       s.clue=false; s.ritualReady=now+300; reward(p,s,120,60)
-      notice(p,'Sigiliu restaurat: +120 XP / +60 aur. Poti cerceta din nou dupa 5 minute.')
-     else notice(p,'Ai nevoie de indiciul capelei, noapte si ritual reincarcat (5 minute).') end
+      notice(p,'Seal restored: +120 XP / +60 gold. Investigate again after 5 minutes.')
+     else notice(p,'You need the chapel clue, nighttime and a ready ritual (5-minute cooldown).') end
     elseif name=='Campfire' then
-     if hum.Health&gt;=hum.MaxHealth then notice(p,'Sanatatea este deja completa.')
-     elseif (s.herbs or 0)&lt;2 then notice(p,'Culege 2 ierburi pentru o masa calda.')
-     elseif now&lt;(s.cookReady or 0) then notice(p,'Asteapta 45 secunde intre mese.')
-     else s.herbs=s.herbs-2; s.cookReady=now+45; hum.Health=math.min(hum.MaxHealth,hum.Health+25); notice(p,'Masa calda: +25 HP. Infectia ramane.') end
+     if hum.Health&gt;=hum.MaxHealth then notice(p,'Your health is already full.')
+     elseif (s.herbs or 0)&lt;2 then notice(p,'Gather 2 herbs to cook a warm meal.')
+     elseif now&lt;(s.cookReady or 0) then notice(p,'Wait 45 seconds between meals.')
+     else s.herbs=s.herbs-2; s.cookReady=now+45; hum.Health=math.min(hum.MaxHealth,hum.Health+25); notice(p,'Warm meal: +25 HP. Infection remains.') end
     elseif name=='QuestBoard' then
      local q=quests[d.quest]
      if not d.accepted then d.accepted=true; notice(p,q.text)
      elseif d.count&gt;=q.need then
       reward(p,s,q.xp,q.gold); d.completed=d.completed+1
       d.quest=d.quest%#quests+1; d.count=0; d.accepted=false
-      notice(p,'Recompensa: '..q.xp..' XP, '..q.gold..' aur. Accepta urmatoarea misiune.')
+      notice(p,'Reward: '..q.xp..' XP, '..q.gold..' gold. Accept the next quest.')
      else notice(p,q.text..' '..d.count..'/'..q.need) end
     elseif name=='Merchant' then
      local cost=100*(d.lantern+1)
-     if d.lantern&gt;=3 then notice(p,'Lanterna este deja la nivelul maxim.')
-     elseif d.gold&lt;cost then notice(p,'Ai nevoie de '..cost..' aur.')
-     else d.gold=d.gold-cost; d.lantern=d.lantern+1; publish(p,s); notice(p,'Lanterna imbunatatita permanent.') end
+     if d.lantern&gt;=3 then notice(p,'Your lantern is already fully upgraded.')
+     elseif d.gold&lt;cost then notice(p,'You need '..cost..' gold.')
+     else d.gold=d.gold-cost; d.lantern=d.lantern+1; publish(p,s); notice(p,'Lantern permanently upgraded.') end
     elseif name=='Healer' then
-     if hum.Health&gt;=hum.MaxHealth then notice(p,'Sanatatea este deja completa.')
-     elseif d.gold&lt;30 then notice(p,'Vindecarea costa 30 aur.')
-     else d.gold=d.gold-30; hum.Health=hum.MaxHealth; publish(p,s); notice(p,'Sanatate refacuta. Infectia NU este vindecata.') end
+     if hum.Health&gt;=hum.MaxHealth then notice(p,'Your health is already full.')
+     elseif d.gold&lt;30 then notice(p,'Healing costs 30 gold.')
+     else d.gold=d.gold-30; hum.Health=hum.MaxHealth; publish(p,s); notice(p,'Health restored. Infection is NOT cured.') end
     elseif name=='Trainer' then
      local index=table.find(classes,d.class) or 1
      d.class=classes[index%#classes+1]; publish(p,s)
-     notice(p,'Specializare: '..d.class..'. Vanator: aur +2, Cercetas: expeditii +20 XP, Carturar: cules +2 XP.')
+     notice(p,'Specialization: '..classNames[d.class]..'. Hunter: +2 gathering gold; Scout: +20 expedition XP; Scholar: +2 gathering XP.')
     elseif name:match('^Expedition_') then
      s.visits[name]=true
      local count=0; for _ in pairs(s.visits) do count=count+1 end
      if count&gt;=3 then
       if now&gt;=(s.expeditionAt or 0) then
        reward(p,s,d.class=='Cercetas' and 200 or 180,90)
-       s.expeditionAt=now+300; s.visits={}; notice(p,'Expeditie terminata: XP si aur primite.')
-      else notice(p,'Recompensa expeditiei este disponibila o data la 5 minute.') end
-     else notice(p,'Expeditie: '..count..'/3 repere vizitate (padure, mina, ruine).') end
+       s.expeditionAt=now+300; s.visits={}; notice(p,'Expedition complete: XP and gold awarded.')
+      else notice(p,'Expedition rewards are available once every 5 minutes.') end
+     else notice(p,'Expedition: '..count..'/3 landmarks visited (forest, mine, ruins).') end
     else
      local kind=name:match('^(%a+)_')
      if name=='RitualAltar' then kind='Ritual' end
      if kind~='Herb' and kind~='Ore' and kind~='Relic' and kind~='Ritual' then return end
      -- Personal node cooldowns: 50 players never compete for one resource spawn.
-     if now&lt;(s.nodes[name] or 0) then notice(p,'Resursa se reface pentru tine.'); return end
+     if now&lt;(s.nodes[name] or 0) then notice(p,'This resource is replenishing for you.'); return end
      s.nodes[name]=now+60
      if kind=='Herb' then s.herbs=math.min(10,(s.herbs or 0)+1) end
      reward(p,s,d.class=='Carturar' and 10 or 8,d.class=='Vanator' and 6 or 4)
@@ -46263,7 +46264,7 @@ local function decorate(p,char)
   local board=Instance.new('BillboardGui'); board.Name='SupporterTitle'
   board.Size=UDim2.fromOffset(180,28); board.StudsOffset=Vector3.new(0,3,0); board.MaxDistance=60
   local text=Instance.new('TextLabel'); text.Size=UDim2.fromScale(1,1)
-  text.BackgroundTransparency=1; text.Text='SUSTINATOR AL SATULUI'
+  text.BackgroundTransparency=1; text.Text='VILLAGE SUPPORTER'
   text.TextColor3=Color3.fromRGB(245,211,124); text.TextSize=12; text.Parent=board; board.Parent=head
  end
 end
@@ -46286,8 +46287,8 @@ function Monetization.Init()
  local remote=Instance.new('RemoteEvent'); remote.Name='OpenRobuxShop'; remote.Parent=RS
  -- This is server -&gt; client only. No remote grants entitlements or currency.
  local part=workspace.Village.WorldNodes:WaitForChild('RobuxShop')
- local prompt=Instance.new('ProximityPrompt'); prompt.ActionText='Vezi cosmetice'
- prompt.ObjectText='Magazin Robux'; prompt.KeyboardKeyCode=Enum.KeyCode.R
+ local prompt=Instance.new('ProximityPrompt'); prompt.ActionText='Browse cosmetics'
+ prompt.ObjectText='Robux Shop'; prompt.KeyboardKeyCode=Enum.KeyCode.R
  prompt.GamepadKeyCode=Enum.KeyCode.ButtonL1; prompt.MaxActivationDistance=10
  prompt.HoldDuration=.3; prompt.Parent=part
  local last={}
@@ -46320,6 +46321,9 @@ function Rules.CryptCount(players)
 end
 function Rules.InitialVampires(players)
  return Rules.CryptCount(players)
+end
+function Rules.VampireVictory(humans,vampires)
+ return humans==0 and vampires&gt;0
 end
 function Rules.JailSlot(prisoners,count)
  local used={}; local sizes={}
@@ -46563,18 +46567,18 @@ function Sessions.Init(setBots)
   Teleport:TeleportAsync(game.PlaceId,{p},options)
  end
  request.OnServerInvoke=function(p,kind,value)
-  if type(kind)~='string' then return {ok=false,message='Cerere invalida.'} end
+  if type(kind)~='string' then return {ok=false,message='Invalid request.'} end
   if kind=='Info' then return {ok=true,studio=RunService:IsStudio(),code=p:GetAttribute('ApusJoinCode') or '',bots=workspace:GetAttribute('ApusBotCount') or 0} end
-  if busy[p] or os.clock()&lt;(last[p] or 0) then return {ok=false,message='Asteapta cateva secunde.'} end
+  if busy[p] or os.clock()&lt;(last[p] or 0) then return {ok=false,message='Please wait a few seconds.'} end
   last[p]=os.clock()+5; busy[p]=true
   local ok,result=pcall(function()
    if kind=='Bots' then
     local count=BotRules.Count(value)
-    if count==nil then return {ok=false,message='Alege intre 0 si 12 boti.'} end
+    if count==nil then return {ok=false,message='Choose between 0 and 12 bots.'} end
     local success,message=setBots(count); return {ok=success,message=message}
    end
-   if kind~='Host' and kind~='Join' then return {ok=false,message='Cerere necunoscuta.'} end
-   if not map then return {ok=false,message='Host / Join necesita joc publicat si aplicatia Roblox. In Studio foloseste botii sau Server &amp; Clients.'} end
+   if kind~='Host' and kind~='Join' then return {ok=false,message='Unknown request.'} end
+   if not map then return {ok=false,message='Host / Join requires a published experience and the Roblox app. In Studio, use bots or Server &amp; Clients.'} end
    local entry
    if kind=='Host' then
     entry=created[p]
@@ -46592,22 +46596,22 @@ function Sessions.Init(setBots)
     end
    else
     local code=Rules.Code(value)
-    if not code then return {ok=false,message='Codul trebuie sa aiba 8 caractere (0-9 / A-F).'} end
+    if not code then return {ok=false,message='The code must have 8 characters (0-9 / A-F).'} end
     entry=map:GetAsync(code)
     if type(entry)~='table' or type(entry.access)~='string' or type(entry.expires)~='number' or entry.expires&lt;=os.time() then
-     return {ok=false,message='Cod invalid sau expirat (2 ore).'}
+     return {ok=false,message='Invalid or expired code (2 hours).'}
     end
    end
    p:SetAttribute('ApusJoinCode',entry.code)
    teleport(p,entry)
-   return {ok=true,message='Conectare la sesiune. Cod: '..entry.code,code=entry.code}
+   return {ok=true,message='Joining session. Code: '..entry.code,code=entry.code}
   end)
   busy[p]=nil
-  if not ok then return {ok=false,message='Conectarea a esuat. Incearca din nou; sesiunea gazduita pastreaza acelasi cod.'} end
+  if not ok then return {ok=false,message='Connection failed. Try again; your hosted session keeps the same code.'} end
   return result
  end
  Teleport.TeleportInitFailed:Connect(function(p)
-  busy[p]=nil; p:SetAttribute('ApusSessionError','Teleport nereusit. Reincearca din meniul Multiplayer.')
+  busy[p]=nil; p:SetAttribute('ApusSessionError','Teleport failed. Try again from the Multiplayer menu.')
  end)
  local function arriving(p)
   if not map then return end
@@ -46669,7 +46673,7 @@ local states = {}
 local phase, remaining, cycle, running, roundId = 'Asteptare', 0, 0, false, 0
 local practiceRound=false
 local pendingBotCount=nil
-local message = 'Sunt necesari minimum doi jucatori.'
+local message = 'At least two participants are required.'
 local spawns = workspace:WaitForChild('Village'):WaitForChild('Spawns'):GetChildren()
 table.sort(spawns,function(a,b) return tonumber(a.Name:match('%d+'))&lt;tonumber(b.Name:match('%d+')) end)
 local cryptFolder=workspace.Village:WaitForChild('Crypts')
@@ -46713,8 +46717,8 @@ local function counts()
 end
 local function winner()
  local h,v=counts()
- if v==0 then return 'Satenii au castigat: toti vampirii au fost capturati.' end
- if h==0 then return 'Vampirii au castigat: satul a fost cucerit.' end
+ if v==0 then return 'Villagers win: all vampires have been captured.' end
+ if h==0 then return 'Vampires win: the village has fallen.' end
  return nil
 end
 local function validTarget(p, id, range)
@@ -46770,7 +46774,7 @@ end
 local function capture(target)
  local s=states[target]; s.captured=true; s.pending=false
  assignJail(target); move(target,jailPosition(target)); paint(target)
- tell(target,'Capturat in cripta '..s.jail..' pana la sfarsitul rundei.')
+ tell(target,'Captured in crypt '..s.jail..' until the round ends.')
 end
 updateCrypts()
 RPG.Init(function(p)
@@ -46789,10 +46793,10 @@ local function handleAction(p, kind, id)
  local weaponKey=isBot(p) and (s.vampire and 'Claws' or 'SilverSword') or (tool and tool:GetAttribute('ApusWeapon'))
  local weapon=Combat.Weapons[weaponKey]
  if kind=='Weapon' and not weapon then return end
- local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Apropie-te de o tinta vizibila, la maximum 10 studs.'); return end
+ local target=validTarget(p,id,kind=='Weapon' and weapon.range or C.Range); if not target then tell(p,'Approach a visible target within 10 studs.'); return end
  local t=states[target]
  local cd=kind=='Weapon' and weapon.cooldown or C[kind..'Cooldown']
- if now&lt;(s.cooldowns[kind] or 0) then tell(p,'Abilitatea se reincarca.'); return end
+ if now&lt;(s.cooldowns[kind] or 0) then tell(p,'Ability is on cooldown.'); return end
  if kind=='Weapon' then
   local a,b=root(p),root(target); local delta=b.Position-a.Position
   if delta.Magnitude&lt;.01 then return end
@@ -46806,30 +46810,30 @@ local function handleAction(p, kind, id)
   if health&lt;=1 then
    -- A defeat opens a brief capture window, without death/respawn exploits.
    t.weakened=now+8; t.reveal=now+8; paint(target)
-   tell(target,'Slabit timp de 8 secunde. Fugi sau cere ajutor!')
+   tell(target,'Weakened for 8 seconds. Escape or call for help!')
   end
  elseif kind=='Inspect' then
   if s.vampire or phase~='Zi' then return end
   s.cooldowns[kind]=now+cd
-  if t.vampire then t.reveal=now+15; paint(target); tell(p,'Vampir descoperit! Captureaza-l in 15 secunde.')
-  elseif t.pending then tell(p,'Tinta este infectata. Se transforma la urmatorul apus.')
-  else tell(p,'Tinta este om.') end
+  if t.vampire then t.reveal=now+15; paint(target); tell(p,'Vampire revealed! Capture them within 15 seconds.')
+  elseif t.pending then tell(p,'The target is infected and transforms at the next dusk.')
+  else tell(p,'The target is human.') end
  elseif kind=='Capture' then
   if s.vampire or (phase~='Zi' and not ((t.weakened or 0)&gt;now)) then return end
   s.cooldowns[kind]=now+cd
-  if t.vampire and (t.reveal or 0)&gt;now then capture(target); tell(p,'Vampir capturat in cripta.')
-  else tell(p,'Capturezi doar vampiri descoperiti prin investigare.') end
+  if t.vampire and (t.reveal or 0)&gt;now then capture(target); tell(p,'Vampire captured in a crypt.')
+  else tell(p,'You can only capture vampires revealed by investigation.') end
  elseif kind=='Feed' then
   if not s.vampire or phase~='Noapte' or t.vampire then return end
   s.cooldowns[kind]=now+cd
   local th=humanoid(target); local sh=humanoid(p)
   -- Nonlethal stylized feed: nobody is removed from play by health damage.
   th.Health=math.max(25,th.Health-20); sh.Health=math.min(sh.MaxHealth,sh.Health+25)
-  tell(target,'Un vampir s-a hranit! Cauta protectia celorlalti.'); tell(p,'Ti-ai refacut sanatatea.')
+  tell(target,'A vampire fed on you! Seek safety with others.'); tell(p,'You recovered health.')
  elseif kind=='Infect' then
   if not s.vampire or phase~='Noapte' or t.vampire or t.pending or s.infections&lt;1 then return end
   s.cooldowns[kind]=now+cd; s.infections=s.infections-1; t.pending=true
-  tell(target,'Esti infectat. Devii vampir la urmatorul apus.'); tell(p,'Infectare reusita. Transformarea are loc la urmatorul apus.')
+  tell(target,'You are infected. You become a vampire at the next dusk.'); tell(p,'Infection successful. Transformation occurs at the next dusk.')
  end
 end
 action.OnServerEvent:Connect(handleAction)
@@ -46862,14 +46866,14 @@ Players.PlayerRemoving:Connect(function(p)
 end)
 for _,p in ipairs(Players:GetPlayers()) do join(p) end
 Sessions.Init(function(count)
- if not RunService:IsStudio() then return false,'Botii de test sunt disponibili numai in Studio.' end
+ if not RunService:IsStudio() then return false,'Test bots are available only in Studio.' end
  if running or phase~='Asteptare' then
   pendingBotCount=count; workspace:SetAttribute('ApusPendingBotCount',count)
-  return true,'Setarea '..count..' boti se aplica dupa runda curenta.'
+  return true,'Setting '..count..' bots will apply after this round.'
  end
  Bots.SetCount(count,join,function(p) states[p]=nil end)
  updateCrypts()
- return true,'Boti: '..count..'. Runde de practica, fara recompense de runda.'
+ return true,'Bots: '..count..'. Practice rounds award no round rewards.'
 end)
 Bots.Start(states,function() return phase end,handleAction,alive,root)
 -- Server-only test harness; never created in published servers or replicated to clients.
@@ -46953,7 +46957,7 @@ while true do
   pendingBotCount=nil; workspace:SetAttribute('ApusPendingBotCount',nil); updateCrypts()
  end
  running=false; practiceRound=false; cycle=0; setPhase('Asteptare',0)
- message='Exploreaza prin portal. Contracte la han ziua; sigiliul manastirii noaptea. PvP: minimum 2 jucatori.'
+ message='Enter the portal to explore. Inn contracts by day; monastery seal at night. PvP: 2+ participants.'
  local explorationTime=0
  repeat
   task.wait(1); explorationTime=explorationTime+1
@@ -46961,7 +46965,7 @@ while true do
   if explorationTime%120==0 then setSky(not workspace:GetAttribute('ApusNight')) end
  until #readyRoster()&gt;=C.MinPlayers
  practiceRound=RunService:IsStudio() and (workspace:GetAttribute('ApusBotCount') or 0)&gt;0
- message=practiceRound and 'PRACTICA CU BOTI - fara recompense de runda.' or 'Runda incepe curand.'
+ message=practiceRound and 'BOT PRACTICE - no round rewards.' or 'The round starts soon.'
  local preparation=practiceRound and 5 or C.Intermission
  setPhase('Pregatire',preparation); waitPhase(preparation,false)
  if #readyRoster()&gt;=C.MinPlayers then
@@ -46983,23 +46987,24 @@ while true do
   running=true
   local result=nil
   for n=1,C.Cycles do
-   cycle=n; message='Ziua: investigheaza si captureaza vampirii descoperiti.'
+   cycle=n; message='Day: investigate and capture revealed vampires.'
    local day=practiceRound and 20 or C.Day
    setPhase('Zi',day); result=waitPhase(day,true); if result then break end
    for p,s in pairs(states) do if s.active and not s.captured then
-    if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformarea s-a incheiat. Esti vampir!') end
+    if s.pending then s.vampire=true; s.pending=false; tell(p,'Transformation complete. You are a vampire!') end
     if s.vampire then s.infections=1 end
    end end
-   message='Noaptea: ramaneti impreuna. Vampirii pot vana.'
+   message='Night: stay together. Vampires can hunt.'
    local night=practiceRound and 20 or C.Night
    setPhase('Noapte',night); result=waitPhase(night,true); if result then break end
   end
   running=false
-  local vampireVictory=result~=nil and string.find(result,'Vampirii au castigat',1,true)~=nil
+  local humansLeft,vampiresLeft=counts()
+  local vampireVictory=Rules.VampireVictory(humansLeft,vampiresLeft)
   for p,s in pairs(states) do
    if s.active and not isBot(p) and not practiceRound then RPG.RoundReward(p,s.vampire==vampireVictory) end
   end
-  message=result or 'Satenii au castigat: au supravietuit celor trei nopti.'
+  message=result or 'Villagers win: they survived all three nights.'
   setPhase('Rezultat',10); waitPhase(10,false)
   for p,s in pairs(states) do
    s.active=false; s.captured=false; s.pending=false; s.vampire=false; s.weakened=0
@@ -47022,9 +47027,9 @@ end
         <ProtectedString name="Source">-- Create these passes under YOUR experience. Zero means disabled, never a test charge.
 -- Prices are configured on Roblox and fetched dynamically by the client.
 return {
- {key='GoldenLantern',id=0,title='Lanterna aurie',description='Culoare aurie, fara bonus de raza sau putere.'},
- {key='MoonAura',id=0,title='Aura lunii',description='Efect albastru cosmetic, indiferent de rol.'},
- {key='Supporter',id=0,title='Sustinator al satului',description='Titlu cosmetic deasupra personajului.'},
+ {key='GoldenLantern',id=0,title='Golden Lantern',description='Golden color with no range or power advantage.'},
+ {key='MoonAura',id=0,title='Moon Aura',description='Blue cosmetic effect, independent of your role.'},
+ {key='Supporter',id=0,title='Village Supporter',description='Cosmetic title above your character.'},
 }
 </ProtectedString>
       </Properties>
@@ -47035,9 +47040,9 @@ return {
         <ProtectedString name="Source">-- Pure combat rules. Values never come from the client.
 local Combat={}
 Combat.Weapons={
- SilverSword={name='Sabie de argint',range=8,cooldown=1.0,damage=24,arc=.25,color={188,211,227}},
- Crossbow={name='Arbaleta',range=45,cooldown=2.6,damage=16,arc=.80,color={109,75,48}},
- Claws={name='Gheare',range=7,cooldown=1.2,damage=19,arc=.15,color={149,72,108}},
+ SilverSword={name='Silver Sword',range=8,cooldown=1.0,damage=24,arc=.25,color={188,211,227}},
+ Crossbow={name='Crossbow',range=45,cooldown=2.6,damage=16,arc=.80,color={109,75,48}},
+ Claws={name='Claws',range=7,cooldown=1.2,damage=19,arc=.15,color={149,72,108}},
 }
 function Combat.CanHit(key,attackerVampire,targetVampire,phase,distance,facing)
  local w=Combat.Weapons[key]
@@ -47114,6 +47119,9 @@ local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07)
 local statsLabel=label('RPGStats',UDim2.fromScale(.02,.23),UDim2.fromScale(.38,.07),15)
 local questLabel=label('Quest',UDim2.fromScale(.02,.305),UDim2.fromScale(.38,.13),14)
 local data=nil
+local phaseNames={Asteptare='Waiting',Pregatire='Preparation',Zi='Day',Noapte='Night',Rezultat='Results'}
+local roleNames={Vampir='Vampire',Satean='Villager',Explorator='Explorer'}
+local classNames={Vanator='Hunter',Cercetas='Scout',Carturar='Scholar'}
 local selected=nil
 local function nearest()
  local char=player.Character; local r=char and char:FindFirstChild('HumanoidRootPart')
@@ -47166,29 +47174,29 @@ status.OnClientEvent:Connect(function(s)
  data=s
  local r=s.rpg
  if r and r.ready then
-  statsLabel.Text=string.format('Nivel %d | XP %d/%d | Aur %d | %s',r.level,r.xp,r.nextXP,r.gold,r.class)
+  statsLabel.Text=string.format('Level %d | XP %d/%d | Gold %d | %s',r.level,r.xp,r.nextXP,r.gold,classNames[r.class] or r.class)
   questLabel.Text=r.quest..'\n'..(r.adventure or '')..'\n'..(r.notice or '')..' | '..(r.save or '')
- else statsLabel.Text='Se incarca profilul...'; questLabel.Text='' end
- local phaseName=s.phase=='Asteptare' and ('Explorare: '..(s.night and 'Noapte' or 'Zi')) or s.phase
- header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',phaseName,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
- detail.Text=(s.captured and 'Capturat: asteapta urmatoarea runda. ') or (s.pending and 'INFECTAT: transformare la urmatorul apus. ') or ''
+ else statsLabel.Text='Loading profile...'; questLabel.Text='' end
+ local phaseName=s.phase=='Asteptare' and ('Exploration: '..(s.night and 'Night' or 'Day')) or (phaseNames[s.phase] or s.phase)
+ header.Text=string.format('%s | %ds | %d/%d | %s | Crypts: %d',phaseName,s.time,s.cycle,s.maxCycles or 3,roleNames[s.role] or s.role,s.crypts or 1)
+ detail.Text=(s.captured and 'Captured: wait for the next round. ') or (s.pending and 'INFECTED: transformation at the next dusk. ') or ''
  detail.Text=detail.Text..(s.notice or '')
- if s.practice then detail.Text='PRACTICA / BOTI | '..detail.Text end
+ if s.practice then detail.Text='PRACTICE / BOTS | '..detail.Text end
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then
-  local a=s.role=='Vampir' and 'Hranire' or 'Investigare'
-  local b=s.role=='Vampir' and 'Infectare' or 'Capturare'
-  if s.role~='Vampir' and s.phase=='Noapte' then a='Investigare (ziua)'; b='Captureaza slabit' end
+  local a=s.role=='Vampir' and 'Feed' or 'Investigate'
+  local b=s.role=='Vampir' and 'Infect' or 'Capture'
+  if s.role~='Vampir' and s.phase=='Noapte' then a='Investigate (daytime)'; b='Capture weakened' end
   CAS:SetTitle('ApusPrimary',a); CAS:SetTitle('ApusSecondary',b)
-  controls.Text='PC: E '..a..' / Q '..b..' | Controller: X / Y | Mobil: butoanele de actiune'
- else controls.Text='Misca-te cu comenzile Roblox. Actiunile se activeaza in faza potrivita.' end
+  controls.Text='PC: E '..a..' / Q '..b..' | Controller: X / Y | Mobile: action buttons'
+ else controls.Text='Use Roblox movement controls. Abilities unlock in the appropriate phase.' end
 end)
 local elapsed=0
 RunService.Heartbeat:Connect(function(dt)
  elapsed=elapsed+dt; if elapsed&lt;.2 then return end; elapsed=0
  selected=(data and data.active and not data.captured) and nearest() or nil
- targetLabel.Text=selected and ('Tinta apropiata: '..selected.DisplayName) or 'Apropie-te de un jucator pentru actiune'
+ targetLabel.Text=selected and ('Nearby target: '..selected.DisplayName) or 'Approach a participant to interact'
 end)
 
 -- Personal flashlight: available on touch, keyboard, and controller.
@@ -47212,7 +47220,7 @@ CAS:BindAction('ApusLight',function(_,state)
  end
  return Enum.ContextActionResult.Sink
 end,true,Enum.KeyCode.F,Enum.KeyCode.ButtonB)
-CAS:SetTitle('ApusLight','Lanterna')
+CAS:SetTitle('ApusLight','Lantern')
 CAS:SetPosition('ApusLight',UDim2.fromScale(.6,.2))
 
 local function refreshLight()
@@ -47248,7 +47256,7 @@ frame.BackgroundColor3=Color3.fromRGB(18,19,29); frame.Visible=false; frame.Pare
 local cap=Instance.new('UISizeConstraint'); cap.MaxSize=Vector2.new(620,440); cap.Parent=frame
 local title=Instance.new('TextLabel'); title.BackgroundTransparency=1
  title.Size=UDim2.fromScale(.96,.16); title.Position=UDim2.fromScale(.02,0)
- title.Text='Cosmetice optionale | Robux\nFara avantaje in lupta'; title.TextWrapped=true
+ title.Text='Optional cosmetics | Robux\nNo combat advantages'; title.TextWrapped=true
  title.TextSize=18; title.TextColor3=Color3.fromRGB(245,222,171); title.Parent=frame
 local function button(text,y)
  local b=Instance.new('TextButton'); b.Size=UDim2.fromScale(.92,.17)
@@ -47256,7 +47264,7 @@ local function button(text,y)
  b.BackgroundColor3=Color3.fromRGB(48,49,68); b.TextColor3=Color3.new(1,1,1)
  b.Selectable=true; b.Parent=frame; return b
 end
-local close=button('Inchide',.79)
+local close=button('Close',.79)
 local previous=nil
 local function hide()
  frame.Visible=false; CAS:UnbindAction('CloseRobuxShop')
@@ -47269,11 +47277,11 @@ local buttons={}; local infos={}; local fetching={}; local lastInfo={}
 local busy=false
 local function refresh(index)
  local entry=catalog[index]; local b=buttons[index]
- if player:GetAttribute('Owns'..entry.key) then b.Text=entry.title..' | Detinut'; return end
- if entry.id&lt;=0 then b.Text=entry.title..' | Indisponibil momentan'; return end
+ if player:GetAttribute('Owns'..entry.key) then b.Text=entry.title..' | Owned'; return end
+ if entry.id&lt;=0 then b.Text=entry.title..' | Currently unavailable'; return end
  local info=infos[index]
- if not info then b.Text=entry.title..' | Verific pretul...'
- else b.Text=entry.title..' | '..(info.IsForSale and tostring(info.PriceInRobux)..' Robux' or 'Nu este de vanzare')..'\n'..entry.description end
+ if not info then b.Text=entry.title..' | Checking price...'
+ else b.Text=entry.title..' | '..(info.IsForSale and tostring(info.PriceInRobux)..' Robux' or 'Not for sale')..'\n'..entry.description end
 end
 for i,entry in ipairs(catalog) do
  local index=i; local product=entry
@@ -47284,7 +47292,7 @@ for i,entry in ipairs(catalog) do
   local info=infos[index]; if not info or not info.IsForSale then return end
   busy=true
   local ok=pcall(function() Marketplace:PromptGamePassPurchase(player,product.id) end)
-  if not ok then busy=false; buttons[index].Text='Achizitie indisponibila. Reincearca.' end
+  if not ok then busy=false; buttons[index].Text='Purchase unavailable. Please try again.' end
  end)
  refresh(index)
 end
@@ -47374,7 +47382,7 @@ local function equip(tool)
   if state==Enum.UserInputState.Begin then attack() end
   return Enum.ContextActionResult.Sink
  end,true,Enum.KeyCode.ButtonR2)
- CAS:SetTitle('ApusAttack','Ataca'); CAS:SetPosition('ApusAttack',UDim2.fromScale(.84,.55))
+ CAS:SetTitle('ApusAttack','Attack'); CAS:SetPosition('ApusAttack',UDim2.fromScale(.84,.55))
 end
 local function attach(char)
  equipped=nil; CAS:UnbindAction('ApusAttack')
@@ -47422,16 +47430,16 @@ local function button(text,y)
  b.BackgroundColor3=Color3.fromRGB(24,29,38); b.TextColor3=Color3.fromRGB(240,223,183)
  b.Selectable=true; b.Parent=gui; return b
 end
-local graphics=button('Grafica: Auto',.46)
-local motion=button('Efecte reduse: Nu',.51)
-local brightness=button('Luminozitate: Normal',.56)
+local graphics=button('Graphics: Auto',.46)
+local motion=button('Reduced effects: Off',.51)
+local brightness=button('Brightness: Normal',.56)
 local metrics=Instance.new('TextLabel'); metrics.Size=UDim2.fromScale(.22,.04)
 metrics.Position=UDim2.fromScale(.02,.61); metrics.BackgroundTransparency=1
 metrics.TextColor3=Color3.fromRGB(202,211,221); metrics.TextSize=12; metrics.Parent=gui
 local hit=Instance.new('TextLabel'); hit.AnchorPoint=Vector2.new(.5,.5)
 hit.Position=UDim2.fromScale(.5,.5); hit.Size=UDim2.fromOffset(90,40)
 hit.BackgroundTransparency=1; hit.TextColor3=Color3.fromRGB(246,217,146)
-hit.Text='LOVIT'; hit.TextSize=20; hit.Visible=false; hit.Parent=gui
+hit.Text='HIT'; hit.TextSize=20; hit.Visible=false; hit.Parent=gui
 local hitExpires=0
 local function track(obj)
  if obj:IsA('PointLight') or obj:IsA('SurfaceLight') then
@@ -47453,20 +47461,20 @@ end
 graphics.Activated:Connect(function()
  mode=(mode+1)%4
  if mode&gt;0 then quality=mode end
- graphics.Text='Grafica: '..({'Auto','Redusa','Echilibrata','Ridicata'})[mode+1]
+ graphics.Text='Graphics: '..({'Auto','Low','Balanced','High'})[mode+1]
  apply()
 end)
 motion.Activated:Connect(function()
- reduced=not reduced; motion.Text='Efecte reduse: '..(reduced and 'Da' or 'Nu'); apply()
+ reduced=not reduced; motion.Text='Reduced effects: '..(reduced and 'On' or 'Off'); apply()
 end)
 brightness.Activated:Connect(function()
- bright=not bright; brightness.Text='Luminozitate: '..(bright and 'Sporita' or 'Normal'); apply()
+ bright=not bright; brightness.Text='Brightness: '..(bright and 'Boosted' or 'Normal'); apply()
 end)
 RS:WaitForChild('ApusNet'):WaitForChild('Feedback').OnClientEvent:Connect(function(event)
- if event.kind=='Hit' then hit.Text='LOVIT'; hit.Visible=true; hitExpires=os.clock()+.3
+ if event.kind=='Hit' then hit.Text='HIT'; hit.Visible=true; hitExpires=os.clock()+.3
  elseif event.kind=='Hurt' then
   -- No flashing screen or camera shake; readable text only.
-  hit.Text='ATACAT'; hit.Visible=true; hitExpires=os.clock()+.5
+  hit.Text='UNDER ATTACK'; hit.Visible=true; hitExpires=os.clock()+.5
  end
 end)
 -- Local spectating prevents a captured player waiting on a fixed camera.
@@ -47486,7 +47494,7 @@ CAS:BindAction('ApusSpectate',function(_,state)
  if state==Enum.UserInputState.Begin then spectate() end
  return Enum.ContextActionResult.Pass
 end,true,Enum.KeyCode.G,Enum.KeyCode.DPadRight)
-CAS:SetTitle('ApusSpectate','Urmareste'); CAS:SetPosition('ApusSpectate',UDim2.fromScale(.62,.12))
+CAS:SetTitle('ApusSpectate','Spectate'); CAS:SetPosition('ApusSpectate',UDim2.fromScale(.62,.12))
 local function resetCamera()
  spectating=false
  local hum=player.Character and player.Character:FindFirstChildOfClass('Humanoid')
@@ -47536,10 +47544,10 @@ end)
         <Properties>
           <string name="Name">Wayfinding</string>
           <ProtectedString name="Source">-- Stream-safe labels, culled by Roblox. No per-frame search or x-ray markers.
-local labels={QuestBoard='MISIUNI',ContractBoard='HAN / CONTRACTE',
- Merchant='FIERAR',Healer='VINDECATOR',Trainer='BRESLE',RobuxShop='COSMETICE',
- Supply_Market='PROVIZII: PIATA',Supply_Mill='PROVIZII: MOARA',Supply_Farm='PROVIZII: FERMA',
- DawnClue='INDICIU: ZIUA',DawnShrine='SIGILIU: NOAPTEA',Campfire='VATRA / GATIT',TravelGate='SPRE SAT'}
+local labels={QuestBoard='QUESTS',ContractBoard='INN / CONTRACTS',
+ Merchant='BLACKSMITH',Healer='HEALER',Trainer='GUILDS',RobuxShop='COSMETICS',
+ Supply_Market='SUPPLIES: MARKET',Supply_Mill='SUPPLIES: MILL',Supply_Farm='SUPPLIES: FARM',
+ DawnClue='CLUE: DAYTIME',DawnShrine='SEAL: NIGHTTIME',Campfire='HEARTH / COOKING',TravelGate='ENTER VILLAGE'}
 local function track(part)
  if not part:IsA('BasePart') or not labels[part.Name] or not part.Parent or part.Parent.Name~='WorldNodes' then return end
  if part:FindFirstChild('ApusWayfinding') then return end
@@ -47578,33 +47586,34 @@ local function button(name,text,callback)
  place(b); b.Activated:Connect(callback); return b
 end
 local message=Instance.new('TextLabel'); message.Name='Message'; message.Size=UDim2.new(1,-24,0,52); message.BackgroundTransparency=1
-message.TextColor3=Color3.fromRGB(243,222,178); message.TextWrapped=true; message.TextSize=14
-message.Text='MULTIPLAYER\nHost: sesiune privata. Distribuie codul celor cu care vrei sa joci (expira in 2 ore).'; place(message); message.Parent=panel
+message.TextColor3=Color3.fromRGB(243,222,178); message.TextWrapped=true; message.TextSize=14; message.TextScaled=true
+local messageLimit=Instance.new('UITextSizeConstraint'); messageLimit.MinTextSize=10; messageLimit.MaxTextSize=14; messageLimit.Parent=message
+message.Text='MULTIPLAYER\nHost a private session. Share its code with your group (expires in 2 hours).'; place(message); message.Parent=panel
 local waiting=false
 local function request(kind,value)
  if waiting then return end
- waiting=true; message.Text='Se proceseaza...'
+ waiting=true; message.Text='Working...'
  task.spawn(function()
   local ok,r=pcall(function() return remote:InvokeServer(kind,value) end)
-  message.Text=ok and type(r)=='table' and r.message or 'Conexiune indisponibila. Reincearca.'
+  message.Text=ok and type(r)=='table' and r.message or 'Connection unavailable. Please try again.'
   waiting=false
  end)
 end
-button('Host','Host / creeaza sesiune',function() request('Host') end)
-local code=Instance.new('TextBox'); code.Name='JoinCode'; code.PlaceholderText='Cod de 8 caractere'; code.Text=''; code.ClearTextOnFocus=false
+button('Host','Host / create session',function() request('Host') end)
+local code=Instance.new('TextBox'); code.Name='JoinCode'; code.PlaceholderText='8-character join code'; code.Text=''; code.ClearTextOnFocus=false
 code.Size=UDim2.new(1,-24,0,32); code.TextSize=16; place(code); code.Parent=panel
-button('Join','Join / intra cu cod',function() request('Join',code.Text) end)
-button('Invite','Invita in joc (trimite si codul)',function()
+button('Join','Join / enter code',function() request('Join',code.Text) end)
+button('Invite','Invite friends (also share your code)',function()
  task.spawn(function()
   local ok,allowed=pcall(function() return Social:CanSendGameInviteAsync(p) end)
   if ok and allowed then
    local sent=pcall(function() Social:PromptGameInvite(p) end)
-   if not sent then message.Text='Invitatia nu este disponibila. Foloseste codul sesiunii.' end
-  else message.Text='Invitatiile nu sunt disponibile aici. Foloseste codul sesiunii.' end
+   if not sent then message.Text='Invitation unavailable. Use the session code.' end
+  else message.Text='Invitations are unavailable here. Use the session code.' end
  end)
 end)
 local counts={0,3,7,12}
-local botButton=button('Bots','Studio: boti 0 / 3 / 7 / 12',function()
+local botButton=button('Bots','Studio: bots 0 / 3 / 7 / 12',function()
  local current=workspace:GetAttribute('ApusPendingBotCount') or workspace:GetAttribute('ApusBotCount') or 0
  local index=table.find(counts,current) or 1
  request('Bots',counts[index%#counts+1])
@@ -47613,16 +47622,16 @@ local function refreshBots()
  local count=workspace:GetAttribute('ApusBotCount') or 0
  local waitingPhase=workspace:GetAttribute('ApusPhase')=='Asteptare'
  local pending=workspace:GetAttribute('ApusPendingBotCount')
- botButton.Text='Studio: '..count..' boti | '..(pending~=nil and ('urmeaza '..pending) or (waitingPhase and 'schimba 0/3/7/12' or 'schimba dupa runda'))
+ botButton.Text='Studio: '..count..' bots | '..(pending~=nil and ('next: '..pending) or (waitingPhase and 'change 0/3/7/12' or 'change after round'))
 end
 workspace:GetAttributeChangedSignal('ApusBotCount'):Connect(refreshBots)
 workspace:GetAttributeChangedSignal('ApusPhase'):Connect(refreshBots)
 workspace:GetAttributeChangedSignal('ApusPendingBotCount'):Connect(refreshBots)
 refreshBots()
-button('Close','Inchide',function() panel.Visible=false end)
+button('Close','Close',function() panel.Visible=false end)
 local function refreshCode()
  local value=p:GetAttribute('ApusJoinCode')
- if value then code.Text=value; message.Text='Codul sesiunii: '..value..' (2 ore)' end
+ if value then code.Text=value; message.Text='Session code: '..value..' (2 hours)' end
 end
 p:GetAttributeChangedSignal('ApusJoinCode'):Connect(refreshCode)
 p:GetAttributeChangedSignal('ApusSessionError'):Connect(function() message.Text=p:GetAttribute('ApusSessionError') or '' end)

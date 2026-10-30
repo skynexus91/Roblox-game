@@ -17,7 +17,7 @@ local function decorate(p,char)
   local board=Instance.new('BillboardGui'); board.Name='SupporterTitle'
   board.Size=UDim2.fromOffset(180,28); board.StudsOffset=Vector3.new(0,3,0); board.MaxDistance=60
   local text=Instance.new('TextLabel'); text.Size=UDim2.fromScale(1,1)
-  text.BackgroundTransparency=1; text.Text='SUSTINATOR AL SATULUI'
+  text.BackgroundTransparency=1; text.Text='VILLAGE SUPPORTER'
   text.TextColor3=Color3.fromRGB(245,211,124); text.TextSize=12; text.Parent=board; board.Parent=head
  end
 end
@@ -40,8 +40,8 @@ function Monetization.Init()
  local remote=Instance.new('RemoteEvent'); remote.Name='OpenRobuxShop'; remote.Parent=RS
  -- This is server -> client only. No remote grants entitlements or currency.
  local part=workspace.Village.WorldNodes:WaitForChild('RobuxShop')
- local prompt=Instance.new('ProximityPrompt'); prompt.ActionText='Vezi cosmetice'
- prompt.ObjectText='Magazin Robux'; prompt.KeyboardKeyCode=Enum.KeyCode.R
+ local prompt=Instance.new('ProximityPrompt'); prompt.ActionText='Browse cosmetics'
+ prompt.ObjectText='Robux Shop'; prompt.KeyboardKeyCode=Enum.KeyCode.R
  prompt.GamepadKeyCode=Enum.KeyCode.ButtonL1; prompt.MaxActivationDistance=10
  prompt.HoldDuration=.3; prompt.Parent=part
  local last={}

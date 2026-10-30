@@ -1,8 +1,8 @@
 -- Stream-safe labels, culled by Roblox. No per-frame search or x-ray markers.
-local labels={QuestBoard='MISIUNI',ContractBoard='HAN / CONTRACTE',
- Merchant='FIERAR',Healer='VINDECATOR',Trainer='BRESLE',RobuxShop='COSMETICE',
- Supply_Market='PROVIZII: PIATA',Supply_Mill='PROVIZII: MOARA',Supply_Farm='PROVIZII: FERMA',
- DawnClue='INDICIU: ZIUA',DawnShrine='SIGILIU: NOAPTEA',Campfire='VATRA / GATIT',TravelGate='SPRE SAT'}
+local labels={QuestBoard='QUESTS',ContractBoard='INN / CONTRACTS',
+ Merchant='BLACKSMITH',Healer='HEALER',Trainer='GUILDS',RobuxShop='COSMETICS',
+ Supply_Market='SUPPLIES: MARKET',Supply_Mill='SUPPLIES: MILL',Supply_Farm='SUPPLIES: FARM',
+ DawnClue='CLUE: DAYTIME',DawnShrine='SEAL: NIGHTTIME',Campfire='HEARTH / COOKING',TravelGate='ENTER VILLAGE'}
 local function track(part)
  if not part:IsA('BasePart') or not labels[part.Name] or not part.Parent or part.Parent.Name~='WorldNodes' then return end
  if part:FindFirstChild('ApusWayfinding') then return end

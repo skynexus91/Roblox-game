@@ -6,6 +6,9 @@ end
 function Rules.InitialVampires(players)
  return Rules.CryptCount(players)
 end
+function Rules.VampireVictory(humans,vampires)
+ return humans==0 and vampires>0
+end
 function Rules.JailSlot(prisoners,count)
  local used={}; local sizes={}
  for i=1,count do used[i]={}; sizes[i]=0 end

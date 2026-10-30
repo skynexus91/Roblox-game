@@ -67,7 +67,7 @@ local world=Instance.new('Folder'); workspace.Village.WorldNodes=world
 function workspace.Village:WaitForChild(name) return self[name] end
 function workspace:Raycast() return nil end
 for _,name in ipairs({'QuestBoard','Merchant','Trainer','Healer','RitualAltar','TravelGate','Expedition_Forest','Expedition_Mine','Expedition_Ruins',
- 'Herb_0','Herb_1','Herb_2','Herb_3','Herb_4','RobuxShop','ContractBoard',
+ 'Herb_0','Herb_1','Herb_2','Herb_3','Herb_4','Ore_0','Ore_1','Ore_2','Ore_3','Relic_0','Relic_1','Relic_2','RobuxShop','ContractBoard',
  'Supply_Market','Supply_Mill','Supply_Farm','DawnClue','DawnShrine','Campfire'}) do
  local part=Instance.new('Part'); part.Name=name; part.Parent=world
 end

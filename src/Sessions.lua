@@ -18,18 +18,18 @@ function Sessions.Init(setBots)
   Teleport:TeleportAsync(game.PlaceId,{p},options)
  end
  request.OnServerInvoke=function(p,kind,value)
-  if type(kind)~='string' then return {ok=false,message='Cerere invalida.'} end
+  if type(kind)~='string' then return {ok=false,message='Invalid request.'} end
   if kind=='Info' then return {ok=true,studio=RunService:IsStudio(),code=p:GetAttribute('ApusJoinCode') or '',bots=workspace:GetAttribute('ApusBotCount') or 0} end
-  if busy[p] or os.clock()<(last[p] or 0) then return {ok=false,message='Asteapta cateva secunde.'} end
+  if busy[p] or os.clock()<(last[p] or 0) then return {ok=false,message='Please wait a few seconds.'} end
   last[p]=os.clock()+5; busy[p]=true
   local ok,result=pcall(function()
    if kind=='Bots' then
     local count=BotRules.Count(value)
-    if count==nil then return {ok=false,message='Alege intre 0 si 12 boti.'} end
+    if count==nil then return {ok=false,message='Choose between 0 and 12 bots.'} end
     local success,message=setBots(count); return {ok=success,message=message}
    end
-   if kind~='Host' and kind~='Join' then return {ok=false,message='Cerere necunoscuta.'} end
-   if not map then return {ok=false,message='Host / Join necesita joc publicat si aplicatia Roblox. In Studio foloseste botii sau Server & Clients.'} end
+   if kind~='Host' and kind~='Join' then return {ok=false,message='Unknown request.'} end
+   if not map then return {ok=false,message='Host / Join requires a published experience and the Roblox app. In Studio, use bots or Server & Clients.'} end
    local entry
    if kind=='Host' then
     entry=created[p]
@@ -47,22 +47,22 @@ function Sessions.Init(setBots)
     end
    else
     local code=Rules.Code(value)
-    if not code then return {ok=false,message='Codul trebuie sa aiba 8 caractere (0-9 / A-F).'} end
+    if not code then return {ok=false,message='The code must have 8 characters (0-9 / A-F).'} end
     entry=map:GetAsync(code)
     if type(entry)~='table' or type(entry.access)~='string' or type(entry.expires)~='number' or entry.expires<=os.time() then
-     return {ok=false,message='Cod invalid sau expirat (2 ore).'}
+     return {ok=false,message='Invalid or expired code (2 hours).'}
     end
    end
    p:SetAttribute('ApusJoinCode',entry.code)
    teleport(p,entry)
-   return {ok=true,message='Conectare la sesiune. Cod: '..entry.code,code=entry.code}
+   return {ok=true,message='Joining session. Code: '..entry.code,code=entry.code}
   end)
   busy[p]=nil
-  if not ok then return {ok=false,message='Conectarea a esuat. Incearca din nou; sesiunea gazduita pastreaza acelasi cod.'} end
+  if not ok then return {ok=false,message='Connection failed. Try again; your hosted session keeps the same code.'} end
   return result
  end
  Teleport.TeleportInitFailed:Connect(function(p)
-  busy[p]=nil; p:SetAttribute('ApusSessionError','Teleport nereusit. Reincearca din meniul Multiplayer.')
+  busy[p]=nil; p:SetAttribute('ApusSessionError','Teleport failed. Try again from the Multiplayer menu.')
  end)
  local function arriving(p)
   if not map then return end

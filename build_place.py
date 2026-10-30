@@ -81,7 +81,7 @@ path('MonasteryLane',[(0,0),(0,80),(60,110),(60,220),(0,285),(0,330)],12)
 path('MillLane',[(-95,8),(-125,-45),(-155,-115),(-180,-160)],10)
 path('FarmLane',[(115,-8),(150,50),(180,110),(215,130)],10)
 path('ForestTrail',[(-180,0),(-230,65),(-270,125),(-300,220),(-300,290)],9)
-block(village,'Piata',(0,.13,0),(68,.2,62),(116,109,96),880)
+block(village,'MarketSquare',(0,.13,0),(68,.2,62),(116,109,96),880)
 # Fountain basin, four low rim walls and central column.
 block(village,'FountainBasin',(0,.5,0),(13,1,13),(68,74,77),880)
 for x,z,sx,sz in [(0,-6,13,1),(0,6,13,1),(-6,0,1,13),(6,0,1,13)]:
@@ -131,15 +131,15 @@ def house(name,x,z,w=24,d=22,h=15,c=(183,166,139),facing=0):
  sign(m,name,(x,12,z-d/2-.8),w-2)
  yaw_model(m,x,z,facing)
  return m
-for args in [('HANUL CORBULUI',-47,-45,30,25,17,(174,147,117)),
- ('CASA FIERARULUI',-47,36,24,24,15,(154,143,130)),
- ('CASA CU IEDERA',44,38,25,25,15,(155,173,140)),
- ('FARMACIA',46,-44,28,23,16,(185,176,148)),
- ('CASA PADURARULUI',-82,-68,22,20,14,(160,151,135)),
- ('CASA VECHE',78,73,24,22,14,(162,145,124))]:
+for args in [('THE RAVEN INN',-47,-45,30,25,17,(174,147,117)),
+ ('BLACKSMITH\'S HOUSE',-47,36,24,24,15,(154,143,130)),
+ ('IVY COTTAGE',44,38,25,25,15,(155,173,140)),
+ ('APOTHECARY',46,-44,28,23,16,(185,176,148)),
+ ('FORESTER\'S HOUSE',-82,-68,22,20,14,(160,151,135)),
+ ('OLD COTTAGE',78,73,24,22,14,(162,145,124))]:
  house(*args,facing=math.pi if args[2]<0 else 0)
 # Bell tower landmark.
-tower,_=item(village,'Model','Turnul cu ceas')
+tower,_=item(village,'Model','Clock Tower')
 block(tower,'Tower',(-83,15,25),(16,30,16),(126,124,113),880)
 block(tower,'Top',(-83,31,25),(20,3,20),(65,51,44),512)
 block(tower,'Clock',(-83,25,16.8),(8,8,.3),(232,213,165),256)
@@ -154,7 +154,7 @@ for index,x in enumerate([-240,-120,0,120,240],1):
   block(crypt,'Wall',(x+dx,7,z),(sx,14,sz),(82,84,86),880)
  block(crypt,'Roof',(x,14.5,155),(38,1,34),(60,63,65),880)
  for dx in range(-18,19,2): block(crypt,'Bars',(x+dx,7,139),(.5,14,.5),(38,40,45),1088)
- sign(crypt,f'CRIPTA {index}',(x,12,138),26)
+ sign(crypt,f'CRYPT {index}',(x,12,138),26)
  block(crypt,'JailPoint',(x,.8,155),(1,1,1),transparent=1,collision=False)
 # Waiting lobby is physically separate from the active village.
 block(village,'LobbyFloor',(0,1,625),(45,2,38),(73,78,85),880)
@@ -163,7 +163,7 @@ for x,z,sx,sz in [(-22,625,1,38),(22,625,1,38),(0,606,45,1),(0,644,45,1)]:
 block(village,'LobbyPoint',(0,2,625),(1,1,1),transparent=1,collision=False)
 spawn=block(village,'LobbySpawn',(0,2,625),(5,1,5),(150,125,68),cls='SpawnLocation')
 prop(spawn.find('Properties'),'bool','Neutral','true'); prop(spawn.find('Properties'),'float','Duration',0)
-sign(village,'SATUL DUPA APUS',(0,9,643),30)
+sign(village,'VILLAGE AFTER DUSK',(0,9,643),30)
 spawns,_=item(village,'Folder','Spawns')
 for i in range(50):
  # Five lanes on each side of the central east/west road; clear of buildings.
@@ -193,11 +193,11 @@ for x,z,sx,sz in [(-479,0,2,960),(479,0,2,960),(0,-479,960,2),(0,479,960,2)]:
 world,_=item(village,'Folder','WorldNodes')
 def node(name,pos,c=(184,148,68),size=(3,3,3)):
  return block(world,name,pos,size,c,880)
-for name,x,z in [('CARTIERUL BRESLELOR',-220,0),('MINA ARGINTIE',300,0),
-                 ('RUINELE STRAJERILOR',0,-300),('MANASTIREA LUMINII',0,300)]:
+for name,x,z in [('GUILD QUARTER',-220,0),('SILVER MINE',300,0),
+                 ('WATCHKEEPER RUINS',0,-300),('MONASTERY OF LIGHT',0,300)]:
  sign(village,name,(x,9,z-18),34)
 for i,(x,z) in enumerate([(-265,-42),(-205,-48),(-145,-38),(-220,42),(-155,48),(135,-46),(195,-50),(245,45)]):
- house(['CASA TESATORULUI','CASA BRUTARULUI','CASA TAMPLARULUI'][i%3],x,z,24+(i%3)*2,23,14+i%3,
+ house(['WEAVER\'S HOUSE','BAKER\'S HOUSE','CARPENTER\'S HOUSE'][i%3],x,z,24+(i%3)*2,23,14+i%3,
        (176-i*3,160-i*2,133+i*2),math.pi if z<0 else 0)
  path('DoorLane',[(x,z+(14 if z<0 else -14)),(x,0)],6)
  # Private kitchen gardens behind the street frontage, with a gap toward the house.
@@ -230,7 +230,7 @@ for x in [-45,45]:
 for i in range(9): node(f'Relic_{i}',(-30+(i%3)*30,2,-330+(i//3)*30),(180,133,213))
 node('Expedition_Ruins',(0,3,-365),(160,108,184))
 # Monastery and exterior ritual altar, reachable without entering a building.
-house('MANASTIRE',0,330,62,50,25,(188,180,153))
+house('MONASTERY',0,330,62,50,25,(188,180,153))
 node('RitualAltar',(0,3,285),(231,207,119),(8,4,8))
 node('Expedition_Forest',(-300,3,290),(101,170,112))
 # A working village: market stalls by the well, trade on the road, fields outside.
@@ -241,17 +241,17 @@ for x,z in [(-19,-29),(19,-29)]:
  block(stall,'Canvas',(x,6.2,z),(14,.4,8),(139,74,56),512)
  block(stall,'Counter',(x,2.6,z),(12,1,5),(109,79,49),512)
  for dx in [-4,0,4]: block(stall,'Produce',(x+dx,3.5,z),(2.5,1,3),(168,131,58),512)
-house('MOARA VECHE',-180,-160,28,26,19,(172,160,131),-math.pi/2)
+house('OLD MILL',-180,-160,28,26,19,(172,160,131),-math.pi/2)
 block(village,'MillPond',(-208,.12,-160),(22,.2,72),(64,106,119),1568,transparent=.25,collision=False)
 block(village,'MillBridge',(-208,.7,-130),(30,1,8),(104,77,47),512)
 for i in range(8):
  a=i*math.tau/8
  block(village,'WheelSpoke',(-196,7+5*math.cos(a),-160+5*math.sin(a)),(1,1.4,1.4),(75,53,36),512)
-house('FERMA DE LA RASCRUCE',215,130,30,25,16,(178,154,118))
+house('CROSSROADS FARM',215,130,30,25,16,(178,154,118))
 for row in range(8):
  block(village,'FieldFurrow',(240+row*6,.12,205),(3,.22,76),(103,77,43),1280)
  for z in range(175,240,12): block(village,'Wheat',(240+row*6,1.1,z),(2.5,2,5),(180,159,82),1280,collision=False)
-house('CAPELA SFANTULUI SOARE',55,-150,24,34,22,(190,182,158),math.pi)
+house('SUNWARD CHAPEL',55,-150,24,34,22,(190,182,158),math.pi)
 path('ChapelWalk',[(0,-155),(55,-155),(55,-125)],7)
 path('CemeteryWalk',[(55,-125),(55,-87),(80,-87)],6)
 path('InnWalk',[(-35,0),(-47,-22)],8)
@@ -263,9 +263,9 @@ node('Supply_Farm',(215,2,110),(176,135,74),(4,3,3))
 node('DawnClue',(55,3,-127),(204,187,139),(4,4,1))
 node('DawnShrine',(30,3,265),(157,166,203),(5,5,5))
 node('Campfire',(-31,1,-40),(183,106,53),(4,1,4))
-for name,text,pos in [('InnGuide','CONTRACTE / ODIHNA',(-47,7,-25)),
- ('FarmGuide','PROVIZII: FERMA',(215,7,111)),('MillGuide','PROVIZII: MOARA',(-159,7,-155)),
- ('ShrineGuide','SIGILIUL ZORILOR',(30,8,265))]: sign(village,text,pos,19)
+for name,text,pos in [('InnGuide','CONTRACTS / REST',(-47,7,-25)),
+ ('FarmGuide','SUPPLIES: FARM',(215,7,111)),('MillGuide','SUPPLIES: MILL',(-159,7,-155)),
+ ('ShrineGuide','DAWN SEAL',(30,8,265))]: sign(village,text,pos,19)
 # Replace abstract service cubes with readable counters and silhouettes, using no NPC AI loops.
 for name,part in [(n.findtext("Properties/string[@name='Name']"),n) for n in world.findall('Item')]:
  if name.startswith('Supply_') or name in ('QuestBoard','ContractBoard','Merchant','Trainer','Healer','RobuxShop'):
@@ -276,7 +276,7 @@ for name,part in [(n.findtext("Properties/string[@name='Name']"),n) for n in wor
   vecp=p.find("Vector3[@name='size']"); vecp.find('X').text='5'; vecp.find('Y').text='2'; vecp.find('Z').text='3'
   block(village,'ServiceTorso',(x,3.7,z+2),(2,2.8,1),(72,89,100),512,collision=False)
   block(village,'ServiceHead',(x,5.7,z+2),(1.5,1.5,1.5),(197,162,125),256,collision=False)
-  sign(village,{'Merchant':'FIERAR','Trainer':'BRESLE','Healer':'VINDECATOR','RobuxShop':'COSMETICE'}[name],(x,8,z+2),12)
+  sign(village,{'Merchant':'BLACKSMITH','Trainer':'GUILDS','Healer':'HEALER','RobuxShop':'COSMETICS'}[name],(x,8,z+2),12)
 for x,z in [(-300,0),(300,0),(0,-300),(0,270)]:
  block(village,'DistrictPlaza',(x,.15,z),(68,.3,48),(111,105,91),880)
 for x,z in [(-350,0),(-200,0),(200,0),(350,0),(0,-200),(0,-350),(0,180),(0,380)]:

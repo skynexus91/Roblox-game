@@ -24,6 +24,9 @@ local controls=label('Controls',UDim2.fromScale(.15,.82),UDim2.fromScale(.7,.07)
 local statsLabel=label('RPGStats',UDim2.fromScale(.02,.23),UDim2.fromScale(.38,.07),15)
 local questLabel=label('Quest',UDim2.fromScale(.02,.305),UDim2.fromScale(.38,.13),14)
 local data=nil
+local phaseNames={Asteptare='Waiting',Pregatire='Preparation',Zi='Day',Noapte='Night',Rezultat='Results'}
+local roleNames={Vampir='Vampire',Satean='Villager',Explorator='Explorer'}
+local classNames={Vanator='Hunter',Cercetas='Scout',Carturar='Scholar'}
 local selected=nil
 local function nearest()
  local char=player.Character; local r=char and char:FindFirstChild('HumanoidRootPart')
@@ -76,29 +79,29 @@ status.OnClientEvent:Connect(function(s)
  data=s
  local r=s.rpg
  if r and r.ready then
-  statsLabel.Text=string.format('Nivel %d | XP %d/%d | Aur %d | %s',r.level,r.xp,r.nextXP,r.gold,r.class)
+  statsLabel.Text=string.format('Level %d | XP %d/%d | Gold %d | %s',r.level,r.xp,r.nextXP,r.gold,classNames[r.class] or r.class)
   questLabel.Text=r.quest..'\n'..(r.adventure or '')..'\n'..(r.notice or '')..' | '..(r.save or '')
- else statsLabel.Text='Se incarca profilul...'; questLabel.Text='' end
- local phaseName=s.phase=='Asteptare' and ('Explorare: '..(s.night and 'Noapte' or 'Zi')) or s.phase
- header.Text=string.format('%s | %ds | %d/%d | %s | Cripte: %d',phaseName,s.time,s.cycle,s.maxCycles or 3,s.role,s.crypts or 1)
- detail.Text=(s.captured and 'Capturat: asteapta urmatoarea runda. ') or (s.pending and 'INFECTAT: transformare la urmatorul apus. ') or ''
+ else statsLabel.Text='Loading profile...'; questLabel.Text='' end
+ local phaseName=s.phase=='Asteptare' and ('Exploration: '..(s.night and 'Night' or 'Day')) or (phaseNames[s.phase] or s.phase)
+ header.Text=string.format('%s | %ds | %d/%d | %s | Crypts: %d',phaseName,s.time,s.cycle,s.maxCycles or 3,roleNames[s.role] or s.role,s.crypts or 1)
+ detail.Text=(s.captured and 'Captured: wait for the next round. ') or (s.pending and 'INFECTED: transformation at the next dusk. ') or ''
  detail.Text=detail.Text..(s.notice or '')
- if s.practice then detail.Text='PRACTICA / BOTI | '..detail.Text end
+ if s.practice then detail.Text='PRACTICE / BOTS | '..detail.Text end
  local enabled=s.active and not s.captured and ((s.role=='Vampir' and s.phase=='Noapte') or s.role~='Vampir')
  bind(enabled)
  if enabled then
-  local a=s.role=='Vampir' and 'Hranire' or 'Investigare'
-  local b=s.role=='Vampir' and 'Infectare' or 'Capturare'
-  if s.role~='Vampir' and s.phase=='Noapte' then a='Investigare (ziua)'; b='Captureaza slabit' end
+  local a=s.role=='Vampir' and 'Feed' or 'Investigate'
+  local b=s.role=='Vampir' and 'Infect' or 'Capture'
+  if s.role~='Vampir' and s.phase=='Noapte' then a='Investigate (daytime)'; b='Capture weakened' end
   CAS:SetTitle('ApusPrimary',a); CAS:SetTitle('ApusSecondary',b)
-  controls.Text='PC: E '..a..' / Q '..b..' | Controller: X / Y | Mobil: butoanele de actiune'
- else controls.Text='Misca-te cu comenzile Roblox. Actiunile se activeaza in faza potrivita.' end
+  controls.Text='PC: E '..a..' / Q '..b..' | Controller: X / Y | Mobile: action buttons'
+ else controls.Text='Use Roblox movement controls. Abilities unlock in the appropriate phase.' end
 end)
 local elapsed=0
 RunService.Heartbeat:Connect(function(dt)
  elapsed=elapsed+dt; if elapsed<.2 then return end; elapsed=0
  selected=(data and data.active and not data.captured) and nearest() or nil
- targetLabel.Text=selected and ('Tinta apropiata: '..selected.DisplayName) or 'Apropie-te de un jucator pentru actiune'
+ targetLabel.Text=selected and ('Nearby target: '..selected.DisplayName) or 'Approach a participant to interact'
 end)
 
 -- Personal flashlight: available on touch, keyboard, and controller.
@@ -122,7 +125,7 @@ CAS:BindAction('ApusLight',function(_,state)
  end
  return Enum.ContextActionResult.Sink
 end,true,Enum.KeyCode.F,Enum.KeyCode.ButtonB)
-CAS:SetTitle('ApusLight','Lanterna')
+CAS:SetTitle('ApusLight','Lantern')
 CAS:SetPosition('ApusLight',UDim2.fromScale(.6,.2))
 
 local function refreshLight()

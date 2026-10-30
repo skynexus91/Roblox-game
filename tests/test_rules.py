@@ -34,6 +34,9 @@ class RulesTests(unittest.TestCase):
  def test_initial_vampire_scaling(self):
   for population,expected in [(2,1),(10,1),(11,2),(20,2),(21,3),(50,5)]:
    self.assertEqual(self.rules.InitialVampires(population),expected)
+ def test_winner_rewards_do_not_depend_on_display_language(self):
+  for humans,vampires,won in [(0,1,True),(0,5,True),(1,0,False),(2,3,False),(0,0,False)]:
+   self.assertEqual(self.rules.VampireVictory(humans,vampires),won)
 
 class RPGTests(unittest.TestCase):
  def setUp(self):
@@ -91,12 +94,12 @@ class RPGTests(unittest.TestCase):
   self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,before+50)
  def test_captured_player_interaction_is_rejected(self):
   self.lua.execute('p=newPlayer(5); RPG.Join(p); RPG.Init(function() return false end); trigger("QuestBoard",p)')
-  self.assertIn('Vorbeste',self.rpg.Snapshot(self.lua.globals().p).quest)
+  self.assertIn('Visit the quest board',self.rpg.Snapshot(self.lua.globals().p).quest)
 
  def test_far_away_prompt_is_rejected(self):
   self.lua.execute('p=newPlayer(6); RPG.Join(p); RPG.Init(function() return true end)')
   self.lua.execute('p.Character.HumanoidRootPart.Position=Vector3.new(100); trigger("QuestBoard",p)')
-  self.assertIn('Vorbeste',self.rpg.Snapshot(self.lua.globals().p).quest)
+  self.assertIn('Visit the quest board',self.rpg.Snapshot(self.lua.globals().p).quest)
 
  def test_studio_does_not_even_request_a_datastore(self):
   self.assertEqual(self.lua.globals().DATASTORE_REQUESTS,0)
@@ -116,7 +119,7 @@ class RPGTests(unittest.TestCase):
   self.lua.execute('p=newPlayer(8); RPG.Join(p); RPG.Init(function() return true end); trigger("ContractBoard",p)')
   self.lua.execute('advance(180); workspace:SetAttribute("ApusNight",true); trigger("ContractBoard",p)')
   self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,0)
-  self.assertNotIn('Livrare:',self.rpg.Snapshot(self.lua.globals().p).adventure)
+  self.assertNotIn('Delivery:',self.rpg.Snapshot(self.lua.globals().p).adventure)
 
  def test_ritual_requires_day_clue_night_and_cooldown(self):
   self.lua.execute('p=newPlayer(9); RPG.Join(p); RPG.Init(function() return true end); trigger("DawnShrine",p)')
@@ -135,5 +138,38 @@ class RPGTests(unittest.TestCase):
   self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,100)
   self.lua.execute('p.Character.Humanoid.Health=50; advance(46); trigger("Campfire",p)')
   self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,50)
+
+ def test_all_four_quests_complete_and_repeat_in_english(self):
+  self.lua.execute('p=newPlayer(11); RPG.Join(p); RPG.Init(function() return true end)')
+  for kind,count in [('Herb',5),('Ore',4),('Relic',3),('Ritual',1)]:
+   self.lua.execute('advance(2); trigger("QuestBoard",p)')
+   for i in range(count):
+    name='RitualAltar' if kind=='Ritual' else f'{kind}_{i}'
+    self.lua.execute(f'advance(2); trigger("{name}",p)')
+   self.lua.execute('advance(2); trigger("QuestBoard",p)')
+  snap=self.rpg.Snapshot(self.lua.globals().p)
+  self.assertEqual(snap.completed,4)
+  self.assertIn('Visit the quest board',snap.quest)
+  self.assertEqual(snap.gold,330+13*6)
+  self.assertEqual(snap.xp,660+13*8)
+
+ def test_upgrade_healing_and_specialization_use_english(self):
+  self.lua.execute('p=newPlayer(12); RPG.Join(p); RPG.Init(function() return true end); RPG.RoundReward(p,true); RPG.RoundReward(p,true); trigger("Merchant",p)')
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).lantern,1)
+  self.assertEqual(self.rpg.Snapshot(self.lua.globals().p).gold,60)
+  self.lua.execute('p.Character.Humanoid.Health=50; advance(2); trigger("Healer",p); advance(2); trigger("Trainer",p)')
+  snap=self.rpg.Snapshot(self.lua.globals().p)
+  self.assertEqual(snap.gold,30)
+  self.assertEqual(self.lua.globals().p.Character.Humanoid.Health,100)
+  self.assertIn('Specialization: Scout',snap.notice)
+  self.assertEqual(snap['class'],'Cercetas')  # saved ID remains backward compatible
+
+ def test_legacy_saved_specializations_survive_translation(self):
+  self.lua.execute('STUDIO=false; SAVED.u_13={data={class="Carturar",gold=150},lock=nil}')
+  rpg=self.lua.execute((ROOT/'src/Progression.lua').read_text()); self.lua.globals().RPG=rpg
+  self.lua.execute('p=newPlayer(13); RPG.Join(p)')
+  self.assertEqual(rpg.Snapshot(self.lua.globals().p)['class'],'Carturar')
+  rpg.Remove(self.lua.globals().p)
+  self.assertEqual(self.lua.globals().SAVED.u_13.data['class'],'Carturar')
 
 if __name__=='__main__': unittest.main()

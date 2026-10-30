@@ -53,7 +53,7 @@ local function equip(tool)
   if state==Enum.UserInputState.Begin then attack() end
   return Enum.ContextActionResult.Sink
  end,true,Enum.KeyCode.ButtonR2)
- CAS:SetTitle('ApusAttack','Ataca'); CAS:SetPosition('ApusAttack',UDim2.fromScale(.84,.55))
+ CAS:SetTitle('ApusAttack','Attack'); CAS:SetPosition('ApusAttack',UDim2.fromScale(.84,.55))
 end
 local function attach(char)
  equipped=nil; CAS:UnbindAction('ApusAttack')

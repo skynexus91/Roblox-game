@@ -15,7 +15,7 @@ frame.BackgroundColor3=Color3.fromRGB(18,19,29); frame.Visible=false; frame.Pare
 local cap=Instance.new('UISizeConstraint'); cap.MaxSize=Vector2.new(620,440); cap.Parent=frame
 local title=Instance.new('TextLabel'); title.BackgroundTransparency=1
  title.Size=UDim2.fromScale(.96,.16); title.Position=UDim2.fromScale(.02,0)
- title.Text='Cosmetice optionale | Robux\nFara avantaje in lupta'; title.TextWrapped=true
+ title.Text='Optional cosmetics | Robux\nNo combat advantages'; title.TextWrapped=true
  title.TextSize=18; title.TextColor3=Color3.fromRGB(245,222,171); title.Parent=frame
 local function button(text,y)
  local b=Instance.new('TextButton'); b.Size=UDim2.fromScale(.92,.17)
@@ -23,7 +23,7 @@ local function button(text,y)
  b.BackgroundColor3=Color3.fromRGB(48,49,68); b.TextColor3=Color3.new(1,1,1)
  b.Selectable=true; b.Parent=frame; return b
 end
-local close=button('Inchide',.79)
+local close=button('Close',.79)
 local previous=nil
 local function hide()
  frame.Visible=false; CAS:UnbindAction('CloseRobuxShop')
@@ -36,11 +36,11 @@ local buttons={}; local infos={}; local fetching={}; local lastInfo={}
 local busy=false
 local function refresh(index)
  local entry=catalog[index]; local b=buttons[index]
- if player:GetAttribute('Owns'..entry.key) then b.Text=entry.title..' | Detinut'; return end
- if entry.id<=0 then b.Text=entry.title..' | Indisponibil momentan'; return end
+ if player:GetAttribute('Owns'..entry.key) then b.Text=entry.title..' | Owned'; return end
+ if entry.id<=0 then b.Text=entry.title..' | Currently unavailable'; return end
  local info=infos[index]
- if not info then b.Text=entry.title..' | Verific pretul...'
- else b.Text=entry.title..' | '..(info.IsForSale and tostring(info.PriceInRobux)..' Robux' or 'Nu este de vanzare')..'\n'..entry.description end
+ if not info then b.Text=entry.title..' | Checking price...'
+ else b.Text=entry.title..' | '..(info.IsForSale and tostring(info.PriceInRobux)..' Robux' or 'Not for sale')..'\n'..entry.description end
 end
 for i,entry in ipairs(catalog) do
  local index=i; local product=entry
@@ -51,7 +51,7 @@ for i,entry in ipairs(catalog) do
   local info=infos[index]; if not info or not info.IsForSale then return end
   busy=true
   local ok=pcall(function() Marketplace:PromptGamePassPurchase(player,product.id) end)
-  if not ok then busy=false; buttons[index].Text='Achizitie indisponibila. Reincearca.' end
+  if not ok then busy=false; buttons[index].Text='Purchase unavailable. Please try again.' end
  end)
  refresh(index)
 end

@@ -1,4 +1,6 @@
-# Satul după Apus — mini RPG multiplayer Roblox
+# Village After Dusk — multiplayer Roblox RPG
+
+**The game now uses English throughout its signs, objects, prompts, HUD and menus.** Saved role/class identifiers remain compatible. The English revision passes **36 local tests** and targeted Studio checks. See [English deployment check](docs/ENGLISH_DEPLOYMENT_CHECK.md) for evidence and remaining live release gates.
 
 ## Revizie 30 octombrie 2026
 

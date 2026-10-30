@@ -1,9 +1,9 @@
 -- Pure combat rules. Values never come from the client.
 local Combat={}
 Combat.Weapons={
- SilverSword={name='Sabie de argint',range=8,cooldown=1.0,damage=24,arc=.25,color={188,211,227}},
- Crossbow={name='Arbaleta',range=45,cooldown=2.6,damage=16,arc=.80,color={109,75,48}},
- Claws={name='Gheare',range=7,cooldown=1.2,damage=19,arc=.15,color={149,72,108}},
+ SilverSword={name='Silver Sword',range=8,cooldown=1.0,damage=24,arc=.25,color={188,211,227}},
+ Crossbow={name='Crossbow',range=45,cooldown=2.6,damage=16,arc=.80,color={109,75,48}},
+ Claws={name='Claws',range=7,cooldown=1.2,damage=19,arc=.15,color={149,72,108}},
 }
 function Combat.CanHit(key,attackerVampire,targetVampire,phase,distance,facing)
  local w=Combat.Weapons[key]

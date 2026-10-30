@@ -25,16 +25,16 @@ local function button(text,y)
  b.BackgroundColor3=Color3.fromRGB(24,29,38); b.TextColor3=Color3.fromRGB(240,223,183)
  b.Selectable=true; b.Parent=gui; return b
 end
-local graphics=button('Grafica: Auto',.46)
-local motion=button('Efecte reduse: Nu',.51)
-local brightness=button('Luminozitate: Normal',.56)
+local graphics=button('Graphics: Auto',.46)
+local motion=button('Reduced effects: Off',.51)
+local brightness=button('Brightness: Normal',.56)
 local metrics=Instance.new('TextLabel'); metrics.Size=UDim2.fromScale(.22,.04)
 metrics.Position=UDim2.fromScale(.02,.61); metrics.BackgroundTransparency=1
 metrics.TextColor3=Color3.fromRGB(202,211,221); metrics.TextSize=12; metrics.Parent=gui
 local hit=Instance.new('TextLabel'); hit.AnchorPoint=Vector2.new(.5,.5)
 hit.Position=UDim2.fromScale(.5,.5); hit.Size=UDim2.fromOffset(90,40)
 hit.BackgroundTransparency=1; hit.TextColor3=Color3.fromRGB(246,217,146)
-hit.Text='LOVIT'; hit.TextSize=20; hit.Visible=false; hit.Parent=gui
+hit.Text='HIT'; hit.TextSize=20; hit.Visible=false; hit.Parent=gui
 local hitExpires=0
 local function track(obj)
  if obj:IsA('PointLight') or obj:IsA('SurfaceLight') then
@@ -56,20 +56,20 @@ end
 graphics.Activated:Connect(function()
  mode=(mode+1)%4
  if mode>0 then quality=mode end
- graphics.Text='Grafica: '..({'Auto','Redusa','Echilibrata','Ridicata'})[mode+1]
+ graphics.Text='Graphics: '..({'Auto','Low','Balanced','High'})[mode+1]
  apply()
 end)
 motion.Activated:Connect(function()
- reduced=not reduced; motion.Text='Efecte reduse: '..(reduced and 'Da' or 'Nu'); apply()
+ reduced=not reduced; motion.Text='Reduced effects: '..(reduced and 'On' or 'Off'); apply()
 end)
 brightness.Activated:Connect(function()
- bright=not bright; brightness.Text='Luminozitate: '..(bright and 'Sporita' or 'Normal'); apply()
+ bright=not bright; brightness.Text='Brightness: '..(bright and 'Boosted' or 'Normal'); apply()
 end)
 RS:WaitForChild('ApusNet'):WaitForChild('Feedback').OnClientEvent:Connect(function(event)
- if event.kind=='Hit' then hit.Text='LOVIT'; hit.Visible=true; hitExpires=os.clock()+.3
+ if event.kind=='Hit' then hit.Text='HIT'; hit.Visible=true; hitExpires=os.clock()+.3
  elseif event.kind=='Hurt' then
   -- No flashing screen or camera shake; readable text only.
-  hit.Text='ATACAT'; hit.Visible=true; hitExpires=os.clock()+.5
+  hit.Text='UNDER ATTACK'; hit.Visible=true; hitExpires=os.clock()+.5
  end
 end)
 -- Local spectating prevents a captured player waiting on a fixed camera.
@@ -89,7 +89,7 @@ CAS:BindAction('ApusSpectate',function(_,state)
  if state==Enum.UserInputState.Begin then spectate() end
  return Enum.ContextActionResult.Pass
 end,true,Enum.KeyCode.G,Enum.KeyCode.DPadRight)
-CAS:SetTitle('ApusSpectate','Urmareste'); CAS:SetPosition('ApusSpectate',UDim2.fromScale(.62,.12))
+CAS:SetTitle('ApusSpectate','Spectate'); CAS:SetPosition('ApusSpectate',UDim2.fromScale(.62,.12))
 local function resetCamera()
  spectating=false
  local hum=player.Character and player.Character:FindFirstChildOfClass('Humanoid')

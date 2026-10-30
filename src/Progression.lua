@@ -12,11 +12,12 @@ local temporary=RunService:IsStudio() and not Config.StudioPersistence
 local store=not temporary and DSS:GetDataStore('ApusRPG_v1') or nil
 local closing=false
 local classes={'Vanator','Cercetas','Carturar'}
+local classNames={Vanator='Hunter',Cercetas='Scout',Carturar='Scholar'}
 local quests={
- {kind='Herb',need=5,text='Culege 5 ierburi in padurea de la sud-vest',xp=100,gold=50},
- {kind='Ore',need=4,text='Aduna 4 minereuri din mina de la est',xp=140,gold=70},
- {kind='Relic',need=3,text='Gaseste 3 relicve in ruinele de la nord',xp=180,gold=90},
- {kind='Ritual',need=1,text='Activeaza altarul manastirii din sud',xp=240,gold=120},
+ {kind='Herb',need=5,text='Gather 5 herbs in the southwestern forest',xp=100,gold=50},
+ {kind='Ore',need=4,text='Collect 4 ore deposits at the eastern mine',xp=140,gold=70},
+ {kind='Relic',need=3,text='Find 3 relics in the northern ruins',xp=180,gold=90},
+ {kind='Ritual',need=1,text='Activate the monastery altar to the south',xp=240,gold=120},
 }
 local function integer(n,max)
  if type(n)~='number' or n~=n or n==math.huge or n==-math.huge then return 0 end
@@ -41,7 +42,7 @@ local function publish(p,s)
  p:SetAttribute('RPGReady',true)
  p:SetAttribute('LanternTier',d.lantern)
  local stats=p:FindFirstChild('leaderstats')
- if stats then stats.Nivel.Value=RPG.Level(d.xp); stats.Aur.Value=d.gold end
+ if stats then stats.Level.Value=RPG.Level(d.xp); stats.Gold.Value=d.gold end
 end
 local function reward(p,s,xp,gold)
  -- No client can supply reward amounts, item prices or quest completion.
@@ -52,7 +53,7 @@ end
 local function notice(p,text) p:SetAttribute('RPGNotice',text) end
 function RPG.Ready(p) return profiles[p]~=nil and not profiles[p].leaving end
 function RPG.Join(p)
- if closing then p:Kick('Serverul se inchide. Reconecteaza-te.'); return end
+ if closing then p:Kick('The server is shutting down. Please reconnect.'); return end
  local data=nil
  if temporary then data=clean(nil) else
   for attempt=1,3 do
@@ -72,15 +73,15 @@ function RPG.Join(p)
   end
  end
  if not data then
-  if p.Parent==Players then p:Kick('Profil indisponibil sau deschis pe alt server. Reincearca in cateva minute.') end
+  if p.Parent==Players then p:Kick('Your profile is unavailable or open on another server. Please try again in a few minutes.') end
   return
  end
  profiles[p]={data=data,saving=false,leaving=false,lastSave=os.clock(),nodes={},visits={},nextUse=0,packages={}}
  if p.Parent~=Players or closing then RPG.Remove(p); return end
  local stats=Instance.new('Folder'); stats.Name='leaderstats'; stats.Parent=p
- for _,n in ipairs({'Nivel','Aur'}) do local v=Instance.new('IntValue'); v.Name=n; v.Parent=stats end
- p:SetAttribute('SaveStatus',temporary and 'TEST - progres temporar' or 'Salvare activa')
- notice(p,'Sfat: tabla de misiuni este langa fantana. Interactiune: R / L1 / atingere.')
+ for _,n in ipairs({'Level','Gold'}) do local v=Instance.new('IntValue'); v.Name=n; v.Parent=stats end
+ p:SetAttribute('SaveStatus',temporary and 'TEST - temporary progress' or 'Saving enabled')
+ notice(p,'Tip: the quest board is beside the fountain. Interact: R / L1 / touch.')
  publish(p,profiles[p])
 end
 local function save(p,release)
@@ -108,13 +109,13 @@ local function save(p,release)
  end
  s.saving=false
  if succeeded then
-  s.lastSave=os.clock(); p:SetAttribute('SaveStatus','Salvat')
+  s.lastSave=os.clock(); p:SetAttribute('SaveStatus','Saved')
  else
-  p:SetAttribute('SaveStatus','Salvare esuata - reincercare automata')
+  p:SetAttribute('SaveStatus','Save failed - retrying automatically')
   warn('Apus profile save failed for user '..p.UserId)
   if lost or os.clock()-s.lastSave>Config.LockLifetime-30 then
    s.leaving=true
-   if p.Parent==Players then p:Kick('Conexiunea cu salvarea s-a intrerupt. Reconecteaza-te.') end
+   if p.Parent==Players then p:Kick('The connection to your saved profile was lost. Please reconnect.') end
   end
  end
  return succeeded
@@ -131,14 +132,14 @@ function RPG.Snapshot(p)
  local s=profiles[p]
  if not s then return {ready=false} end
  local d=s.data; local q=quests[d.quest]
- local adventure=s.contractAt and ('Livrare: '..(s.packageCount or 0)..'/3 | '..math.max(0,180-math.floor(os.clock()-s.contractAt))..'s | Han')
-  or (s.clue and 'Sigiliu descifrat: activeaza altarul noaptea' or 'Contracte la han | Indiciu la capela ziua')
+ local adventure=s.contractAt and ('Delivery: '..(s.packageCount or 0)..'/3 | '..math.max(0,180-math.floor(os.clock()-s.contractAt))..'s | Inn')
+  or (s.clue and 'Seal deciphered: activate the shrine at night' or 'Contracts at the inn | Chapel clue by day')
  local signature=table.concat({d.xp,d.gold,d.class,d.lantern,d.quest,d.count,tostring(d.accepted),d.completed,adventure,p:GetAttribute('SaveStatus') or '',p:GetAttribute('RPGNotice') or ''},'|')
  if signature==s.snapshotKey then return s.snapshot end
  s.snapshotKey=signature
  s.snapshot={ready=true,level=RPG.Level(d.xp),xp=d.xp,nextXP=Config.MaxLevel>RPG.Level(d.xp)
   and 100*RPG.Level(d.xp)^2 or d.xp,gold=d.gold,class=d.class,lantern=d.lantern,
-  quest=d.accepted and (q.text..' ('..d.count..'/'..q.need..')') or 'Vorbeste cu tabla de misiuni din piata',
+  quest=d.accepted and (q.text..' ('..d.count..'/'..q.need..')') or 'Visit the quest board in the market square',
   completed=d.completed,adventure=adventure,save=p:GetAttribute('SaveStatus'),notice=p:GetAttribute('RPGNotice')}
  return s.snapshot
 end
@@ -151,7 +152,7 @@ local function progress(p,s,kind)
  local d=s.data; local q=quests[d.quest]
  if not d.accepted or kind~=q.kind or d.count>=q.need then return end
  d.count=d.count+1
- notice(p,d.count>=q.need and 'Obiectiv complet. Revino la tabla de misiuni pentru recompensa.'
+ notice(p,d.count>=q.need and 'Objective complete. Return to the quest board for your reward.'
   or (q.text..' '..d.count..'/'..q.need))
 end
 function RPG.Init(canInteract)
@@ -163,22 +164,22 @@ function RPG.Init(canInteract)
    prompt.Name='RPGInteract'; prompt.MaxActivationDistance=10
    prompt.RequiresLineOfSight=true; prompt.HoldDuration=.5
    prompt.KeyboardKeyCode=Enum.KeyCode.R; prompt.GamepadKeyCode=Enum.KeyCode.ButtonL1
-   prompt.ObjectText=name; prompt.ActionText='Interactioneaza'
-   if name:match('^Herb_') then prompt.ObjectText='Ierburi'; prompt.ActionText='Culege'
-   elseif name:match('^Ore_') then prompt.ObjectText='Minereu'; prompt.ActionText='Extrage'
-   elseif name:match('^Relic_') then prompt.ObjectText='Relicva'; prompt.ActionText='Cerceteaza'
-   elseif name=='QuestBoard' then prompt.ObjectText='Misiuni'; prompt.ActionText='Accepta / Incaseaza'
-   elseif name=='Merchant' then prompt.ObjectText='Fierar'; prompt.ActionText='Lanterna +1 (100/200/300 aur)'
-   elseif name=='Healer' then prompt.ObjectText='Vindecator'; prompt.ActionText='Vindeca (30 aur)'
-   elseif name=='Trainer' then prompt.ObjectText='Breasla'; prompt.ActionText='Schimba specializarea'
-   elseif name=='TravelGate' then prompt.ObjectText='Spre sat'; prompt.ActionText='Exploreaza'
-   elseif name=='ContractBoard' then prompt.ObjectText='Hanul Corbului'; prompt.ActionText='Contract: 3 livrari / 180s'
-   elseif name:match('^Supply_') then prompt.ObjectText='Provizii'; prompt.ActionText='Ridica pentru han'
-   elseif name=='DawnClue' then prompt.ObjectText='Inscripția capelei'; prompt.ActionText='Cerceteaza ziua'
-   elseif name=='DawnShrine' then prompt.ObjectText='Sigiliul zorilor'; prompt.ActionText='Ritual nocturn'
-   elseif name=='Campfire' then prompt.ObjectText='Vatra hanului'; prompt.ActionText='Gateste: 2 ierburi / +25 HP'
-   elseif name:match('^Expedition_') then prompt.ObjectText='Expeditie'; prompt.ActionText='Exploreaza 3 repere'
-   elseif name=='RitualAltar' then prompt.ObjectText='Altar'; prompt.ActionText='Activeaza ritualul' end
+   prompt.ObjectText=name; prompt.ActionText='Interact'
+   if name:match('^Herb_') then prompt.ObjectText='Herbs'; prompt.ActionText='Gather'
+   elseif name:match('^Ore_') then prompt.ObjectText='Ore'; prompt.ActionText='Mine'
+   elseif name:match('^Relic_') then prompt.ObjectText='Relic'; prompt.ActionText='Investigate'
+   elseif name=='QuestBoard' then prompt.ObjectText='Quests'; prompt.ActionText='Accept / Claim reward'
+   elseif name=='Merchant' then prompt.ObjectText='Blacksmith'; prompt.ActionText='Lantern +1 (100/200/300 gold)'
+   elseif name=='Healer' then prompt.ObjectText='Healer'; prompt.ActionText='Heal (30 gold)'
+   elseif name=='Trainer' then prompt.ObjectText='Guild trainer'; prompt.ActionText='Change specialization'
+   elseif name=='TravelGate' then prompt.ObjectText='Enter village'; prompt.ActionText='Explore'
+   elseif name=='ContractBoard' then prompt.ObjectText='The Raven Inn'; prompt.ActionText='Contract: 3 supplies / 180s'
+   elseif name:match('^Supply_') then prompt.ObjectText='Supplies'; prompt.ActionText='Collect for the inn'
+   elseif name=='DawnClue' then prompt.ObjectText='Chapel inscription'; prompt.ActionText='Read by daylight'
+   elseif name=='DawnShrine' then prompt.ObjectText='Dawn Seal'; prompt.ActionText='Night ritual'
+   elseif name=='Campfire' then prompt.ObjectText='Inn hearth'; prompt.ActionText='Cook: 2 herbs / +25 HP'
+   elseif name:match('^Expedition_') then prompt.ObjectText='Expedition'; prompt.ActionText='Explore 3 landmarks'
+   elseif name=='RitualAltar' then prompt.ObjectText='Altar'; prompt.ActionText='Perform ritual' end
    prompt.Parent=part
    prompt.Triggered:Connect(function(p)
     local s=profiles[p]; local char=p.Character
@@ -194,73 +195,73 @@ function RPG.Init(canInteract)
     local d=s.data
     if Adventure.ContractExpired(s.contractAt,now) then
      s.contractAt=nil; s.packages={}; s.packageCount=0
-     notice(p,'Contract expirat. Poti accepta din nou la han.')
+     notice(p,'Contract expired. Accept another at the inn.')
     end
     if name=='TravelGate' then
      if p:GetAttribute('RoundActive') then return end
-     char:PivotTo(CFrame.new(0,4,-20)); notice(p,'Explorare PvE. Vei participa la urmatoarea runda.'); return
+     char:PivotTo(CFrame.new(0,4,-20)); notice(p,'PvE exploration. You will join the next round.'); return
     elseif name=='ContractBoard' then
      if s.contractAt then
       if Adventure.CanDeliver(s.contractAt,now,s.packageCount or 0) then
        reward(p,s,80,40); s.contractAt=nil; s.packages={}; s.packageCount=0; s.contractReady=now+180
-       notice(p,'Provizii livrate: +80 XP / +40 aur. Urmatorul contract in 3 minute.')
-      else notice(p,'Ridica provizii din piata, de la moara si de la ferma. Revino in 180s.') end
-     elseif now<(s.contractReady or 0) then notice(p,'Hangiul are provizii. Revino mai tarziu.')
-     elseif workspace:GetAttribute('ApusNight') then notice(p,'Contractele se accepta ziua. Noaptea cauta sigiliul.')
-     else s.contractAt=now; s.packages={}; s.packageCount=0; notice(p,'Contract acceptat: piata, moara, ferma -> han, in 180s.') end
+       notice(p,'Supplies delivered: +80 XP / +40 gold. Next contract in 3 minutes.')
+      else notice(p,'Collect supplies from the market, mill and farm. Return within 180s.') end
+     elseif now<(s.contractReady or 0) then notice(p,'The inn is stocked. Come back later.')
+     elseif workspace:GetAttribute('ApusNight') then notice(p,'Accept contracts by day. Search for the seal at night.')
+     else s.contractAt=now; s.packages={}; s.packageCount=0; notice(p,'Contract accepted: market, mill, farm -> inn, within 180s.') end
     elseif name:match('^Supply_') then
-     if not s.contractAt then notice(p,'Accepta intai un contract la han.')
-     elseif s.packages[name] then notice(p,'Ai ridicat deja proviziile de aici.')
-     else s.packages[name]=true; s.packageCount=(s.packageCount or 0)+1; notice(p,'Provizii '..s.packageCount..'/3. Revino la han.') end
+     if not s.contractAt then notice(p,'Accept a contract at the inn first.')
+     elseif s.packages[name] then notice(p,'You have already collected these supplies.')
+     else s.packages[name]=true; s.packageCount=(s.packageCount or 0)+1; notice(p,'Supplies '..s.packageCount..'/3. Return to the inn.') end
     elseif name=='DawnClue' then
-     if workspace:GetAttribute('ApusNight') then notice(p,'Inscripția poate fi citita doar la lumina zilei.')
-     else s.clue=true; notice(p,'Indiciu: la noapte, aprinde sigiliul din curtea manastirii.') end
+     if workspace:GetAttribute('ApusNight') then notice(p,'The inscription can only be read by daylight.')
+     else s.clue=true; notice(p,'Clue: tonight, awaken the seal in the monastery courtyard.') end
     elseif name=='DawnShrine' then
      if Adventure.CanRitual(s.clue,workspace:GetAttribute('ApusNight'),now,s.ritualReady) then
       s.clue=false; s.ritualReady=now+300; reward(p,s,120,60)
-      notice(p,'Sigiliu restaurat: +120 XP / +60 aur. Poti cerceta din nou dupa 5 minute.')
-     else notice(p,'Ai nevoie de indiciul capelei, noapte si ritual reincarcat (5 minute).') end
+      notice(p,'Seal restored: +120 XP / +60 gold. Investigate again after 5 minutes.')
+     else notice(p,'You need the chapel clue, nighttime and a ready ritual (5-minute cooldown).') end
     elseif name=='Campfire' then
-     if hum.Health>=hum.MaxHealth then notice(p,'Sanatatea este deja completa.')
-     elseif (s.herbs or 0)<2 then notice(p,'Culege 2 ierburi pentru o masa calda.')
-     elseif now<(s.cookReady or 0) then notice(p,'Asteapta 45 secunde intre mese.')
-     else s.herbs=s.herbs-2; s.cookReady=now+45; hum.Health=math.min(hum.MaxHealth,hum.Health+25); notice(p,'Masa calda: +25 HP. Infectia ramane.') end
+     if hum.Health>=hum.MaxHealth then notice(p,'Your health is already full.')
+     elseif (s.herbs or 0)<2 then notice(p,'Gather 2 herbs to cook a warm meal.')
+     elseif now<(s.cookReady or 0) then notice(p,'Wait 45 seconds between meals.')
+     else s.herbs=s.herbs-2; s.cookReady=now+45; hum.Health=math.min(hum.MaxHealth,hum.Health+25); notice(p,'Warm meal: +25 HP. Infection remains.') end
     elseif name=='QuestBoard' then
      local q=quests[d.quest]
      if not d.accepted then d.accepted=true; notice(p,q.text)
      elseif d.count>=q.need then
       reward(p,s,q.xp,q.gold); d.completed=d.completed+1
       d.quest=d.quest%#quests+1; d.count=0; d.accepted=false
-      notice(p,'Recompensa: '..q.xp..' XP, '..q.gold..' aur. Accepta urmatoarea misiune.')
+      notice(p,'Reward: '..q.xp..' XP, '..q.gold..' gold. Accept the next quest.')
      else notice(p,q.text..' '..d.count..'/'..q.need) end
     elseif name=='Merchant' then
      local cost=100*(d.lantern+1)
-     if d.lantern>=3 then notice(p,'Lanterna este deja la nivelul maxim.')
-     elseif d.gold<cost then notice(p,'Ai nevoie de '..cost..' aur.')
-     else d.gold=d.gold-cost; d.lantern=d.lantern+1; publish(p,s); notice(p,'Lanterna imbunatatita permanent.') end
+     if d.lantern>=3 then notice(p,'Your lantern is already fully upgraded.')
+     elseif d.gold<cost then notice(p,'You need '..cost..' gold.')
+     else d.gold=d.gold-cost; d.lantern=d.lantern+1; publish(p,s); notice(p,'Lantern permanently upgraded.') end
     elseif name=='Healer' then
-     if hum.Health>=hum.MaxHealth then notice(p,'Sanatatea este deja completa.')
-     elseif d.gold<30 then notice(p,'Vindecarea costa 30 aur.')
-     else d.gold=d.gold-30; hum.Health=hum.MaxHealth; publish(p,s); notice(p,'Sanatate refacuta. Infectia NU este vindecata.') end
+     if hum.Health>=hum.MaxHealth then notice(p,'Your health is already full.')
+     elseif d.gold<30 then notice(p,'Healing costs 30 gold.')
+     else d.gold=d.gold-30; hum.Health=hum.MaxHealth; publish(p,s); notice(p,'Health restored. Infection is NOT cured.') end
     elseif name=='Trainer' then
      local index=table.find(classes,d.class) or 1
      d.class=classes[index%#classes+1]; publish(p,s)
-     notice(p,'Specializare: '..d.class..'. Vanator: aur +2, Cercetas: expeditii +20 XP, Carturar: cules +2 XP.')
+     notice(p,'Specialization: '..classNames[d.class]..'. Hunter: +2 gathering gold; Scout: +20 expedition XP; Scholar: +2 gathering XP.')
     elseif name:match('^Expedition_') then
      s.visits[name]=true
      local count=0; for _ in pairs(s.visits) do count=count+1 end
      if count>=3 then
       if now>=(s.expeditionAt or 0) then
        reward(p,s,d.class=='Cercetas' and 200 or 180,90)
-       s.expeditionAt=now+300; s.visits={}; notice(p,'Expeditie terminata: XP si aur primite.')
-      else notice(p,'Recompensa expeditiei este disponibila o data la 5 minute.') end
-     else notice(p,'Expeditie: '..count..'/3 repere vizitate (padure, mina, ruine).') end
+       s.expeditionAt=now+300; s.visits={}; notice(p,'Expedition complete: XP and gold awarded.')
+      else notice(p,'Expedition rewards are available once every 5 minutes.') end
+     else notice(p,'Expedition: '..count..'/3 landmarks visited (forest, mine, ruins).') end
     else
      local kind=name:match('^(%a+)_')
      if name=='RitualAltar' then kind='Ritual' end
      if kind~='Herb' and kind~='Ore' and kind~='Relic' and kind~='Ritual' then return end
      -- Personal node cooldowns: 50 players never compete for one resource spawn.
-     if now<(s.nodes[name] or 0) then notice(p,'Resursa se reface pentru tine.'); return end
+     if now<(s.nodes[name] or 0) then notice(p,'This resource is replenishing for you.'); return end
      s.nodes[name]=now+60
      if kind=='Herb' then s.herbs=math.min(10,(s.herbs or 0)+1) end
      reward(p,s,d.class=='Carturar' and 10 or 8,d.class=='Vanator' and 6 or 4)
